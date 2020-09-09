@@ -9,7 +9,19 @@ import RegisterForm from '../RegisterForm/RegisterForm';
 //material UI styles
 const styles = theme => ({
   container: {
-    padding: '3em',
+    marginTop: '2em',
+    padding: '2.5em',
+    width: '60%',
+    margin: 'auto',
+  },
+  descriptionCard: {
+    backgroundColor: 'rgb(228, 228, 228)',
+    width: '80%',
+    textAlign: 'center',
+  },
+  description: {
+    fontSize: '1.25em',
+    margin: '2em',
   },
 });
 
@@ -36,27 +48,24 @@ class HomePage extends Component {
         </header>
         <Grid container className={classes.container}>
           <Grid item xs={6}>
-            <Card>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
-              id felis metus. Vestibulum et pulvinar tortor. Morbi pharetra
-              lacus ut ex molestie blandit. Etiam et turpis sit amet risus
-              mollis interdum. Suspendisse et justo vitae metus bibendum
-              fringilla sed sed justo. Aliquam sollicitudin dapibus lectus,
-              vitae consequat odio elementum eget. Praesent efficitur eros vitae
-              nunc interdum, eu interdum justo facilisis. Sed pulvinar nulla ac
-              dignissim efficitur. Quisque eget eros metus. Vestibulum bibendum
-              fringilla nibh a luctus. Duis a sapien metus.
-                </p>
+            <Card elevation={5} className={classes.descriptionCard}>
+              <p paragraph className={classes.description}>
+                Welcome to Adventure Hub! This is a place for you to search, view, and share future adventures. If you're not
+                keen to creating an account feel free to continue as a guest and you'll have access to search parks and view
+                other's adventures. Enjoy!
+              </p>
             </Card>
           </Grid>
           <Grid item xs={6}>
-            <RegisterForm />
-            <center>
-              <h4>Already a Member?</h4>
-              <button className="btn btn_sizeSm" onClick={this.onLogin}>
-                Login
+            <Card>
+              <RegisterForm />
+              <center>
+                <h4>Already a Member?</h4>
+                <button className="btn btn_sizeSm" onClick={this.onLogin}>
+                  Login
               </button>
-            </center>
+              </center>
+            </Card>
           </Grid>
         </Grid>
       </div>
