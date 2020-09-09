@@ -5,6 +5,7 @@ import { withStyles, Paper, Typography, Card, Grid } from '@material-ui/core';
 import './HomePage.css';
 // CUSTOM COMPONENTS
 import RegisterForm from '../RegisterForm/RegisterForm';
+import LoginForm from '../LoginForm/LoginForm';
 
 //material UI styles
 const styles = theme => ({
@@ -18,10 +19,16 @@ const styles = theme => ({
     backgroundColor: 'rgb(228, 228, 228)',
     width: '80%',
     textAlign: 'center',
+    height: '100%',
   },
   description: {
     fontSize: '1.25em',
     margin: '2em',
+  },
+  loginCard: {
+    backgroundColor: 'rgb(228, 228, 228)',
+    textAlign: 'center',
+    height: '100%',
   },
 });
 
@@ -37,7 +44,7 @@ class HomePage extends Component {
 
   render() {
 
-    const { classes } = this.props;
+    const {classes} = this.props;
 
     return (
       <div>
@@ -57,14 +64,11 @@ class HomePage extends Component {
             </Card>
           </Grid>
           <Grid item xs={6}>
-            <Card>
-              <RegisterForm />
-              <center>
-                <h4>Already a Member?</h4>
-                <button className="btn btn_sizeSm" onClick={this.onLogin}>
+            <Card elevation={5} className={classes.loginCard}>
+              <LoginForm />
+                {/* <button onClick={this.onLogin}>
                   Login
-              </button>
-              </center>
+              </button> */}
             </Card>
           </Grid>
         </Grid>
@@ -74,5 +78,4 @@ class HomePage extends Component {
 }
 
 const HomePageStyled = withStyles(styles)(HomePage);
-
 export default connect(mapStoreToProps)(HomePageStyled);

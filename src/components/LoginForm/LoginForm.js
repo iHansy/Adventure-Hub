@@ -1,6 +1,33 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
+import { withStyles, Input, InputLabel, Button, TextField } from '@material-ui/core';
+import { Link } from 'react-router-dom';
+
+//material UI styles
+const styles = theme => ({
+  form: {
+    marginTop: '3em',
+  },
+  textFields: {
+    padding: '.2em',
+  },
+  loginBtn: {
+    marginTop: '1em',
+    width: '30%',
+    backgroundColor: 'rgb(124, 199, 250)',
+    '&:hover': {
+      backgroundColor: 'rgb(93, 173, 226)',
+      borderColor: '#0062cc',
+      boxShadow: 'none',
+    },
+  },
+  links: {
+    marginTop: '1.5em',
+    fontSize: '.85em',
+    marginBottom: '2em',
+  },
+});
 
 class LoginForm extends Component {
   state = {
@@ -31,44 +58,66 @@ class LoginForm extends Component {
   };
 
   render() {
+
+    const { classes } = this.props;
+
     return (
-      <form className="formPanel" onSubmit={this.login}>
-        <h2>Login</h2>
+      <form className={classes.form} onSubmit={this.login}>
+        <h2>Existing User</h2>
         {this.props.store.errors.loginMessage && (
           <h3 className="alert" role="alert">
             {this.props.store.errors.loginMessage}
           </h3>
         )}
         <div>
-          <label htmlFor="username">
-            Username:
-            <input
+          <InputLabel htmlFor="username">
+            <TextField
+              size="small"
+              className={classes.textFields}
+              variant="outlined"
+              placeholder="username"
               type="text"
               name="username"
               required
               value={this.state.username}
               onChange={this.handleInputChangeFor('username')}
             />
-          </label>
+          </InputLabel>
         </div>
         <div>
-          <label htmlFor="password">
-            Password:
-            <input
+          <InputLabel htmlFor="password">
+            <TextField
+              size="small"
+              className={classes.textFields}
+              variant="outlined"
+              placeholder="password"
               type="password"
               name="password"
               required
               value={this.state.password}
               onChange={this.handleInputChangeFor('password')}
             />
-          </label>
+          </InputLabel>
         </div>
         <div>
-          <input className="btn" type="submit" name="submit" value="Log In" />
+          <Button
+            className={classes.loginBtn}
+            variant="contained"
+            type="submit"
+            name="submit"
+            value="Log In">
+            Log In
+          </Button>
+        </div>
+        <div className={classes.links}>
+          <Link to="/registration" color="inherit" variant="body2" >Create account</Link>
+          <br />
+          <Link to="/register" color="inherit" variant="body2">Continue as guest</Link>
         </div>
       </form>
     );
   }
 }
 
-export default connect(mapStoreToProps)(LoginForm);
+const LoginFormStyled = withStyles(styles)(LoginForm);
+export default connect(mapStoreToProps)(LoginFormStyled);
