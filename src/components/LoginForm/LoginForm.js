@@ -10,14 +10,16 @@ const styles = theme => ({
     marginTop: '3em',
   },
   textFields: {
-    padding: '.2em',
+    padding: '.3em',
+    backgroundColor: 'white',
+    borderRadius: '.5em',
   },
   loginBtn: {
     marginTop: '1em',
     width: '30%',
-    backgroundColor: 'rgb(124, 199, 250)',
+    backgroundColor: 'rgb(216, 174, 95)',
     '&:hover': {
-      backgroundColor: 'rgb(93, 173, 226)',
+      backgroundColor: 'rgb(196, 150, 67)',
       borderColor: '#0062cc',
       boxShadow: 'none',
     },
@@ -116,7 +118,7 @@ class LoginForm extends Component {
         </div>
         <div className={classes.links}>
           <Typography>
-            <Link href="#" variant="body2">Create account</Link>
+            <Link onClick={this.handleCreateAccount} component="button" variant="body2">Create Account</Link>
             <br />
             <Link onClick={this.handleGuest} component="button" variant="body2">Continue as guest</Link>
           </Typography>

@@ -49,7 +49,7 @@ class HomePage extends Component {
         </header>
         <Grid container className={classes.container}>
           <Grid item xs={6}>
-            <Card elevation={5} className={classes.descriptionCard}>
+            <Card elevation={4} className={classes.descriptionCard}>
               <p paragraph="true" className={classes.description}>
                 Welcome to Adventure Hub! This is a place for you to search, view, and share future adventures. If you're not
                 keen to creating an account feel free to continue as a guest and you'll have access to search parks and view
@@ -58,7 +58,7 @@ class HomePage extends Component {
             </Card>
           </Grid>
           <Grid item xs={6}>
-            <Card elevation={5} className={classes.loginCard}>
+            <Card elevation={4} className={classes.loginCard}>
               <LoginForm />
                 {/* <button onClick={this.onLogin}>
                   Login
