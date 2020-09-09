@@ -1,13 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
-
-import './LandingPage.css';
-
+import { withStyles, Paper, Typography, Card, CardMedia } from '@material-ui/core';
+import './HomePage.css';
 // CUSTOM COMPONENTS
 import RegisterForm from '../RegisterForm/RegisterForm';
 
-class LandingPage extends Component {
+//material UI styles
+const styles = theme => ({
+  root: {
+    
+  },
+});
+
+class HomePage extends Component {
   state = {
     heading: 'Class Component',
   };
@@ -17,8 +23,15 @@ class LandingPage extends Component {
   };
 
   render() {
+
+    const { classes } = this.props;
+
     return (
-      <div className="container">
+      <div>
+       <header className="homeHeader">
+
+       </header>
+
         <h2>{this.state.heading}</h2>
 
         <div className="grid">
@@ -71,4 +84,6 @@ class LandingPage extends Component {
   }
 }
 
-export default connect(mapStoreToProps)(LandingPage);
+const HomePageStyled = withStyles(styles)(HomePage);
+
+export default connect(mapStoreToProps)(HomePageStyled);

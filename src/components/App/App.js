@@ -16,7 +16,7 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
-import LandingPage from '../LandingPage/LandingPage';
+import HomePage from '../HomePage/HomePage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 
@@ -31,7 +31,8 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Nav />
+          {/* me- use this for nav bar, taking out for now, can relocate */}
+          {/* <Nav /> */}
           <Switch>
             {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
             <Redirect exact from="/" to="/home" />
@@ -89,7 +90,7 @@ class App extends Component {
               // - else shows LandingPage at "/home"
               exact
               path="/home"
-              component={LandingPage}
+              component={HomePage}
               authRedirect="/user"
             />
 

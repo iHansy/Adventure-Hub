@@ -106,7 +106,12 @@ Form Treatment
   box-shadow: 0 1px 2px rgb(0, 0, 0, 0.4);
 }
 
-input {
-  margin: 5px;
-  margin-bottom: 10px;
+.homeHeader {
+  height: 10em;
+  background-image: url(https://images.squarespace-cdn.com/content/v1/5373ca62e4b0875c414542a1/1411056298298-IZGTCGI62X0LN07IIT2Y/ke17ZwdGBToddI8pDm48kI19gPNUWZugHioVFJWlT3cUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYwL8IeDg6_3B-BRuF4nNrNcQkVuAT7tdErd0wQFEGFSnCvWeu1G753OVlofHq21iMdraneyJU5ThkBVxJKd-81CyXEBoq3UuvGQ0WPFKFsDfw/Banner.jpg?format=2500w);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: local;
+  box-shadow: 0px 4px 5px gray;
 }
