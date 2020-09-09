@@ -38,10 +38,6 @@ class HomePage extends Component {
     heading: 'Class Component',
   };
 
-  onLogin = (event) => {
-    this.props.history.push('/login');
-  };
-
   render() {
 
     const {classes} = this.props;
@@ -54,7 +50,7 @@ class HomePage extends Component {
         <Grid container className={classes.container}>
           <Grid item xs={6}>
             <Card elevation={5} className={classes.descriptionCard}>
-              <p paragraph className={classes.description}>
+              <p paragraph="true" className={classes.description}>
                 Welcome to Adventure Hub! This is a place for you to search, view, and share future adventures. If you're not
                 keen to creating an account feel free to continue as a guest and you'll have access to search parks and view
                 other's adventures. Enjoy!
@@ -70,9 +66,6 @@ class HomePage extends Component {
             </Card>
           </Grid>
         </Grid>
-        {/* <footer className="homeFooter">
-          &copy; Adventure Hub
-        </footer> */}
       </div>
     );
   }

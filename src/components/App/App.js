@@ -13,7 +13,7 @@ import Footer from '../Footer/Footer';
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
-import AboutPage from '../AboutPage/AboutPage';
+import FeedPage from '../FeedPage/FeedPage';
 import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
 import HomePage from '../HomePage/HomePage';
@@ -37,12 +37,12 @@ class App extends Component {
             {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
             <Redirect exact from="/" to="/home" />
 
-            {/* Visiting localhost:3000/about will show the about page. */}
+            {/* Visiting localhost:3000/feed will show the about page. */}
             <Route
-              // shows AboutPage at all times (logged in or not)
+              // shows FeedPage at all times (logged in or not)
               exact
-              path="/about"
-              component={AboutPage}
+              path="/feed"
+              component={FeedPage}
             />
 
             {/* For protected routes, the view could show one of several things on the same route.

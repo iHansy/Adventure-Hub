@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import { withStyles, Typography, InputLabel, Button, TextField, Link } from '@material-ui/core';
+import { withRouter } from 'react-router-dom';
 
 //material UI styles
 const styles = theme => ({
@@ -26,7 +27,7 @@ const styles = theme => ({
     fontSize: '.85em',
     marginBottom: '2em',
   },
-});
+}); //end material ui
 
 class LoginForm extends Component {
   state = {
@@ -54,6 +55,11 @@ class LoginForm extends Component {
     this.setState({
       [propertyName]: event.target.value,
     });
+  };
+
+  handleGuest = (event) => {
+    event.preventDefault();
+    this.props.history.push('/feed');
   };
 
   render() {
@@ -112,7 +118,7 @@ class LoginForm extends Component {
           <Typography>
             <Link href="#" variant="body2">Create account</Link>
             <br />
-            <Link href="#" variant="body2">Continue as guest</Link>
+            <Link onClick={this.handleGuest} component="button" variant="body2">Continue as guest</Link>
           </Typography>
         </div>
       </form>
@@ -121,4 +127,5 @@ class LoginForm extends Component {
 }
 
 const LoginFormStyled = withStyles(styles)(LoginForm);
-export default connect(mapStoreToProps)(LoginFormStyled);
+const LoginFormStyledRouted = withRouter(LoginFormStyled)
+export default connect(mapStoreToProps)(LoginFormStyledRouted);
