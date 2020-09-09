@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
-import { withStyles, Paper, Typography, Card, CardMedia } from '@material-ui/core';
+import { withStyles, Paper, Typography, Card, Grid } from '@material-ui/core';
 import './HomePage.css';
 // CUSTOM COMPONENTS
 import RegisterForm from '../RegisterForm/RegisterForm';
 
 //material UI styles
 const styles = theme => ({
-  welcomeCard: {
-
+  container: {
+    padding: '3em',
   },
 });
 
@@ -29,12 +29,13 @@ class HomePage extends Component {
 
     return (
       <div>
+
+
         <header className="homeHeader">
           <h1>Adventure Hub</h1>
         </header>
-
-        <div className="grid">
-          <div className="grid-col grid-col_6">
+        <Grid container className={classes.container}>
+          <Grid item xs={6}>
             <Card>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
               id felis metus. Vestibulum et pulvinar tortor. Morbi pharetra
@@ -45,10 +46,10 @@ class HomePage extends Component {
               nunc interdum, eu interdum justo facilisis. Sed pulvinar nulla ac
               dignissim efficitur. Quisque eget eros metus. Vestibulum bibendum
               fringilla nibh a luctus. Duis a sapien metus.
-              </p>
+                </p>
             </Card>
-          </div>
-          <div className="grid-col grid-col_6">
+          </Grid>
+          <Grid item xs={6}>
             <RegisterForm />
             <center>
               <h4>Already a Member?</h4>
@@ -56,8 +57,8 @@ class HomePage extends Component {
                 Login
               </button>
             </center>
-          </div>
-        </div>
+          </Grid>
+        </Grid>
       </div>
     );
   }
