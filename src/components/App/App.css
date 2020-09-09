@@ -127,7 +127,7 @@ Form Treatment
   font-size: 3em;
 }
 
-.homeFooter {
+.footer {
   position: fixed;
   left: 0;
   bottom: 0;
@@ -135,6 +135,8 @@ Form Treatment
   background: rgb(255,255,255);
   background: linear-gradient(169deg, rgba(255,255,255,1) 0%, rgba(0,31,255,1) 100%);
   color: white;
+  font-size: .75em;
+  height: 1em;
 }
 
 .test {

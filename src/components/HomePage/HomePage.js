@@ -29,6 +29,7 @@ const styles = theme => ({
     backgroundColor: 'rgb(228, 228, 228)',
     textAlign: 'center',
     height: '100%',
+    width: '100%',
   },
 });
 
@@ -69,9 +70,9 @@ class HomePage extends Component {
             </Card>
           </Grid>
         </Grid>
-        <footer className="homeFooter">
+        {/* <footer className="homeFooter">
           &copy; Adventure Hub
-        </footer>
+        </footer> */}
       </div>
     );
   }
