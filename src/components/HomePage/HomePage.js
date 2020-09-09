@@ -35,7 +35,6 @@ const styles = theme => ({
 class HomePage extends Component {
   state = {
     heading: 'Class Component',
-
   };
 
   onLogin = (event) => {
@@ -48,8 +47,6 @@ class HomePage extends Component {
 
     return (
       <div>
-
-
         <header className="homeHeader">
           <h1>Adventure Hub</h1>
         </header>
@@ -72,6 +69,9 @@ class HomePage extends Component {
             </Card>
           </Grid>
         </Grid>
+        <footer className="homeFooter">
+          &copy; Adventure Hub
+        </footer>
       </div>
     );
   }

@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
-import { withStyles, Input, InputLabel, Button, TextField } from '@material-ui/core';
-import { Link } from 'react-router-dom';
+import { withStyles, Typography, InputLabel, Button, TextField, Link } from '@material-ui/core';
 
 //material UI styles
 const styles = theme => ({
@@ -110,9 +109,11 @@ class LoginForm extends Component {
           </Button>
         </div>
         <div className={classes.links}>
-          <Link to="/registration" color="inherit" variant="body2" >Create account</Link>
-          <br />
-          <Link to="/register" color="inherit" variant="body2">Continue as guest</Link>
+          <Typography>
+            <Link href="#" variant="body2">Create account</Link>
+            <br />
+            <Link href="#" variant="body2">Continue as guest</Link>
+          </Typography>
         </div>
       </form>
     );
