@@ -1,9 +1,29 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
-import { withStyles, Paper, Typography, Card, Grid } from '@material-ui/core';
+import { withStyles, Grid, Typography, InputLabel, Button, ButtonGroup, TextField, Link } from '@material-ui/core';
+import { withRouter } from 'react-router-dom';
 
 //material UI styles
+const styles = theme => ({
+  form: {
+    marginTop: '3em',
+  },
+  textFields: {
+    padding: '.3em',
+    backgroundColor: 'white',
+    borderRadius: '.5em',
+  },
+  createAccountBtn: {
+    margin: '2em',
+    backgroundColor: 'rgb(216, 174, 95)',
+    '&:hover': {
+      backgroundColor: 'rgb(196, 150, 67)',
+      borderColor: '#0062cc',
+      boxShadow: 'none',
+    },
+  },
+}); //end material ui
 
 class RegisterForm extends Component {
   state = {
@@ -29,13 +49,21 @@ class RegisterForm extends Component {
     });
   };
 
+  handleCancel = () => {
+    this.setState({
+      username: '',
+      password: '',
+    })
+    this.props.history.push('/home');
+  }
+
   render() {
 
-    const {classes} = this.props;
+    const { classes } = this.props;
 
     return (
       <div>
-        <form onSubmit={this.registerUser}>
+        <form className={classes.form} onSubmit={this.registerUser}>
           <h2>New User</h2>
           {this.props.store.errors.registrationMessage && (
             <h3 className="alert" role="alert">
@@ -43,29 +71,45 @@ class RegisterForm extends Component {
             </h3>
           )}
           <div>
-            <label htmlFor="username">
-            <input
+            <InputLabel htmlFor="username">
+              <TextField
+                className={classes.textFields}
+                size="small"
+                variant="outlined"
+                placeholder="username"
                 type="text"
                 name="username"
                 value={this.state.username}
                 required
                 onChange={this.handleInputChangeFor('username')}
               />
-            </label>
+            </InputLabel>
           </div>
           <div>
-            <label htmlFor="password">
-            <input
+            <InputLabel htmlFor="password">
+              <TextField
+                className={classes.textFields}
+                size="small"
+                variant="outlined"
+                placeholder="password"
+                type="text"
                 type="password"
                 name="password"
                 value={this.state.password}
                 required
                 onChange={this.handleInputChangeFor('password')}
               />
-            </label>
+            </InputLabel>
           </div>
           <div>
-            <input type="submit" name="submit" value="Register" />
+            <ButtonGroup>
+              <Button className={classes.createAccountBtn} onClick={this.handleCancel}>
+                Cancel
+              </Button>
+              <Button className={classes.createAccountBtn} type="submit">
+                Create Account
+              </Button>
+            </ButtonGroup>
           </div>
         </form>
       </div>
@@ -73,4 +117,6 @@ class RegisterForm extends Component {
   }
 }
 
-export default connect(mapStoreToProps)(RegisterForm);
+const RegisterFormStyled = withStyles(styles)(RegisterForm);
+const RegisterFormStyledRouted = withRouter(RegisterFormStyled)
+export default connect(mapStoreToProps)(RegisterFormStyledRouted);

@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import { withStyles, Typography, InputLabel, Button, TextField, Link } from '@material-ui/core';
 import { withRouter } from 'react-router-dom';
-import { shadows } from '@material-ui/system';
 
 //material UI styles
 const styles = theme => ({

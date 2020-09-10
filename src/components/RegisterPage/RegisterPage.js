@@ -10,15 +10,14 @@ const styles = theme => ({
   container: {
     marginTop: '2em',
     padding: '2.5em',
-    width: '30%',
+    width: '40%',
     margin: 'auto',
   },
   createAccountCard: {
     backgroundColor: 'rgb(240, 240, 240)',
     textAlign: 'center',
-    height: '100%',
+    height: '22em',
     width: '100%',
-    display: 'center',
   },
 })
 
