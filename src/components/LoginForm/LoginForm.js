@@ -39,7 +39,6 @@ class LoginForm extends Component {
 
   login = (event) => {
     event.preventDefault();
-
     if (this.state.username && this.state.password) {
       this.props.dispatch({
         type: 'LOGIN',
@@ -59,10 +58,12 @@ class LoginForm extends Component {
     });
   };
 
+  //goes to feed page if user continues as guest
   handleGuest = (event) => {
     this.props.history.push('/feed');
   };
 
+  //goes to create account page if user clicks create account
   handleCreateAccount = (event) => {
     this.props.history.push('/registration');
   }

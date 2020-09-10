@@ -10,7 +10,7 @@ import Nav from '../Nav/Nav';
 import Footer from '../Footer/Footer';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import FeedPage from '../FeedPage/FeedPage';
-import UserPage from '../UserPage/UserPage';
+import DashboardPage from '../DashboardPage/DashboardPage';
 import InfoPage from '../InfoPage/InfoPage';
 import HomePage from '../HomePage/HomePage';
 import LoginPage from '../LoginPage/LoginPage';
@@ -41,14 +41,14 @@ class App extends Component {
             />
 
             {/* For protected routes, the view could show one of several things on the same route.
-            Visiting localhost:3000/user will show the UserPage if the user is logged in.
+            Visiting localhost:3000/dashboard will show the DashboardPage if the user is logged in.
             If the user is not logged in, the ProtectedRoute will show the LoginPage (component).
-            Even though it seems like they are different pages, the user is always on localhost:3000/user */}
+            Even though it seems like they are different pages, the user is always on localhost:3000/dashboard */}
             <ProtectedRoute
-              // logged in shows UserPage else shows LoginPage
+              // logged in shows DashboardPage else shows LoginPage
               exact
-              path="/user"
-              component={UserPage}
+              path="/dashboard"
+              component={DashboardPage}
             />
 
             <ProtectedRoute
@@ -63,30 +63,30 @@ class App extends Component {
             be taken to the component and path supplied. */}
             <ProtectedRoute
               // with authRedirect:
-              // - if logged in, redirects to "/user"
+              // - if logged in, redirects to "/dashboard"
               // - else shows LoginPage at /login
               exact
               path="/login"
               component={LoginPage}
-              authRedirect="/user"
+              authRedirect="/dashboard"
             />
             <ProtectedRoute
               // with authRedirect:
-              // - if logged in, redirects to "/user"
+              // - if logged in, redirects to "/dashboard"
               // - else shows RegisterPage at "/registration"
               exact
               path="/registration"
               component={RegisterPage}
-              authRedirect="/user"
+              authRedirect="/dashboard"
             />
             <ProtectedRoute
               // with authRedirect:
-              // - if logged in, redirects to "/user"
+              // - if logged in, redirects to "/dashboard"
               // - else shows LandingPage at "/home"
               exact
               path="/home"
               component={HomePage}
-              authRedirect="/user"
+              authRedirect="/dashboard"
             />
 
             {/* If none of the other routes matched, we will show a 404. */}

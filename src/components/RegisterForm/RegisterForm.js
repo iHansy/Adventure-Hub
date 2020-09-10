@@ -35,7 +35,8 @@ class RegisterForm extends Component {
 
   registerUser = (event) => {
     event.preventDefault();
-    if (this.state.password !== this.state.confirmPassword) {
+    //making sure confirm password matches
+    if (this.state.password !== this.state.confirmPassword) { 
       swal("Error", "passwords do not match");
       return;
     }
@@ -46,9 +47,7 @@ class RegisterForm extends Component {
         password: this.state.password,
       },
     });
-    if (this.props.store.errors.registrationMessage) {
-      swal("Success", "account created!");
-    }
+    this.props.history.push('/home');
   }; // end registerUser
 
   handleInputChangeFor = (propertyName) => (event) => {
@@ -62,6 +61,7 @@ class RegisterForm extends Component {
       username: '',
       password: '',
     })
+    this.props.dispatch({ type: 'CLEAR_REGISTRATION_ERROR' })
     this.props.history.push('/home');
   }
 

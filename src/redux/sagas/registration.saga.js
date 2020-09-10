@@ -1,5 +1,6 @@
 import { put, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
+import swal from 'sweetalert';
 
 // worker Saga: will be fired on "REGISTER" actions
 function* registerUser(action) {
@@ -9,9 +10,10 @@ function* registerUser(action) {
 
     // passes the username and password from the payload to the server
     yield axios.post('/api/user/register', action.payload);
-
+    yield swal("Account created!", "You can now use it to log in");
     // automatically log a user in after registration
-    yield put({ type: 'LOGIN', payload: action.payload });
+    // -hans- commented out auto log in
+    // yield put({ type: 'LOGIN', payload: action.payload });
 
     // set to 'login' mode so they see the login screen
     // after registration or after they log out

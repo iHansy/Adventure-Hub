@@ -47,7 +47,7 @@ class HomePage extends Component {
             <Card elevation={4} className={classes.descriptionCard}>
               <p paragraph="true" className={classes.description}>
                 Welcome to Adventure Hub! This is a place for you to search, view, and share future adventures. If you're not
-                keen to creating an account feel free to continue as a guest and you'll have access to search parks and view
+                keen to creating an account, feel free to continue as a guest and you'll have access to search parks and view
                 other's adventures. <br/> <br/> Enjoy!
               </p>
             </Card>
