@@ -6,6 +6,7 @@ import './HomePage.css';
 // CUSTOM COMPONENTS
 import RegisterForm from '../RegisterForm/RegisterForm';
 import LoginForm from '../LoginForm/LoginForm';
+import HomeHeader from './HomeHeader';
 
 //material UI styles
 const styles = theme => ({
@@ -16,7 +17,7 @@ const styles = theme => ({
     margin: 'auto',
   },
   descriptionCard: {
-    backgroundColor: 'rgb(228, 228, 228)',
+    backgroundColor: 'rgb(240, 240, 240)',
     width: '80%',
     textAlign: 'center',
     height: '100%',
@@ -26,7 +27,7 @@ const styles = theme => ({
     margin: '2em',
   },
   loginCard: {
-    backgroundColor: 'rgb(228, 228, 228)',
+    backgroundColor: 'rgb(240, 240, 240)',
     textAlign: 'center',
     height: '100%',
     width: '100%',
@@ -44,9 +45,7 @@ class HomePage extends Component {
 
     return (
       <div>
-        <header className="homeHeader">
-          <h1>Adventure Hub</h1>
-        </header>
+        <HomeHeader />
         <Grid container className={classes.container}>
           <Grid item xs={6}>
             <Card elevation={4} className={classes.descriptionCard}>

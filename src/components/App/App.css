@@ -109,7 +109,7 @@ Form Treatment
 .homeHeader {
   height: 10em;
   width: 100%;
-  background-image: url(https://images.squarespace-cdn.com/content/v1/5373ca62e4b0875c414542a1/1411056298298-IZGTCGI62X0LN07IIT2Y/ke17ZwdGBToddI8pDm48kI19gPNUWZugHioVFJWlT3cUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYwL8IeDg6_3B-BRuF4nNrNcQkVuAT7tdErd0wQFEGFSnCvWeu1G753OVlofHq21iMdraneyJU5ThkBVxJKd-81CyXEBoq3UuvGQ0WPFKFsDfw/Banner.jpg?format=2500w);
+  background-image: url("./images/homeBanner.jpg");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -133,7 +133,7 @@ Form Treatment
   bottom: 0;
   width: 100%;
   background: rgb(4,23,4);
-background: linear-gradient(169deg, rgba(4,23,4,1) 0%, rgba(226,205,137,1) 100%);
+  background: linear-gradient(169deg, rgba(4,23,4,1) 0%, rgba(226,205,137,1) 100%);
   color: white;
   font-size: .75em;
   height: 1em;
@@ -142,6 +142,7 @@ background: linear-gradient(169deg, rgba(4,23,4,1) 0%, rgba(226,205,137,1) 100%)
 
 .test {
   color: rgb(206, 154, 57);
-  color: rgb(196, 150, 67);
+  color: rgb(243, 243, 243);
   vertical-align: middle;
+  border-top-left-radius: ;
 }

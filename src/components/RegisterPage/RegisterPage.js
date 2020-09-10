@@ -1,9 +1,26 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
-
+import { withStyles, Paper, Typography, Card, Grid } from '@material-ui/core';
 // CUSTOM COMPONENTS
 import RegisterForm from '../RegisterForm/RegisterForm';
+import HomeHeader from '../HomePage/HomeHeader';
+
+const styles = theme => ({
+  container: {
+    marginTop: '2em',
+    padding: '2.5em',
+    width: '30%',
+    margin: 'auto',
+  },
+  createAccountCard: {
+    backgroundColor: 'rgb(240, 240, 240)',
+    textAlign: 'center',
+    height: '100%',
+    width: '100%',
+    display: 'center',
+  },
+})
 
 class RegisterPage extends Component {
   state = {
@@ -12,24 +29,23 @@ class RegisterPage extends Component {
   };
 
   render() {
+
+    const { classes } = this.props;
+
     return (
       <div>
-        <RegisterForm />
-
-        <center>
-          <button
-            type="button"
-            className="btn btn_asLink"
-            onClick={() => {
-              this.props.history.push('/login');
-            }}
-          >
-            Login
-          </button>
-        </center>
+        <HomeHeader />
+        <Grid className={classes.container}>
+          <Grid item xs={12}>
+            <Card elevation={4} className={classes.createAccountCard}>
+              <RegisterForm />
+            </Card>
+          </Grid>
+        </Grid>
       </div>
     );
   }
 }
 
-export default connect(mapStoreToProps)(RegisterPage);
+const RegisterPageStyled = withStyles(styles)(RegisterPage);
+export default connect(mapStoreToProps)(RegisterPageStyled);
