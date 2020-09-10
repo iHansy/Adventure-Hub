@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import swal from 'sweetalert';
-import { withStyles, Grid, Typography, InputLabel, Button, ButtonGroup, TextField, Link } from '@material-ui/core';
+import { withStyles, InputLabel, Button, ButtonGroup, TextField, } from '@material-ui/core';
 import { withRouter } from 'react-router-dom';
 
 //material UI styles
@@ -100,7 +100,6 @@ class RegisterForm extends Component {
                 size="small"
                 variant="outlined"
                 placeholder="password"
-                type="text"
                 type="password"
                 name="password"
                 value={this.state.password}
@@ -116,7 +115,6 @@ class RegisterForm extends Component {
                 size="small"
                 variant="outlined"
                 placeholder="confirm password"
-                type="text"
                 type="password"
                 name="confirmPassword"
                 value={this.state.confirmPassword}

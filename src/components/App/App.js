@@ -16,10 +16,6 @@ import HomePage from '../HomePage/HomePage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import './App.css';
-//material UI
-import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-
-
 
 class App extends Component {
   componentDidMount() {

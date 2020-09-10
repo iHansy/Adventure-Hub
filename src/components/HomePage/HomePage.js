@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
-import { withStyles, Paper, Typography, Card, Grid } from '@material-ui/core';
+import { withStyles, Card, Grid } from '@material-ui/core';
 import './HomePage.css';
 // CUSTOM COMPONENTS
-import RegisterForm from '../RegisterForm/RegisterForm';
 import LoginForm from '../LoginForm/LoginForm';
 import HomeHeader from './HomeHeader';
 
@@ -13,7 +12,7 @@ const styles = theme => ({
   container: {
     marginTop: '2em',
     padding: '2.5em',
-    width: '60%',
+    width: '70%',
     margin: 'auto',
   },
   descriptionCard: {
@@ -35,9 +34,6 @@ const styles = theme => ({
 });
 
 class HomePage extends Component {
-  state = {
-    heading: 'Class Component',
-  };
 
   render() {
 
@@ -46,22 +42,19 @@ class HomePage extends Component {
     return (
       <div>
         <HomeHeader />
-        <Grid container className={classes.container}>
-          <Grid item xs={6}>
+        <Grid container spacing={0} className={classes.container}>
+          <Grid item xs={7}>
             <Card elevation={4} className={classes.descriptionCard}>
               <p paragraph="true" className={classes.description}>
                 Welcome to Adventure Hub! This is a place for you to search, view, and share future adventures. If you're not
                 keen to creating an account feel free to continue as a guest and you'll have access to search parks and view
-                other's adventures. Enjoy!
+                other's adventures. <br/> <br/> Enjoy!
               </p>
             </Card>
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={5}>
             <Card elevation={4} className={classes.loginCard}>
               <LoginForm />
-                {/* <button onClick={this.onLogin}>
-                  Login
-              </button> */}
             </Card>
           </Grid>
         </Grid>

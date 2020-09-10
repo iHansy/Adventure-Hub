@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
-import { withStyles, Paper, Typography, Card, Grid } from '@material-ui/core';
+import { withStyles, Card, Grid } from '@material-ui/core';
 // CUSTOM COMPONENTS
 import RegisterForm from '../RegisterForm/RegisterForm';
 import HomeHeader from '../HomePage/HomeHeader';
