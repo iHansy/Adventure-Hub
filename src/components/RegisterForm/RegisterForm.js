@@ -1,39 +1,44 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
+import swal from 'sweetalert';
 import { withStyles, Grid, Typography, InputLabel, Button, ButtonGroup, TextField, Link } from '@material-ui/core';
 import { withRouter } from 'react-router-dom';
 
 //material UI styles
 const styles = theme => ({
   form: {
-    marginTop: '3em',
+    marginTop: '2em',
   },
   textFields: {
     padding: '.3em',
     backgroundColor: 'white',
     borderRadius: '.5em',
   },
-  createAccountBtn: {
+  btnGroup: {
     margin: '2em',
     backgroundColor: 'rgb(216, 174, 95)',
+  },
+  btnSingle: {
     '&:hover': {
       backgroundColor: 'rgb(196, 150, 67)',
-      borderColor: '#0062cc',
-      boxShadow: 'none',
     },
-  },
+  }
 }); //end material ui
 
 class RegisterForm extends Component {
   state = {
     username: '',
     password: '',
+    confirmPassword: '',
   };
 
   registerUser = (event) => {
     event.preventDefault();
-
+    if (this.state.password !== this.state.confirmPassword) {
+      swal("Error", "passwords do not match");
+      return;
+    }
     this.props.dispatch({
       type: 'REGISTER',
       payload: {
@@ -41,6 +46,9 @@ class RegisterForm extends Component {
         password: this.state.password,
       },
     });
+    if (this.props.store.errors.registrationMessage) {
+      swal("Success", "account created!");
+    }
   }; // end registerUser
 
   handleInputChangeFor = (propertyName) => (event) => {
@@ -102,11 +110,27 @@ class RegisterForm extends Component {
             </InputLabel>
           </div>
           <div>
-            <ButtonGroup>
-              <Button className={classes.createAccountBtn} onClick={this.handleCancel}>
+            <InputLabel htmlFor="confirmPassword">
+              <TextField
+                className={classes.textFields}
+                size="small"
+                variant="outlined"
+                placeholder="confirm password"
+                type="text"
+                type="password"
+                name="confirmPassword"
+                value={this.state.confirmPassword}
+                required
+                onChange={this.handleInputChangeFor('confirmPassword')}
+              />
+            </InputLabel>
+          </div>
+          <div>
+            <ButtonGroup className={classes.btnGroup}>
+              <Button className={classes.btnSingle} onClick={this.handleCancel}>
                 Cancel
               </Button>
-              <Button className={classes.createAccountBtn} type="submit">
+              <Button className={classes.btnSingle} type="submit">
                 Create Account
               </Button>
             </ButtonGroup>

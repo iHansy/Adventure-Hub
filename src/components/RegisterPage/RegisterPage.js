@@ -16,7 +16,7 @@ const styles = theme => ({
   createAccountCard: {
     backgroundColor: 'rgb(240, 240, 240)',
     textAlign: 'center',
-    height: '22em',
+    minHeight: '22em',
     width: '100%',
   },
 })
