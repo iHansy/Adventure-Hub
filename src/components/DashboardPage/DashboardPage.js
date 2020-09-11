@@ -28,12 +28,20 @@ class DashboardPage extends Component {
     this.fetchAdventures(); //getting adventure details for current user on page load
   }
 
+  state = {
+    adventureStatus: 1,
+    adventureComplete: false
+  };
+
   fetchAdventures = () => {
     this.props.dispatch({ type: 'FETCH_ADVENTURES', payload: this.props.store.user.id })
   }
 
-  handleChange = () => {
-    console.log(test);
+  handleAdventureStatus = (property, event) => {
+    this.setState({
+      [property]: event.target.value,
+      adventureComplete: !this.state.adventureComplete
+    })
   }
 
   render() {
@@ -53,8 +61,8 @@ class DashboardPage extends Component {
             <Select
               labelId="demo-simple-select-filled-label"
               id="demo-simple-select-filled"
-              value={1}
-              onChange={this.handleChange}
+              value={this.state.adventureStatus}
+              onChange={(event) => this.handleAdventureStatus('adventureStatus', event)}
             >
               <MenuItem value={1}>Future Adventures</MenuItem>
               <MenuItem value={2}>Completed Adventures</MenuItem>
@@ -72,7 +80,7 @@ class DashboardPage extends Component {
             </Typography>
           </div>
           {/* {this.props.store.adventures && <DashboardCards />} */}
-          <DashboardCards />
+          <DashboardCards adventureComplete={this.state.adventureComplete} />
         </div>
       </div>
     );
