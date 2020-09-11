@@ -6,7 +6,7 @@ import { withStyles, Card, Grid, Button } from '@material-ui/core';
 //material UI styles
 const styles = theme => ({
     container: {
-        padding: '3em',
+        padding: '2em',
     },
     formControl: {
         width: '25%',
@@ -33,17 +33,16 @@ const styles = theme => ({
 class DashboardCards extends Component {
 
     //fine to pass id here because it's not a user id
-    //****update other id */
-    // handleDelete = (id) => {
-    //     axios.delete('/api/adventures, ')
-    // }
+    handleDelete = (id) => {
+        console.log('deleting adventure', id)
+        this.props.dispatch({ type: 'DELETE_ADVENTURE', payload: `${id}`});
+    }
 
     render() {
 
         const { classes } = this.props;
 
         const adventures = this.props.store.adventures.getAdventures;
-        console.log(adventures);
 
         return (
             <div>
@@ -60,7 +59,13 @@ class DashboardCards extends Component {
                                         <p>{adventure.description}</p>
                                         <Button size="small" variant="contained">Edit</Button>
                                         <Button size="small" variant="contained" color="primary">Mark Complete</Button>
-                                        <Button onClick={() => this.handleDelete(adventure.id)} size="small" variant="contained" color="secondary" >Remove</Button>
+                                        <Button
+                                            onClick={() => this.handleDelete(adventure.id)}
+                                            size="small"
+                                            variant="contained"
+                                            color="secondary" >
+                                            Remove
+                                        </Button>
                                     </Card>
                                 </Grid>
                             )

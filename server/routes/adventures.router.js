@@ -22,6 +22,20 @@ router.get('/', rejectUnauthenticated, (req, res) => {
     })
 });
 
+//DELETE route
+router.delete('/:id', (req, res) => {
+  console.log('ROUTER', req.params);
+  const queryText = `DELETE FROM "adventure" WHERE "id" = $1;`;
+  pool.query(queryText, [req.params.id])
+    .then((result) => {
+      res.sendStatus(202); //accepted status
+    })
+    .catch ((error) => {
+      console.log('ERROR DELETING ADVENTURE', error);
+      res.sendStatus(500); //internal server error
+    })
+})
+
 /**
  * POST route template
  */

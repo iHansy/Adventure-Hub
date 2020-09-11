@@ -7,13 +7,25 @@ function* fetchAdventures(action) {
         let response = yield axios.get(`/api/adventures`);
         //this is adding all adventures (response.data) to adventuresReducer
         yield put({ type: 'SET_ADVENTURES', payload: response.data })
-    } catch (error) {
-        console.log('error getting adventures', error);
+    } catch (error) { //catch for any errors
+        console.log('ERROR GETTING ADVENTURES', error);
+    }
+}
+
+//dispatch coming from component, send request to router
+function* deleteAdventure(action) {
+    try {
+        yield axios.delete(`/api/adventures/${action.payload}`);
+        //this yield is reloading DOM
+        yield fetchAdventures();
+    } catch (error) { //catch for any errors
+        console.log('ERROR DELETING ADVENTURE', error)
     }
 }
 
 function* adventuresSaga() {
   yield takeLatest('FETCH_ADVENTURES', fetchAdventures);
+  yield takeLatest('DELETE_ADVENTURE', deleteAdventure);
 } 
 
 export default adventuresSaga;
