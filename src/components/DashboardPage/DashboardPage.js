@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import DashboardAppBar from './DashboardAppBar';
 import DashboardCards from './DashboardCards';
-import { withStyles, FormControl, Select, MenuItem, Typography, Link } from '@material-ui/core';
+import { withStyles, FormControl, Select, MenuItem, Typography, Link, Card } from '@material-ui/core';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 
 //material UI styles
@@ -25,7 +25,7 @@ class DashboardPage extends Component {
 
   componentDidMount = () => {
     console.log('loading all adventures...');
-    this.fetchAdventures(); //getting adventure details on page load
+    this.fetchAdventures(); //getting adventure details for current user on page load
   }
 
   fetchAdventures = () => {
@@ -53,7 +53,7 @@ class DashboardPage extends Component {
             <Select
               labelId="demo-simple-select-filled-label"
               id="demo-simple-select-filled"
-              value={2}
+              value={1}
               onChange={this.handleChange}
             >
               <MenuItem value={1}>Future Adventures</MenuItem>
@@ -62,7 +62,7 @@ class DashboardPage extends Component {
           </FormControl>
           <div>
             <Typography>
-              <Link 
+              <Link
                 onClick={this.createAdventure}
                 component="button"
                 variant="h6"
@@ -71,6 +71,7 @@ class DashboardPage extends Component {
               </Link>
             </Typography>
           </div>
+          {/* {this.props.store.adventures && <DashboardCards />} */}
           <DashboardCards />
         </div>
       </div>

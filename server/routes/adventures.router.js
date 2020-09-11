@@ -6,7 +6,7 @@ const router = express.Router();
  * GET route template
  */
 router.get('/:id', (req, res) => {
-  const queryText = `SELECT * FROM "adventure" WHERE "user_id" = $1;`;
+  const queryText = `SELECT * FROM "adventure" WHERE "user_id" = $1 ORDER BY "date";`;
   pool.query(queryText, [req.params.id])
     .then ((result) => {
       res.send(result.rows);

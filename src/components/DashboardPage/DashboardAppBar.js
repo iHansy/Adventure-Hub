@@ -5,7 +5,7 @@ import { makeStyles, AppBar, MenuItem, Menu, Button, Toolbar, Typography } from 
 
 const useStyles = makeStyles({
     dashboardTitle: {
-      marginLeft: '2em',
+        marginLeft: '2em',
     },
     appbar: {
         background: 'rgb(121, 119, 115)',
@@ -14,12 +14,19 @@ const useStyles = makeStyles({
         '&:hover': {
             backgroundColor: 'rgb(172, 129, 49)',
             borderColor: '#0062cc',
-          },
+        },
     },
     menu: {
         color: 'white',
     },
-  });
+    menuItem: {
+        height: '4em',
+        '&:hover': {
+            backgroundColor: 'rgb(172, 129, 49)',
+            borderColor: '#0062cc',
+        },
+    },
+});
 
 const DashboardAppBar = (props) => {
     const classes = useStyles();
@@ -36,7 +43,7 @@ const DashboardAppBar = (props) => {
 
     const logOut = () => {
         setAnchorEl(null);
-        props.dispatch ({ type: 'LOGOUT' });
+        props.dispatch({ type: 'LOGOUT' });
     };
 
     return (
@@ -58,10 +65,10 @@ const DashboardAppBar = (props) => {
                         open={Boolean(anchorEl)}
                         onClose={handleClose}
                     >
-                        <MenuItem onClick={handleClose}>Dashboard</MenuItem>
-                        <MenuItem onClick={handleClose}>Park Search</MenuItem>
-                        <MenuItem onClick={handleClose}>Feed</MenuItem>
-                        <MenuItem onClick={logOut}>Logout</MenuItem>
+                        <MenuItem onClick={handleClose} className={classes.menuItem}>Dashboard</MenuItem>
+                        <MenuItem onClick={handleClose} className={classes.menuItem}>Park Search</MenuItem>
+                        <MenuItem onClick={handleClose} className={classes.menuItem}>Feed</MenuItem>
+                        <MenuItem onClick={logOut} className={classes.menuItem}>Logout</MenuItem>
                     </Menu>
                     <Typography className={classes.dashboardTitle} variant="h4">
                         Bucket List Dashboard
