@@ -36,7 +36,7 @@ const DashboardAppBar = (props) => {
 
     const logOut = () => {
         setAnchorEl(null);
-        // props.dispatch ({ type: 'LOGOUT' });
+        props.dispatch ({ type: 'LOGOUT' });
     };
 
     return (
@@ -64,7 +64,7 @@ const DashboardAppBar = (props) => {
                         <MenuItem onClick={logOut}>Logout</MenuItem>
                     </Menu>
                     <Typography className={classes.dashboardTitle} variant="h4">
-                        Dashboard
+                        Bucket List Dashboard
                     </Typography>
                 </Toolbar>
             </AppBar>
@@ -72,5 +72,6 @@ const DashboardAppBar = (props) => {
     );
 }
 
-// export default connect(DashboardAppBar);
-export default DashboardAppBar;
+
+export default connect()(DashboardAppBar);
+// export default DashboardAppBar;
