@@ -118,13 +118,30 @@ Form Treatment
 }
 
 .homeHeader h1 {
-  vertical-align: middle;
   display: inline-block;
   color: white;
   text-align: center;
   margin-left: 5em;
   margin-top: .75em;
   font-size: 3em;
+}
+
+.dashboardHeader1 {
+  height: 1.5em;
+  width: 100%;
+  background: rgb(143,103,33);
+  background: linear-gradient(169deg, rgba(143,103,33,1) 0%, rgba(5,24,8,1) 100%);
+  box-shadow: 0px 5px 5px rgb(133, 133, 133);
+  position: relative;
+}
+
+.dashboardHeader1 p {
+  display: inline-block;
+  position: absolute;
+  bottom: -9px;
+  margin-left: 20px;
+  font-size: .8em;
+  color: white;
 }
 
 .footer {
@@ -142,6 +159,7 @@ Form Treatment
 
 .test {
   color: rgb(206, 154, 57);
-  color: rgb(243, 243, 243);
+  color: rgb(121, 119, 115);
   vertical-align: middle;
+
 }

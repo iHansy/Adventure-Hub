@@ -10,7 +10,7 @@ const styles = theme => ({
     marginTop: '3em',
   },
   textFields: {
-    padding: '.3em',
+    margin: '.3em',
     backgroundColor: 'white',
     borderRadius: '.5em',
   },

@@ -11,7 +11,7 @@ const styles = theme => ({
     marginTop: '2em',
   },
   textFields: {
-    padding: '.3em',
+    margin: '.3em',
     backgroundColor: 'white',
     borderRadius: '.5em',
   },
