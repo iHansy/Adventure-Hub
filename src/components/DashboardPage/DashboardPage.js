@@ -34,7 +34,7 @@ class DashboardPage extends Component {
   };
 
   fetchAdventures = () => {
-    this.props.dispatch({ type: 'FETCH_ADVENTURES', payload: this.props.store.user.id })
+    this.props.dispatch({ type: 'FETCH_ADVENTURES' })
   }
 
   handleAdventureStatus = (property, event) => {

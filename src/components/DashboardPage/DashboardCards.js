@@ -32,6 +32,12 @@ const styles = theme => ({
 
 class DashboardCards extends Component {
 
+    //fine to pass id here because it's not a user id
+    //****update other id */
+    // handleDelete = (id) => {
+    //     axios.delete('/api/adventures, ')
+    // }
+
     render() {
 
         const { classes } = this.props;
@@ -54,7 +60,7 @@ class DashboardCards extends Component {
                                         <p>{adventure.description}</p>
                                         <Button size="small" variant="contained">Edit</Button>
                                         <Button size="small" variant="contained" color="primary">Mark Complete</Button>
-                                        <Button size="small" variant="contained" color="secondary" >Remove</Button>
+                                        <Button onClick={() => this.handleDelete(adventure.id)} size="small" variant="contained" color="secondary" >Remove</Button>
                                     </Card>
                                 </Grid>
                             )

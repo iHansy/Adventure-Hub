@@ -1,13 +1,18 @@
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
+const {
+  rejectUnauthenticated,
+} = require('../modules/authentication-middleware');
 
 /**
  * GET route template
  */
-router.get('/:id', (req, res) => {
+router.get('/', rejectUnauthenticated, (req, res) => {
   const queryText = `SELECT * FROM "adventure" WHERE "user_id" = $1 ORDER BY "date";`;
-  pool.query(queryText, [req.params.id])
+  //if using req.user, need to use rejectUnauthenticated
+  //user is automatically being passed to router
+  pool.query(queryText, [req.user.id])
     .then ((result) => {
       res.send(result.rows);
     })
