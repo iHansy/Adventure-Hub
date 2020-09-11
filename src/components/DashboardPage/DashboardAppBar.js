@@ -59,8 +59,8 @@ const DashboardAppBar = (props) => {
                         onClose={handleClose}
                     >
                         <MenuItem onClick={handleClose}>Dashboard</MenuItem>
-                        <MenuItem onClick={handleClose}>Feed</MenuItem>
                         <MenuItem onClick={handleClose}>Park Search</MenuItem>
+                        <MenuItem onClick={handleClose}>Feed</MenuItem>
                         <MenuItem onClick={logOut}>Logout</MenuItem>
                     </Menu>
                     <Typography className={classes.dashboardTitle} variant="h4">

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import LogOutButton from '../LogOutButton/LogOutButton';
 import DashboardAppBar from './DashboardAppBar';
+import DashboardCards from './DashboardCards';
 import { withStyles, FormControl, Select, MenuItem, Typography, Link } from '@material-ui/core';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 
@@ -22,6 +22,15 @@ const styles = theme => ({
 
 
 class DashboardPage extends Component {
+
+  componentDidMount = () => {
+    console.log('loading all adventures...');
+    this.fetchAdventures(); //getting adventure details on page load
+  }
+
+  fetchAdventures = () => {
+    this.props.dispatch({ type: 'FETCH_ADVENTURES', payload: this.props.store.user.id })
+  }
 
   handleChange = () => {
     console.log(test);
@@ -62,6 +71,7 @@ class DashboardPage extends Component {
               </Link>
             </Typography>
           </div>
+          <DashboardCards />
         </div>
       </div>
     );
