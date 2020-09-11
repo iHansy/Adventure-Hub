@@ -11,7 +11,7 @@ import Footer from '../Footer/Footer';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import FeedPage from '../FeedPage/FeedPage';
 import DashboardPage from '../DashboardPage/DashboardPage';
-import InfoPage from '../InfoPage/InfoPage';
+import CreateAdventurePage from '../CreateAdventurePage/CreateAdventurePage';
 import HomePage from '../HomePage/HomePage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
@@ -54,8 +54,8 @@ class App extends Component {
             <ProtectedRoute
               // logged in shows InfoPage else shows LoginPage
               exact
-              path="/info"
-              component={InfoPage}
+              path="/create-adventure"
+              component={CreateAdventurePage}
             />
 
             {/* When a value is supplied for the authRedirect prop the user will

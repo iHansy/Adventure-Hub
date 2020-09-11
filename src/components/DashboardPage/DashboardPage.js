@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import DashboardAppBar from './DashboardAppBar';
 import DashboardCards from './DashboardCards';
+import DashboardHeader from './DashboardHeader';
 import { withStyles, FormControl, Select, MenuItem, Typography, Link, Card } from '@material-ui/core';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 
@@ -44,17 +45,17 @@ class DashboardPage extends Component {
     })
   }
 
+  createAdventure = () => {
+    this.props.history.push('/create-adventure');
+  }
+
   render() {
 
     const { classes } = this.props;
 
     return (
       <div>
-        <header>
-          <div className="dashboardHeader1">
-            <p id="welcome">Logged in as: {this.props.store.user.username}</p>
-          </div>
-        </header>
+        <DashboardHeader />
         <DashboardAppBar />
         <div className={classes.container}>
           <FormControl size="small" variant="filled" className={classes.formControl}>
