@@ -81,7 +81,6 @@ class DashboardPage extends Component {
               </Link>
             </Typography>
           </div>
-          {/* {this.props.store.adventures && <DashboardCards />} */}
           <DashboardCards adventureComplete={this.state.adventureComplete} />
         </div>
       </div>
