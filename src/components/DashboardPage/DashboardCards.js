@@ -42,8 +42,6 @@ class DashboardCards extends Component {
 
         const { classes } = this.props;
 
-        const adventures = this.props.store.adventures.getAdventures;
-
         return (
             <div>
                 <Grid container spacing={4} className={classes.container}>

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import DashboardAppBar from './DashboardAppBar';
 import DashboardCards from './DashboardCards';
 import DashboardHeader from './DashboardHeader';
-import { withStyles, FormControl, Select, MenuItem, Typography, Link, Card } from '@material-ui/core';
+import { withStyles, FormControl, Select, MenuItem, Typography, Link } from '@material-ui/core';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 
 //material UI styles
@@ -31,7 +31,8 @@ class DashboardPage extends Component {
 
   state = {
     adventureStatus: 1,
-    adventureComplete: false
+    adventureComplete: false,
+    appBarHeader: 'Bucket List Dashboard',
   };
 
   fetchAdventures = () => {
@@ -56,7 +57,7 @@ class DashboardPage extends Component {
     return (
       <div>
         <DashboardHeader />
-        <DashboardAppBar />
+        <DashboardAppBar appBarHeader={this.state.appBarHeader}/>
         <div className={classes.container}>
           <FormControl size="small" variant="filled" className={classes.formControl}>
             <Select

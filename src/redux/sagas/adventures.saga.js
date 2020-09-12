@@ -19,13 +19,23 @@ function* deleteAdventure(action) {
         //this yield is reloading DOM
         yield fetchAdventures();
     } catch (error) { //catch for any errors
-        console.log('ERROR DELETING ADVENTURE', error)
+        console.log('ERROR DELETING ADVENTURE', error);
+    }
+}
+
+//sending new adventure to server router
+function* postAdventure(action) {
+    try {
+        yield axios.post('/api/adventures', action.payload);
+    } catch (error) {
+        console.log('ERROR POSTING ADVENTURE', error);
     }
 }
 
 function* adventuresSaga() {
   yield takeLatest('FETCH_ADVENTURES', fetchAdventures);
   yield takeLatest('DELETE_ADVENTURE', deleteAdventure);
+  yield takeLatest('POST_ADVENTURE', postAdventure)
 } 
 
 export default adventuresSaga;

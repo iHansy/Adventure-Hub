@@ -1,27 +1,22 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
-import { withStyles, Card, Grid, Button } from '@material-ui/core';
+import DashboardHeader from '../DashboardPage/DashboardHeader';
+import NewAdventureCard from './NewAdventureCard';
+import DashboardAppBar from '../DashboardPage/DashboardAppBar';
 
 class CreateAdventurePage extends Component {
   state = {
-    
+    appBarHeader: 'New Adventure',
   };
-
-  handleSave = () => {
-    this.props.history.push('/dashboard');
-  }
-  handleCancel = () => {
-    this.props.history.push('/dashboard');
-  }
 
   render() {
 
     return (
       <div>
-        <h2>Create Adventure Page</h2>
-        <Button onClick={this.handleCancel}>Cancel</Button>
-        <Button onClick={this.handleSave}>Save</Button>
+        <DashboardHeader />
+        <DashboardAppBar appBarHeader={this.state.appBarHeader}/>
+        <NewAdventureCard />
       </div>
     );
   }

@@ -6,7 +6,6 @@ import {
   Switch,
 } from 'react-router-dom';
 import { connect } from 'react-redux';
-import Nav from '../Nav/Nav';
 import Footer from '../Footer/Footer';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import FeedPage from '../FeedPage/FeedPage';

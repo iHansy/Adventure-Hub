@@ -7,7 +7,7 @@ const useStyles = makeStyles({
     dashboardTitle: {
         marginLeft: '2em',
     },
-    appbar: {
+    appBar: {
         background: 'rgb(121, 119, 115)',
     },
     button: {
@@ -48,7 +48,7 @@ const DashboardAppBar = (props) => {
 
     return (
         <div>
-            <AppBar className={classes.appbar} position="static">
+            <AppBar className={classes.appBar} position="static">
                 <Toolbar>
                     <Button
                         className={classes.button}
@@ -71,7 +71,7 @@ const DashboardAppBar = (props) => {
                         <MenuItem onClick={logOut} className={classes.menuItem}>Logout</MenuItem>
                     </Menu>
                     <Typography className={classes.dashboardTitle} variant="h4">
-                        Bucket List Dashboard
+                        {props.appBarHeader}
                     </Typography>
                 </Toolbar>
             </AppBar>
