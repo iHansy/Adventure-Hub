@@ -27,6 +27,8 @@ function* deleteAdventure(action) {
 function* postAdventure(action) {
     try {
         yield axios.post('/api/adventures', action.payload);
+        //reloading DOM
+        yield fetchAdventures();
     } catch (error) {
         console.log('ERROR POSTING ADVENTURE', error);
     }

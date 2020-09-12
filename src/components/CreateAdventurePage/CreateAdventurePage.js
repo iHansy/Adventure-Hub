@@ -7,7 +7,7 @@ import DashboardAppBar from '../DashboardPage/DashboardAppBar';
 
 class CreateAdventurePage extends Component {
   state = {
-    appBarHeader: 'New Adventure',
+    appBarHeader: 'Add New Adventure',
   };
 
   render() {

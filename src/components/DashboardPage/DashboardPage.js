@@ -24,16 +24,24 @@ const styles = theme => ({
 
 class DashboardPage extends Component {
 
-  componentDidMount = () => {
-    console.log('loading all adventures...');
-    this.fetchAdventures(); //getting adventure details for current user on page load
-  }
-
   state = {
     adventureStatus: 1,
     adventureComplete: false,
     appBarHeader: 'Bucket List Dashboard',
   };
+
+  //this is making sure the dashboard view stays consistent with what type of adventure
+  //was created and what the type of adventure the dropdown is currently on
+  componentDidMount = () => {
+    console.log('loading all adventures...');
+    if (this.props.store.adventures.completeStatus === true) {
+      this.setState({
+        adventureStatus: 2,
+        adventureComplete: true,
+      })
+    }
+    this.fetchAdventures(); //getting adventure details for current user on page load
+  }
 
   fetchAdventures = () => {
     this.props.dispatch({ type: 'FETCH_ADVENTURES' })
@@ -47,6 +55,7 @@ class DashboardPage extends Component {
   }
 
   createAdventure = () => {
+    this.props.dispatch({ type:'SET_COMPLETE_STATUS', payload: this.state.adventureComplete});
     this.props.history.push('/create-adventure');
   }
 

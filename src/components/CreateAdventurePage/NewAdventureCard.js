@@ -33,6 +33,7 @@ const styles = theme => ({
 })
 
 class CreateCard extends Component {
+
     state = {
         image_url: '',
         park_name: '',
@@ -40,6 +41,8 @@ class CreateCard extends Component {
         state: '',
         main_activities: '',
         description: '',
+        //completed is a dynamic boolean depending on if user is on future adventures or completed
+        completed: this.props.store.adventures.completeStatus,
     };
 
     handleInputChange = (property, event) => {
@@ -70,6 +73,7 @@ class CreateCard extends Component {
     }
 
     handleCancel = () => {
+        alert(`Cancel new adventure?`);
         this.props.history.push('/dashboard');
     }
 

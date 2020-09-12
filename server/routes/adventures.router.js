@@ -39,10 +39,11 @@ router.post('/', rejectUnauthenticated, (req, res) => {
   console.log('POST ROUTER', req.body);
   const queryText = `INSERT INTO "adventure" 
                     ("image_url", "park_name", "city", 
-                    "state", "main_activities", "description", "user_id")
-                    VALUES ($1, $2, $3, $4, $5, $6, $7)`
+                    "state", "main_activities", "description", "completed", "user_id")
+                    VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`
   pool.query(queryText, [req.body.image_url, req.body.park_name, req.body.city, 
-                        req.body.state, req.body.main_activities, req.body.description, req.user.id])
+                        req.body.state, req.body.main_activities, req.body.description, 
+                        req.body.completed, req.user.id])
     .then((result) => {
       res.sendStatus(201); //sending created status back to client
     })
