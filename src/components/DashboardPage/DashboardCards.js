@@ -8,7 +8,7 @@ import { withRouter } from 'react-router-dom';
 const styles = theme => ({
     container: {
         padding: '2em',
-        marginBottom: '5em',
+        marginBottom: '2em',
     },
     formControl: {
         width: '25%',
@@ -25,7 +25,7 @@ const styles = theme => ({
     },
     adventureImg: {
         height: '15em',
-        width: '20em',
+        width: '23em',
         display: 'block',
         marginLeft: 'auto',
         marginRight: 'auto',
@@ -65,7 +65,7 @@ class DashboardCards extends Component {
                                     <Card className={classes.adventureCard}>
                                         <img src={adventure.image_url} alt={adventure.state} className={classes.adventureImg} />
                                         <h4>{adventure.park_name}</h4>
-                                        <p>{adventure.city}, {adventure.state}</p>
+                                        <p>{adventure.city}{adventure.city && <span>,</span>} {adventure.state}</p>
                                         <p>{adventure.date}</p>
                                         <h5>{adventure.main_activities}</h5>
                                         <p>{adventure.description}</p>

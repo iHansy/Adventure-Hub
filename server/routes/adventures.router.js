@@ -73,8 +73,8 @@ router.put('/mark-complete/:id', (req, res) => {
   console.log('MARK COMPLETE ROUTER', req.params.id);
   const queryText = `UPDATE "adventure"
                     SET "completed" = true
-                    WHERE "id" = $1;`;
-  pool.query(queryText, [req.params.id])
+                    WHERE "id" = $1 AND "user_id" = $2;`;
+  pool.query(queryText, [req.params.id, req.user.id])
     .then((result) => {
       res.sendStatus(201); //sending created status back to client
     })
