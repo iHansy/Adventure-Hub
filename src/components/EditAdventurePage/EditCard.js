@@ -172,9 +172,11 @@ class EditCard extends Component {
                                     <Button className={classes.btnSingle} onClick={this.handleCancel}>
                                         Cancel
                                     </Button>
-                                    <Button className={classes.btnSingle} onClick={this.handleSave}>
+                                    {this.props.store.markComplete.markComplete ? <Button className={classes.btnSingle} onClick={this.handleSave}>
+                                        Mark Complete
+                                    </Button> :  <Button className={classes.btnSingle} onClick={this.handleSave}>
                                         Save
-                                    </Button>
+                                    </Button>}
                                 </ButtonGroup>
                             </div>
                         </form>
