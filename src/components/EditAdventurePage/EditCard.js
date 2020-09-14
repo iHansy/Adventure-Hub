@@ -46,30 +46,19 @@ class EditCard extends Component {
     }
 
     handleSave = () => {
-
-        console.log(this.state);
-
-        // const state = this.state
+        this.props.dispatch({ type: 'UPDATE_ADVENTURE', payload: this.props.store.adventures.getAdventureInputs });
         // //validating that inputs are filled in
         // if (state.image_url === '' || state.state === '' || state.main_activities === '' || state.description === '') {
         //     alert('Please fill in all required fields');
         //     return;
         // }
         // this.props.dispatch({ type: 'POST_ADVENTURE', payload: this.state })
-        // //clearing inputs
-        // this.setState({
-        //     image_url: '',
-        //     park_name: '',
-        //     city: '',
-        //     state: '',
-        //     main_activities: '',
-        //     description: '',
-        // })
         // this.props.history.push('/dashboard');
     }
 
     handleCancel = () => {
         this.props.history.push('/dashboard');
+        this.props.dispatch({ type: 'CLEAR_ADVENTURE_EDITS' });
     }
 
     render() {

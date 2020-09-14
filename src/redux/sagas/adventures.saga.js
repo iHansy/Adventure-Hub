@@ -54,12 +54,21 @@ function* fetchAdventureInputs(action) {
     }
 }
 
+function* updateAdventure(action) {
+    try {
+        yield axios.put(`/api/adventures/edit-adventure/${action.payload.id}`, action.payload);
+    } catch (error) {
+        console.log('ERROR EDITING ADVENTURE');
+    }
+}
+
 function* adventuresSaga() {
   yield takeLatest('FETCH_ADVENTURES', fetchAdventures);
   yield takeLatest('DELETE_ADVENTURE', deleteAdventure);
   yield takeLatest('POST_ADVENTURE', postAdventure);
   yield takeLatest('MARK_COMPLETE', markComplete);
   yield takeLatest('FETCH_ADVENTURE_INPUTS', fetchAdventureInputs);
+  yield takeLatest('UPDATE_ADVENTURE', updateAdventure);
 } 
 
 export default adventuresSaga;

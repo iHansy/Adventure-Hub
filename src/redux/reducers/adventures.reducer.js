@@ -18,6 +18,8 @@ const getAdventureInputs = (state = {}, action) => {
       };
     case 'SET_ADVENTURE_INPUTS':
       return action.payload;
+    case 'CLEAR_ADVENTURE_INPUTS':
+      return state;
     default:
       return state;
   }
