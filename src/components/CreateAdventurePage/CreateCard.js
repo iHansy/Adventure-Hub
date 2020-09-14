@@ -35,6 +35,7 @@ const styles = theme => ({
 class CreateCard extends Component {
 
     state = {
+        date: '',
         image_url: '',
         park_name: '',
         city: '',
@@ -55,7 +56,8 @@ class CreateCard extends Component {
     handleSave = () => {
         const state = this.state
         //validating that inputs are filled in
-        if (state.image_url === '' || state.state === '' || state.main_activities === '' || state.description === '') {
+        if (state.date === '' || state.image_url === '' || state.state === ''
+            || state.main_activities === '' || state.description === '') {
             alert('Please fill in all required fields');
             return;
         }
@@ -86,6 +88,18 @@ class CreateCard extends Component {
                 <Grid item xs={12} className={classes.container}>
                     <Card className={classes.createAdventureCard}>
                         <form className={classes.form}>
+                            <div>
+                                <TextField
+                                    className={classes.textFields}
+                                    size="small"
+                                    variant="outlined"
+                                    placeholder="date"
+                                    type="text"
+                                    value={this.state.date}
+                                    required
+                                    onChange={(event) => this.handleInputChange('date', event)}
+                                />
+                            </div>
                             <div>
                                 <TextField
                                     className={classes.textFields}

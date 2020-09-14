@@ -51,13 +51,12 @@ router.delete('/:id', (req, res) => {
 //adding new adventure
 router.post('/', rejectUnauthenticated, (req, res) => {
   console.log('POST ROUTER', req.body);
+  const {date, image_url, park_name, city, state, main_activities, description, completed} = req.body;
   const queryText = `INSERT INTO "adventure" 
-                    ("image_url", "park_name", "city", 
+                    ("date", "image_url", "park_name", "city", 
                     "state", "main_activities", "description", "completed", "user_id")
-                    VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`
-  pool.query(queryText, [req.body.image_url, req.body.park_name, req.body.city, 
-                        req.body.state, req.body.main_activities, req.body.description,
-                        req.body.completed, req.user.id])
+                    VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)`
+  pool.query(queryText, [date, image_url, park_name, city, state, main_activities, description, completed, req.user.id])
     .then((result) => {
       res.sendStatus(201); //sending created status back to client
     })
@@ -69,12 +68,20 @@ router.post('/', rejectUnauthenticated, (req, res) => {
 });
 
 //changing adventure from future to complete
-router.put('/mark-complete/:id', (req, res) => {
+router.put('/mark-complete/:id', rejectUnauthenticated, (req, res) => {
   console.log('MARK COMPLETE ROUTER', req.params.id);
+  const {date, image_url, park_name, city, state, main_activities, description} = req.body;
   const queryText = `UPDATE "adventure"
-                    SET "completed" = true
-                    WHERE "id" = $1 AND "user_id" = $2;`;
-  pool.query(queryText, [req.params.id, req.user.id])
+                    SET "date" = $1,
+                    "image_url" = $2,
+                    "park_name" = $3,
+                    "city" = $4,
+                    "state" = $5,
+                    "main_activities" = $6,
+                    "description" = $7,
+                    "completed" = $8
+                    WHERE "id" = $9 AND "user_id" = $10;`;
+  pool.query(queryText, [date, image_url, park_name, city, state, main_activities, description, true, req.params.id, req.user.id])
     .then((result) => {
       res.sendStatus(201); //sending created status back to client
     })
@@ -88,15 +95,15 @@ router.put('/mark-complete/:id', (req, res) => {
 router.put('/edit-adventure/:id', rejectUnauthenticated, (req, res) => {
   const {image_url, park_name, city, state, main_activities, description} = req.body;
   const queryText = `UPDATE "adventure"
-                    SET "image_url" = $1,
-                    "park_name" = $2,
-                    "city" = $3,
-                    "state" = $4,
-                    "main_activities" = $5,
-                    "description" = $6
-                    WHERE "id" = $7 AND "user_id" = $8;`;
-  pool.query(queryText, [image_url, park_name, city, state, 
-                        main_activities, description, req.params.id, req.user.id])
+                    SET "date" = $1
+                    "image_url" = $2,
+                    "park_name" = $3,
+                    "city" = $4,
+                    "state" = $5,
+                    "main_activities" = $6,
+                    "description" = $7
+                    WHERE "id" = $8 AND "user_id" = $9;`;
+  pool.query(queryText, [date, image_url, park_name, city, state, main_activities, description, req.params.id, req.user.id])
     .then((result) => {
       res.sendStatus(201); //created status
     })

@@ -44,7 +44,6 @@ class DashboardCards extends Component {
     handleMarkComplete = (id) => {
         console.log('marking adventure complete...', id);
         // move this over to markCompleteCard
-        // this.props.dispatch({ type: 'MARK_COMPLETE', payload: `${id}` });
         this.props.history.push(`/edit-adventure/${id}`);
         //setting markComplete reducer as true, this way the mark complete button on the
         //edit screen will conditionally render based on boolean value of markComplete reducer

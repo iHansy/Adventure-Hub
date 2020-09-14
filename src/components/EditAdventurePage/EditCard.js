@@ -37,29 +37,53 @@ class EditCard extends Component {
     componentDidMount() {
         const id = this.props.match.params.id
         //dispatch is temp data of adventure clicked on to use as prefilled inputs of editcard
-        this.props.dispatch ({ type: 'FETCH_ADVENTURE_INPUTS',  payload: id })
+        this.props.dispatch({ type: 'FETCH_ADVENTURE_INPUTS', payload: id })
     }
 
     handleInputChange = (event) => {
         console.log('EDITING', event.target.name);
-        this.props.dispatch({ type: 'SET_ADVENTURE_EDITS', payload: { key: event.target.name, value: event.target.value} });
+        this.props.dispatch({ type: 'SET_ADVENTURE_EDITS', payload: { key: event.target.name, value: event.target.value } });
     }
 
     handleSave = () => {
         const checkInput = this.props.store.adventures.getAdventureInputs
         //validating that inputs are filled in
-        if (checkInput.image_url === '' 
-        || checkInput.state === '' 
-        || checkInput.main_activities === '' 
-        || checkInput.description === '') {
+        if (checkInput.date === ''
+            || checkInput.image_url === ''
+            || checkInput.state === ''
+            || checkInput.main_activities === ''
+            || checkInput.description === '') {
             alert('Please fill in all required fields');
             return;
         }
         this.props.dispatch({ type: 'UPDATE_ADVENTURE', payload: this.props.store.adventures.getAdventureInputs });
         //setting dashboard status as true or false to display same status as when clicked edit
-        this.props.dispatch({ type: 'SET_COMPLETE_STATUS', payload: this.props.store.adventures.getAdventureInputs.completed});
+        this.props.dispatch({ type: 'SET_COMPLETE_STATUS', payload: this.props.store.adventures.getAdventureInputs.completed });
         //clearing saved inputs
         this.props.dispatch({ type: 'CLEAR_ADVENTURE_INPUTS', payload: {} });
+        this.props.history.push('/dashboard');
+    }
+
+    handleMarkComplete = (id) => {
+
+        const checkInput = this.props.store.adventures.getAdventureInputs
+        //validating that inputs are filled in
+        if (checkInput.date === ''
+            || checkInput.image_url === ''
+            || checkInput.state === ''
+            || checkInput.main_activities === ''
+            || checkInput.description === '') {
+            alert('Please fill in all required fields');
+            return;
+        }
+        //setting dashboard status as true or false to display same status as when clicked edit
+        this.props.dispatch({ type: 'SET_COMPLETE_STATUS', payload: true });
+        //clearing saved inputs
+        this.props.dispatch({ type: 'CLEAR_ADVENTURE_INPUTS', payload: {} });
+        //this is updating entire adventure w/date and completed value as true
+        this.props.dispatch({ type: 'UPDATE_MARK_COMPLETE', payload: this.props.store.adventures.getAdventureInputs });
+        //clearing markComplete reducer back to false so next time someone hits edit the mark complete view doesn't show
+        this.props.dispatch({ type: 'SET_MARK_COMPLETE', payload: false });
         this.props.history.push('/dashboard');
     }
 
@@ -68,9 +92,9 @@ class EditCard extends Component {
         //clearing reducer inputs
         this.props.dispatch({ type: 'CLEAR_ADVENTURE_INPUTS', payload: {} });
         //setting dashboard reducer status as true or false to display same status as when clicked edit
-        this.props.dispatch({ type: 'SET_COMPLETE_STATUS', payload: this.props.store.adventures.getAdventureInputs.completed})
+        this.props.dispatch({ type: 'SET_COMPLETE_STATUS', payload: this.props.store.adventures.getAdventureInputs.completed })
         //setting markComplete reducer status as false
-        this.props.dispatch({ type: 'SET_MARK_COMPLETE' , payload: false });
+        this.props.dispatch({ type: 'SET_MARK_COMPLETE', payload: false });
     }
 
     render() {
@@ -84,7 +108,16 @@ class EditCard extends Component {
                     <Card className={classes.createAdventureCard}>
                         <form className={classes.form}>
                             <div>
-                                {/* <img src={adventure.image_url} alt={adventure.state} className={classes.adventureImg} /> */}
+                                <TextField
+                                    className={classes.textFields}
+                                    size="small"
+                                    variant="outlined"
+                                    placeholder="completed date"
+                                    name="date"
+                                    type="text"
+                                    value={adventureInput.date}
+                                    onChange={(event) => this.handleInputChange(event)}
+                                />
                             </div>
                             <div>
                                 <TextField
@@ -172,11 +205,16 @@ class EditCard extends Component {
                                     <Button className={classes.btnSingle} onClick={this.handleCancel}>
                                         Cancel
                                     </Button>
-                                    {this.props.store.markComplete.markComplete ? <Button className={classes.btnSingle} onClick={this.handleSave}>
-                                        Mark Complete
-                                    </Button> :  <Button className={classes.btnSingle} onClick={this.handleSave}>
-                                        Save
-                                    </Button>}
+                                    {this.props.store.markComplete.markComplete
+                                        ?
+                                        <Button className={classes.btnSingle} onClick={this.handleMarkComplete}>
+                                            Mark Complete
+                                        </Button>
+                                        :
+                                        <Button className={classes.btnSingle} onClick={this.handleSave}>
+                                            Save
+                                        </Button>
+                                    }
                                 </ButtonGroup>
                             </div>
                         </form>

@@ -7,14 +7,12 @@ import EditCard from './EditCard';
 
 class EditAdventurePage extends Component {
   state = {
-    appBarHeader: 'Edit Adventure Page (*make this dynamic)',
+    appBarHeader: 'Edit Future Adventure',
   };
 
   componentDidMount() {
     const adventureType = this.props.store.adventures.getAdventureInputs.completed;
-    if (adventureType) {
-      console.log(adventureType);
-    }
+    console.log(adventureType);
   }
   render() {
 

@@ -34,9 +34,9 @@ function* postAdventure(action) {
     }
 }
 
-function* markComplete(action) {
+function* updateMarkComplete(action) {
     try {
-        yield axios.put(`/api/adventures/mark-complete/${action.payload}`);
+        yield axios.put(`/api/adventures/mark-complete/${action.payload.id}`, action.payload);
         //reloading DOM
         yield fetchAdventures();
     } catch (error) {
@@ -68,7 +68,7 @@ function* adventuresSaga() {
   yield takeLatest('FETCH_ADVENTURES', fetchAdventures);
   yield takeLatest('DELETE_ADVENTURE', deleteAdventure);
   yield takeLatest('POST_ADVENTURE', postAdventure);
-  yield takeLatest('MARK_COMPLETE', markComplete);
+  yield takeLatest('UPDATE_MARK_COMPLETE', updateMarkComplete);
   yield takeLatest('FETCH_ADVENTURE_INPUTS', fetchAdventureInputs);
   yield takeLatest('UPDATE_ADVENTURE', updateAdventure);
 } 
