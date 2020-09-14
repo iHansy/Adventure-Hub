@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import DashboardHeader from '../DashboardPage/DashboardHeader';
 import DashboardAppBar from '../DashboardPage/DashboardAppBar';
-import CreateCard from './CreateCard';
+import EditCard from './EditCard';
 
-class CreateAdventurePage extends Component {
+class EditAdventurePage extends Component {
   state = {
-    appBarHeader: 'Add New Adventure',
+    appBarHeader: 'Edit Adventure Page (*make this dynamic)',
   };
 
   render() {
@@ -16,11 +16,10 @@ class CreateAdventurePage extends Component {
       <div>
         <DashboardHeader />
         <DashboardAppBar appBarHeader={this.state.appBarHeader}/>
-        <CreateCard />
+        <EditCard />
       </div>
     );
   }
 }
 
-export default connect(mapStoreToProps)(CreateAdventurePage);
-
+export default connect(mapStoreToProps)(EditAdventurePage);

@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import { withStyles, Card, Grid, Button } from '@material-ui/core';
+import { withRouter } from 'react-router-dom';
 
 //material UI styles
 const styles = theme => ({
     container: {
         padding: '2em',
+        marginBottom: '5em',
     },
     formControl: {
         width: '25%',
@@ -35,7 +37,18 @@ class DashboardCards extends Component {
     //fine to pass id here because it's not a user id
     handleDelete = (id) => {
         console.log('deleting adventure', id)
-        this.props.dispatch({ type: 'DELETE_ADVENTURE', payload: `${id}`});
+        this.props.dispatch({ type: 'DELETE_ADVENTURE', payload: `${id}` });
+    }
+
+    //when mark complete is clicked, move adventure from future to completed
+    handleMarkComplete = (id) => {
+        console.log('marking adventure complete...', id);
+        this.props.dispatch({ type: 'MARK_COMPLETE', payload: `${id}` });
+    }
+
+    handleEdit = (id) => {
+        console.log('EDITING ADVENTURE...', id);
+        this.props.history.push(`/edit-adventure/${id}`);
     }
 
     render() {
@@ -45,19 +58,32 @@ class DashboardCards extends Component {
         return (
             <div>
                 <Grid container spacing={4} className={classes.container}>
-                    {this.props.store.adventures.getAdventures.map((adventure, i) => {
+                    {this.props.store.adventures.getAllAdventures.map((adventure, i) => {
                         if (adventure.completed === this.props.adventureComplete) {
                             return (
                                 <Grid item xs={4} key={i}>
                                     <Card className={classes.adventureCard}>
                                         <img src={adventure.image_url} alt={adventure.state} className={classes.adventureImg} />
-                                        <h4>{adventure.city}, {adventure.state}</h4>
+                                        <h4>{adventure.park_name}</h4>
+                                        <p>{adventure.city}, {adventure.state}</p>
                                         <p>{adventure.date}</p>
                                         <h5>{adventure.main_activities}</h5>
                                         <p>{adventure.description}</p>
-                                        <Button size="small" variant="contained">Edit</Button>
-                                        {!this.props.adventureComplete && <Button size="small" 
-                                        variant="contained" color="primary">Mark Complete</Button>}
+                                        <Button
+                                            size="small" 
+                                            variant="contained"
+                                            onClick={() => this.handleEdit(adventure.id)}>
+                                            Edit
+                                        </Button>
+                                        {!this.props.adventureComplete &&
+                                            <Button
+                                                size="small"
+                                                variant="contained"
+                                                color="primary"
+                                                onClick={() => this.handleMarkComplete(adventure.id)}>
+                                                Mark Complete
+                                            </Button>
+                                        }
                                         <Button
                                             onClick={() => this.handleDelete(adventure.id)}
                                             size="small"
@@ -77,4 +103,6 @@ class DashboardCards extends Component {
 }
 
 const DashboardCardsStyled = withStyles(styles)(DashboardCards);
-export default connect(mapStoreToProps)(DashboardCardsStyled);
+const DashboardCardsStyledRouted = withRouter(DashboardCardsStyled);
+
+export default connect(mapStoreToProps)(DashboardCardsStyledRouted);

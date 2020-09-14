@@ -34,10 +34,32 @@ function* postAdventure(action) {
     }
 }
 
+function* markComplete(action) {
+    try {
+        yield axios.put(`/api/adventures/mark-complete/${action.payload}`);
+        //reloading DOM
+        yield fetchAdventures();
+    } catch (error) {
+        console.log('ERROR MARKING ADVENTURE COMPLETE', error);
+    }
+}
+
+function* fetchAdventureInputs(action) {
+    try {
+        let response = yield axios.get(`/api/adventures/${action.payload}`);
+        //sending adventure input details to reducer
+        yield put ({ type: 'SET_ADVENTURE_INPUTS', payload: response.data[0] });
+    } catch (error) {
+        console.log('ERROR FETCHING ADVENTURE INPUTS', error);
+    }
+}
+
 function* adventuresSaga() {
   yield takeLatest('FETCH_ADVENTURES', fetchAdventures);
   yield takeLatest('DELETE_ADVENTURE', deleteAdventure);
-  yield takeLatest('POST_ADVENTURE', postAdventure)
+  yield takeLatest('POST_ADVENTURE', postAdventure);
+  yield takeLatest('MARK_COMPLETE', markComplete);
+  yield takeLatest('FETCH_ADVENTURE_INPUTS', fetchAdventureInputs);
 } 
 
 export default adventuresSaga;
