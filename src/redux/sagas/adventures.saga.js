@@ -57,6 +57,8 @@ function* fetchAdventureInputs(action) {
 function* updateAdventure(action) {
     try {
         yield axios.put(`/api/adventures/edit-adventure/${action.payload.id}`, action.payload);
+        //reloading DOM
+        yield fetchAdventures();
     } catch (error) {
         console.log('ERROR EDITING ADVENTURE');
     }

@@ -10,12 +10,18 @@ class EditAdventurePage extends Component {
     appBarHeader: 'Edit Adventure Page (*make this dynamic)',
   };
 
+  componentDidMount() {
+    const adventureType = this.props.store.adventures.getAdventureInputs.completed;
+    if (adventureType) {
+      console.log(adventureType);
+    }
+  }
   render() {
 
     return (
       <div>
         <DashboardHeader />
-        <DashboardAppBar appBarHeader={this.state.appBarHeader}/>
+        <DashboardAppBar appBarHeader={this.state.appBarHeader} />
         <EditCard />
       </div>
     );

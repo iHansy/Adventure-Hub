@@ -86,7 +86,7 @@ router.put('/mark-complete/:id', (req, res) => {
 
 //updating entire adventure
 router.put('/edit-adventure/:id', rejectUnauthenticated, (req, res) => {
-  console.log('EDIT ADVENTURE ROUTER', req.params.id, req.body.park_name);
+  const {image_url, park_name, city, state, main_activities, description} = req.body;
   const queryText = `UPDATE "adventure"
                     SET "image_url" = $1,
                     "park_name" = $2,
@@ -95,8 +95,8 @@ router.put('/edit-adventure/:id', rejectUnauthenticated, (req, res) => {
                     "main_activities" = $5,
                     "description" = $6
                     WHERE "id" = $7 AND "user_id" = $8;`;
-  pool.query(queryText, [req.body.image_url, req.body.park_name, req.body.city, req.body.state, 
-                        req.body.main_activities, req.body.description, req.params.id, req.user.id])
+  pool.query(queryText, [image_url, park_name, city, state, 
+                        main_activities, description, req.params.id, req.user.id])
     .then((result) => {
       res.sendStatus(201); //created status
     })

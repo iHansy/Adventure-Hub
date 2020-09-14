@@ -46,26 +46,37 @@ class EditCard extends Component {
     }
 
     handleSave = () => {
+        const checkInput = this.props.store.adventures.getAdventureInputs
+        //validating that inputs are filled in
+        if (checkInput.image_url === '' 
+        || checkInput.state === '' 
+        || checkInput.main_activities === '' 
+        || checkInput.description === '') {
+            alert('Please fill in all required fields');
+            return;
+        }
         this.props.dispatch({ type: 'UPDATE_ADVENTURE', payload: this.props.store.adventures.getAdventureInputs });
-        // //validating that inputs are filled in
-        // if (state.image_url === '' || state.state === '' || state.main_activities === '' || state.description === '') {
-        //     alert('Please fill in all required fields');
-        //     return;
-        // }
-        // this.props.dispatch({ type: 'POST_ADVENTURE', payload: this.state })
-        // this.props.history.push('/dashboard');
+        //setting dashboard status as true or false to display same status as when clicked edit
+        this.props.dispatch({ type: 'SET_COMPLETE_STATUS', payload: this.props.store.adventures.getAdventureInputs.completed});
+        //clearing saved inputs
+        this.props.dispatch({ type: 'CLEAR_ADVENTURE_INPUTS', payload: {} });
+        this.props.history.push('/dashboard');
     }
 
     handleCancel = () => {
         this.props.history.push('/dashboard');
-        this.props.dispatch({ type: 'CLEAR_ADVENTURE_EDITS' });
+        //clearing reducer inputs
+        this.props.dispatch({ type: 'CLEAR_ADVENTURE_INPUTS', payload: {} });
+        //setting dashboard reducer status as true or false to display same status as when clicked edit
+        this.props.dispatch({ type: 'SET_COMPLETE_STATUS', payload: this.props.store.adventures.getAdventureInputs.completed})
+        //setting markComplete reducer status as false
+        this.props.dispatch({ type: 'SET_MARK_COMPLETE' , payload: false });
     }
 
     render() {
 
         const { classes } = this.props;
         const adventureInput = this.props.store.adventures.getAdventureInputs
-        console.log(adventureInput);
 
         return (
             <div>
