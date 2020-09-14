@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from 'react-redux';
 import MenuIcon from "@material-ui/icons/Menu";
 import { makeStyles, AppBar, MenuItem, Menu, Button, Toolbar, Typography } from '@material-ui/core';
+import { withRouter } from 'react-router-dom';
 
 const useStyles = makeStyles({
     dashboardTitle: {
@@ -44,6 +45,7 @@ const DashboardAppBar = (props) => {
     const logOut = () => {
         setAnchorEl(null);
         props.dispatch({ type: 'LOGOUT' });
+        props.history.push('/home');
     };
 
     return (
@@ -79,6 +81,6 @@ const DashboardAppBar = (props) => {
     );
 }
 
-
-export default connect()(DashboardAppBar);
+const DashboardAppBarRouted = withRouter(DashboardAppBar);
+export default connect()(DashboardAppBarRouted);
 // export default DashboardAppBar;

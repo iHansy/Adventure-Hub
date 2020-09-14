@@ -56,7 +56,8 @@ class DashboardCards extends Component {
                                         <h5>{adventure.main_activities}</h5>
                                         <p>{adventure.description}</p>
                                         <Button size="small" variant="contained">Edit</Button>
-                                        <Button size="small" variant="contained" color="primary">Mark Complete</Button>
+                                        {!this.props.adventureComplete && <Button size="small" 
+                                        variant="contained" color="primary">Mark Complete</Button>}
                                         <Button
                                             onClick={() => this.handleDelete(adventure.id)}
                                             size="small"
