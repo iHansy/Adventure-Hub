@@ -48,11 +48,11 @@ class DashboardPage extends Component {
   }
 
   handleAdventureStatus = (property, event) => {
+    console.log(this.state);
     this.setState({
       [property]: event.target.value,
       adventureComplete: !this.state.adventureComplete
     })
-    console.log(this.state);
   }
 
   createAdventure = () => {

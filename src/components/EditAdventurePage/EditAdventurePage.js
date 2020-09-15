@@ -6,16 +6,20 @@ import DashboardAppBar from '../DashboardPage/DashboardAppBar';
 import EditCard from './EditCard';
 
 class EditAdventurePage extends Component {
-  state = {
-    appBarHeader: 'Edit Adventure',
-  };
 
   render() {
+
+    let headerText = '';
+    if (this.props.store.adventures.getAdventureInputs.completed === false) {
+        headerText =  'Edit Future Adventure'
+    } else if (this.props.store.adventures.getAdventureInputs.completed === true) {
+        headerText =  'Edit Completed Adventure'
+    }
 
     return (
       <div>
         <DashboardHeader />
-        <DashboardAppBar appBarHeader={this.state.appBarHeader} />
+        <DashboardAppBar appBarHeader={headerText} />
         <EditCard />
       </div>
     );
