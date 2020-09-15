@@ -4,11 +4,11 @@ import mapStoreToProps from '../../redux/mapStoreToProps';
 import DashboardHeader from '../DashboardPage/DashboardHeader';
 import DashboardAppBar from '../DashboardPage/DashboardAppBar';
 
-class FeedPage extends Component {
+class ParkSearchPage extends Component {
 
   render() {
 
-    let headerText = 'Feed';
+    let headerText = 'Park Search';
 
     return (
       <div>
@@ -19,4 +19,4 @@ class FeedPage extends Component {
   }
 }
 
-export default connect(mapStoreToProps)(FeedPage);
+export default connect(mapStoreToProps)(ParkSearchPage);

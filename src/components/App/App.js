@@ -15,6 +15,7 @@ import EditAdventurePage from '../EditAdventurePage/EditAdventurePage';
 import HomePage from '../HomePage/HomePage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
+import ParkSearchPage from '../ParkSearchPage/ParkSearchPage';
 import './App.css';
 
 class App extends Component {
@@ -32,12 +33,18 @@ class App extends Component {
             {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
             <Redirect exact from="/" to="/home" />
 
-            {/* Visiting localhost:3000/feed will show the about page. */}
+            {/* shows FeedPage at all times (logged in or not) */}
             <Route
-              // shows FeedPage at all times (logged in or not)
               exact
               path="/feed"
               component={FeedPage}
+            />
+
+             {/* shows ParkSearchPage at all times (logged in or not) */}
+             <Route
+              exact
+              path="/park-search"
+              component={ParkSearchPage}
             />
 
             {/* For protected routes, the view could show one of several things on the same route.
