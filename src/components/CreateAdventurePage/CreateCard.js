@@ -93,7 +93,7 @@ class CreateCard extends Component {
                                     className={classes.textFields}
                                     size="small"
                                     variant="outlined"
-                                    placeholder="date"
+                                    placeholder="date (mm/dd/yy)"
                                     type="text"
                                     value={this.state.date}
                                     required

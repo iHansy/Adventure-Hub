@@ -112,7 +112,7 @@ class EditCard extends Component {
                                     className={classes.textFields}
                                     size="small"
                                     variant="outlined"
-                                    placeholder="completed date"
+                                    placeholder="date (mm/dd/yy)"
                                     name="date"
                                     type="text"
                                     value={adventureInput.date}

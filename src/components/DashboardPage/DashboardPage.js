@@ -23,7 +23,7 @@ const styles = theme => ({
 
 
 class DashboardPage extends Component {
-  
+
   state = {
     adventureStatus: 1,
     adventureComplete: false,

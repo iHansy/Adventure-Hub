@@ -10,9 +10,9 @@ class CreateAdventurePage extends Component {
   render() {
 
     let headerText = '';
-    if (this.props.store.adventures.completeStatus = false) {
+    if (this.props.store.adventures.completeStatus === false) {
         headerText =  'Add Future Adventure'
-    } else if (this.props.store.adventures.completeStatus = true) {
+    } else if (this.props.store.adventures.completeStatus === true) {
         headerText =  'Add Completed Adventure'
     }
 
