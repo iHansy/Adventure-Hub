@@ -42,10 +42,28 @@ const DashboardAppBar = (props) => {
         setAnchorEl(false);
     };
 
-    const logOut = () => {
+    const handleLogOut = () => {
         setAnchorEl(null);
         props.dispatch({ type: 'LOGOUT' });
         props.history.push('/home');
+    };
+
+    //going to dashboard when clicked in app bar
+    const handleDashboard = () => {
+        setAnchorEl(null);
+        props.history.push('/dashboard');
+    };
+
+    //going to feed when clicked in app bar
+    const handleFeed = () => {
+        setAnchorEl(null);
+        props.history.push('/feed');
+    };
+
+    //going to park search when clicked in app bar
+    const handleParkSearch = () => {
+        setAnchorEl(null);
+        props.history.push('/park-search');
     };
 
     return (
@@ -67,10 +85,10 @@ const DashboardAppBar = (props) => {
                         open={Boolean(anchorEl)}
                         onClose={handleClose}
                     >
-                        <MenuItem onClick={handleClose} className={classes.menuItem}>Dashboard</MenuItem>
-                        <MenuItem onClick={handleClose} className={classes.menuItem}>Park Search</MenuItem>
-                        <MenuItem onClick={handleClose} className={classes.menuItem}>Feed</MenuItem>
-                        <MenuItem onClick={logOut} className={classes.menuItem}>Logout</MenuItem>
+                        <MenuItem onClick={handleDashboard} className={classes.menuItem}>Dashboard</MenuItem>
+                        <MenuItem onClick={handleParkSearch} className={classes.menuItem}>Park Search</MenuItem>
+                        <MenuItem onClick={handleFeed} className={classes.menuItem}>Feed</MenuItem>
+                        <MenuItem onClick={handleLogOut} className={classes.menuItem}>Logout</MenuItem>
                     </Menu>
                     <Typography className={classes.dashboardTitle} variant="h4">
                         {props.appBarHeader}
