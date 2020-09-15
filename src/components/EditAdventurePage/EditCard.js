@@ -78,10 +78,10 @@ class EditCard extends Component {
         }
         //setting dashboard status as true or false to display same status as when clicked edit
         this.props.dispatch({ type: 'SET_COMPLETE_STATUS', payload: true });
-        //clearing saved inputs
-        this.props.dispatch({ type: 'CLEAR_ADVENTURE_INPUTS', payload: {} });
         //this is updating entire adventure w/date and completed value as true
         this.props.dispatch({ type: 'UPDATE_MARK_COMPLETE', payload: this.props.store.adventures.getAdventureInputs });
+        //clearing saved inputs
+        this.props.dispatch({ type: 'CLEAR_ADVENTURE_INPUTS', payload: {} });
         //clearing markComplete reducer back to false so next time someone hits edit the mark complete view doesn't show
         this.props.dispatch({ type: 'SET_MARK_COMPLETE', payload: false });
         this.props.history.push('/dashboard');

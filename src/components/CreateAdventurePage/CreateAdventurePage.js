@@ -6,16 +6,21 @@ import DashboardAppBar from '../DashboardPage/DashboardAppBar';
 import CreateCard from './CreateCard';
 
 class CreateAdventurePage extends Component {
-  state = {
-    appBarHeader: 'Add New Adventure',
-  };
-
+  
   render() {
+
+    let headerText = '';
+    if (this.props.store.adventures.completeStatus = false) {
+        headerText =  'Add Future Adventure'
+    } else if (this.props.store.adventures.completeStatus = true) {
+        headerText =  'Add Completed Adventure'
+    }
+
 
     return (
       <div>
         <DashboardHeader />
-        <DashboardAppBar appBarHeader={this.state.appBarHeader}/>
+        <DashboardAppBar appBarHeader={headerText}/>
         <CreateCard />
       </div>
     );

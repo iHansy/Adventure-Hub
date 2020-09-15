@@ -93,9 +93,10 @@ router.put('/mark-complete/:id', rejectUnauthenticated, (req, res) => {
 
 //updating entire adventure
 router.put('/edit-adventure/:id', rejectUnauthenticated, (req, res) => {
-  const {image_url, park_name, city, state, main_activities, description} = req.body;
+  console.log('EDIT ADVENTURE ROUTER', req.params.id);
+  const {date, image_url, park_name, city, state, main_activities, description} = req.body;
   const queryText = `UPDATE "adventure"
-                    SET "date" = $1
+                    SET "date" = $1,
                     "image_url" = $2,
                     "park_name" = $3,
                     "city" = $4,

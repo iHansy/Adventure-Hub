@@ -23,7 +23,7 @@ const styles = theme => ({
 
 
 class DashboardPage extends Component {
-
+  
   state = {
     adventureStatus: 1,
     adventureComplete: false,
@@ -52,6 +52,7 @@ class DashboardPage extends Component {
       [property]: event.target.value,
       adventureComplete: !this.state.adventureComplete
     })
+    console.log(this.state);
   }
 
   createAdventure = () => {
