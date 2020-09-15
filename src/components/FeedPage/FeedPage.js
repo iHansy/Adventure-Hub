@@ -6,6 +6,16 @@ import DashboardAppBar from '../DashboardPage/DashboardAppBar';
 
 class FeedPage extends Component {
 
+  componentDidMount() {
+
+    this.fetchFeed(); //getting all user's activity from database
+
+  }
+
+  fetchFeed = () => {
+    this.props.dispatch({ type: 'FETCH_FEED' });
+  }
+
   render() {
 
     let headerText = 'Feed';

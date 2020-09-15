@@ -2,7 +2,7 @@ import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
 // worker Saga: will be fired on "FETCH_USER" actions
-function* fetchAdventures(action) {
+function* fetchAdventures() {
     try {
         let response = yield axios.get(`/api/adventures`);
         //this is adding all adventures (response.data) to adventuresReducer
