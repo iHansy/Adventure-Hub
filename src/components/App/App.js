@@ -16,6 +16,7 @@ import HomePage from '../HomePage/HomePage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import ParkSearchPage from '../ParkSearchPage/ParkSearchPage';
+import FeedDetails from '../FeedPage/FeedDetails';
 import './App.css';
 
 class App extends Component {
@@ -39,6 +40,13 @@ class App extends Component {
               path="/feed"
               component={FeedPage}
             />
+
+             {/* shows FeedDetails at all times (logged in or not) */}
+             <Route
+             exact
+             path="/feed-details/:id"
+             component={FeedDetails}
+           />
 
              {/* shows ParkSearchPage at all times (logged in or not) */}
              <Route

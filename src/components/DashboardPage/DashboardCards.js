@@ -22,6 +22,7 @@ const styles = theme => ({
         backgroundColor: 'rgb(240, 240, 240)',
         padding: '.5em',
         height: '100%',
+        lineHeight: '1em',
     },
     adventureImg: {
         height: '15em',
@@ -30,6 +31,9 @@ const styles = theme => ({
         marginLeft: 'auto',
         marginRight: 'auto',
     },
+    date: {
+        display: 'inline',
+    }
 });
 
 class DashboardCards extends Component {
@@ -68,13 +72,15 @@ class DashboardCards extends Component {
                                 <Grid item xs={4} key={i}>
                                     <Card className={classes.adventureCard}>
                                         <img src={adventure.image_url} alt={adventure.state} className={classes.adventureImg} />
-                                        <h4>{adventure.park_name}</h4>
-                                        <p>{adventure.city}{adventure.city && <span>,</span>} {adventure.state}</p>
+                                        <h4 className={classes.date}>{adventure.park_name}</h4>
                                         <p>{adventure.date}</p>
+                                        <p>
+                                            {adventure.city && `${adventure.city},`} {adventure.state}
+                                        </p>
                                         <h5>{adventure.main_activities}</h5>
                                         <p>{adventure.description}</p>
                                         <Button
-                                            size="small" 
+                                            size="small"
                                             variant="contained"
                                             onClick={() => this.handleEdit(adventure.id)}>
                                             Edit

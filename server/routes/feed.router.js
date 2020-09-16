@@ -7,7 +7,11 @@ const {
 
 //retrieving all adventure
 router.get('/', (req, res) => {
-  const queryText = `SELECT * FROM "adventure" ORDER BY "date" DESC;`;
+  const queryText = `SELECT "adventure".id, "date", "park_name", "image_url", "city", 
+                    "state", "main_activities", "description", "completed", "user_id", "user".username 
+                    FROM "adventure"
+                    JOIN "user" ON "adventure".user_id = "user".id;
+                    `;
   pool.query(queryText)
     .then ((result) => {
       console.log('RETRIEVED ADVENTURE FEED');

@@ -3,6 +3,16 @@ import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import DashboardHeader from '../DashboardPage/DashboardHeader';
 import DashboardAppBar from '../DashboardPage/DashboardAppBar';
+import FeedCards from './FeedCards';
+import { withStyles, Card, Grid, Button } from '@material-ui/core';
+
+//material UI styles
+const styles = theme => ({
+  container: {
+      padding: '2em',
+      marginBottom: '2em',
+  },
+});
 
 class FeedPage extends Component {
 
@@ -18,15 +28,20 @@ class FeedPage extends Component {
 
   render() {
 
-    let headerText = 'Feed';
+    const { classes } = this.props;
+    let headerText = `User Feed`;
 
     return (
       <div>
         <DashboardHeader />
         <DashboardAppBar appBarHeader={headerText} />
+        <div className={classes.container}>
+          <FeedCards />
+        </div>
       </div>
     );
   }
 }
 
-export default connect(mapStoreToProps)(FeedPage);
+const FeedPageStyled = withStyles(styles)(FeedPage);
+export default connect(mapStoreToProps)(FeedPageStyled);
