@@ -8,30 +8,23 @@ import DashboardAppBar from '../DashboardPage/DashboardAppBar';
 
 //material UI styles
 const styles = theme => ({
-    container: {
-        padding: '2em',
-        marginBottom: '2em',
-    },
-    formControl: {
-        width: '25%',
-    },
-    addAdventure: {
-        marginTop: '.5em',
-        marginLeft: '.75em',
-        fontSize: '1em',
-    },
     adventureCard: {
         backgroundColor: 'rgb(240, 240, 240)',
-        padding: '.5em',
         height: '100%',
+        margin: 'auto',
+        marginTop: '2em',
+        width: '70%',
     },
     adventureImg: {
-        height: '15em',
-        width: '23em',
-        display: 'block',
-        marginLeft: 'auto',
-        marginRight: 'auto',
+        height: '30em',
+        width: '40em',
+        float: 'left',
+        marginRight: '5em',
     },
+    exitButton: {
+        float: 'right',
+        margin: '1em',
+    }
 });
 
 class FeedDetails extends Component {
@@ -43,26 +36,9 @@ class FeedDetails extends Component {
     fetchFeed = () => {
         this.props.dispatch({ type: 'FETCH_FEED' });
     }
-
-    //fine to pass id here because it's not a user id
-    handleDelete = (id) => {
-        console.log('deleting adventure', id)
-        this.props.dispatch({ type: 'DELETE_ADVENTURE', payload: `${id}` });
-    }
-
-    //when mark complete is clicked, move adventure from future to completed
-    handleMarkComplete = (id) => {
-        console.log('marking adventure complete...', id);
-        // move this over to markCompleteCard
-        this.props.history.push(`/edit-adventure/${id}`);
-        //setting markComplete reducer as true, this way the mark complete button on the
-        //edit screen will conditionally render based on boolean value of markComplete reducer
-        this.props.dispatch({ type: 'SET_MARK_COMPLETE', payload: true });
-    }
-
-    handleEdit = (id) => {
-        console.log('EDITING ADVENTURE...', id);
-        this.props.history.push(`/edit-adventure/${id}`);
+    
+    handleExit = () => {
+        this.props.history.push('/feed');
     }
 
     render() {
@@ -85,23 +61,26 @@ class FeedDetails extends Component {
                             return (
                                 <Card className={classes.adventureCard}>
                                     <img src={adventure.image_url} alt={adventure.park_name} className={classes.adventureImg} />
-                                    <h3>{adventure.username}</h3>
-                                    <h4>{adventure.park_name}</h4>
-                                    <p>{adventure.city}{adventure.city && <span>,</span>} {adventure.state}</p>
-                                    <p>{adventure.date}</p>
+                                        <Button
+                                            className={classes.exitButton}
+                                            onClick={this.handleExit}
+                                            size="small"
+                                            variant="contained"
+                                            color="inherit">
+                                            X
+                                        </Button>
+                                        <h3>{adventure.username}</h3>
+                                        <h4>{adventure.park_name}</h4>
+                                        <p>{adventure.city}{adventure.city && <span>,</span>} {adventure.state}</p>
+                                        <p>{adventure.date}</p>
+                                        <p>{adventure.main_activities}</p>
+                                        <p>{adventure.description}</p>
                                     <Button
                                         size="small"
                                         variant="contained"
-                                        color="primary" >
+                                        color="primary">
                                         Like
-                                </Button>
-                                    <Button
-                                        onClick={() => this.handleDetails(adventure.id)}
-                                        size="small"
-                                        variant="contained"
-                                        color="inherit" >
-                                        More Details
-                                </Button>
+                                    </Button>
                                 </Card>
                             )
                         }

@@ -53,7 +53,6 @@ class FeedCards extends Component {
                                         <img src={adventure.image_url} alt={adventure.state} className={classes.adventureImg} />
                                         <h3>{adventure.username}</h3>
                                         <h4>{adventure.park_name}</h4>
-                                        <p>{adventure.city}{adventure.city && <span>,</span>} {adventure.state}</p>
                                         <p>{adventure.date}</p>
                                         <Button
                                             size="small"
