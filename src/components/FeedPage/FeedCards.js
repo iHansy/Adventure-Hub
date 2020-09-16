@@ -42,7 +42,10 @@ class FeedCards extends Component {
 
     //increase, decrease like on button
     handleLike = (id) => {
-        console.log('liking adventure', id);
+        console.log('liking or unliking adventure', id);
+        // console.log(this.props.store.feed.getFeed[0].count);
+        if (this.props.store.feed.getFeed[id].count === 1)
+        this.props.dispatch({ type: 'ADD_LIKE', payload: id })
     }
 
     render() {
@@ -70,7 +73,7 @@ class FeedCards extends Component {
                                             Like
                                         </Button>
                                     }
-                                    <p>Likes: 0</p>
+                                    <p>{adventure.count} likes</p>
                                     <Button
                                         onClick={() => this.handleDetails(adventure.id)}
                                         size="small"
