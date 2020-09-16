@@ -11,7 +11,9 @@ class DashboardHeader extends Component {
     return (
       <header>
         <div className="dashboardHeader1">
-          <p id="welcome">Logged in as: {this.props.store.user.username}</p>
+          {this.props.store.user.id &&
+            <p id="welcome">Logged in as: {this.props.store.user.username}</p>
+          }
         </div>
       </header>
     );

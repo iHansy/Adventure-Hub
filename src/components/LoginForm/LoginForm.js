@@ -60,7 +60,7 @@ class LoginForm extends Component {
 
   //goes to feed page if user continues as guest
   handleGuest = (event) => {
-    this.props.history.push('/feed');
+    this.props.history.push('/park-search');
   };
 
   //goes to create account page if user clicks create account

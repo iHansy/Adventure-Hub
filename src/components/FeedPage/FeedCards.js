@@ -34,9 +34,15 @@ const styles = theme => ({
 
 class FeedCards extends Component {
 
+    //when more details is clicked, show details of adventure
     handleDetails = (id) => {
         console.log('EDITING ADVENTURE...', id);
         this.props.history.push(`/feed-details/${id}`);
+    }
+
+    //increase, decrease like on button
+    handleLike = (id) => {
+        console.log('liking adventure', id);
     }
 
     render() {
@@ -55,12 +61,15 @@ class FeedCards extends Component {
                                     <h3>{adventure.username}</h3>
                                     <h4>{adventure.park_name}</h4>
                                     <p>{adventure.date}</p>
-                                    <Button
-                                        size="small"
-                                        variant="contained"
-                                        color="primary" >
-                                        Like
+                                    {this.props.store.user.id &&
+                                        <Button
+                                            onClick={() => this.handleLike(adventure.id)}
+                                            size="small"
+                                            variant="contained"
+                                            color="primary" >
+                                            Like
                                         </Button>
+                                    }
                                     <p>Likes: 0</p>
                                     <Button
                                         onClick={() => this.handleDetails(adventure.id)}

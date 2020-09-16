@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import MenuIcon from "@material-ui/icons/Menu";
 import { makeStyles, AppBar, MenuItem, Menu, Button, Toolbar, Typography } from '@material-ui/core';
 import { withRouter } from 'react-router-dom';
+import mapStoreToProps from '../../redux/mapStoreToProps';
 
 const useStyles = makeStyles({
     dashboardTitle: {
@@ -66,6 +67,11 @@ const DashboardAppBar = (props) => {
         props.history.push('/park-search');
     };
 
+    const handleHome = () => {
+        setAnchorEl(null);
+        props.history.push('/home');
+    };
+
     return (
         <div>
             <AppBar className={classes.appBar} position="static">
@@ -85,10 +91,17 @@ const DashboardAppBar = (props) => {
                         open={Boolean(anchorEl)}
                         onClose={handleClose}
                     >
-                        <MenuItem onClick={handleDashboard} className={classes.menuItem}>Dashboard</MenuItem>
+                        {props.store.user.id &&
+                            <MenuItem onClick={handleDashboard} className={classes.menuItem}>Dashboard</MenuItem>
+                        }
+                        {!props.store.user.id &&
+                            <MenuItem onClick={handleHome} className={classes.menuItem}>Home</MenuItem>
+                        }
                         <MenuItem onClick={handleParkSearch} className={classes.menuItem}>Park Search</MenuItem>
                         <MenuItem onClick={handleFeed} className={classes.menuItem}>Feed</MenuItem>
-                        <MenuItem onClick={handleLogOut} className={classes.menuItem}>Logout</MenuItem>
+                        {props.store.user.id &&
+                            <MenuItem onClick={handleLogOut} className={classes.menuItem}>Logout</MenuItem>
+                        }
                     </Menu>
                     <Typography className={classes.dashboardTitle} variant="h4">
                         {props.appBarHeader}
@@ -100,5 +113,5 @@ const DashboardAppBar = (props) => {
 }
 
 const DashboardAppBarRouted = withRouter(DashboardAppBar);
-export default connect()(DashboardAppBarRouted);
+export default connect(mapStoreToProps)(DashboardAppBarRouted);
 // export default DashboardAppBar;
