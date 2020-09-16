@@ -32,7 +32,7 @@ const styles = theme => ({
     },
 });
 
-class FeedCards extends Component { 
+class FeedCards extends Component {
 
     handleDetails = (id) => {
         console.log('EDITING ADVENTURE...', id);
@@ -47,29 +47,31 @@ class FeedCards extends Component {
             <div>
                 <Grid container spacing={4} className={classes.container}>
                     {this.props.store.feed.getFeed.map((adventure) => {
-                            return (
-                                <Grid item xs={4} key={adventure.id}>
-                                    <Card className={classes.adventureCard}>
-                                        <img src={adventure.image_url} alt={adventure.state} className={classes.adventureImg} />
-                                        <h3>{adventure.username}</h3>
-                                        <h4>{adventure.park_name}</h4>
-                                        <p>{adventure.date}</p>
-                                        <Button
-                                            size="small"
-                                            variant="contained"
-                                            color="primary" >
-                                            Like
+                        return (
+                            <Grid item xs={4} key={adventure.id}>
+                                <Card className={classes.adventureCard}>
+                                    <img src={adventure.image_url} alt={adventure.state} className={classes.adventureImg} />
+                                    {adventure.completed ? <h3>completed</h3> : <h3>future</h3>}
+                                    <h3>{adventure.username}</h3>
+                                    <h4>{adventure.park_name}</h4>
+                                    <p>{adventure.date}</p>
+                                    <Button
+                                        size="small"
+                                        variant="contained"
+                                        color="primary" >
+                                        Like
                                         </Button>
-                                        <Button
-                                            onClick={() => this.handleDetails(adventure.id)}
-                                            size="small"
-                                            variant="contained"
-                                            color="inherit" >
-                                            More Details
+                                    <p>Likes: 0</p>
+                                    <Button
+                                        onClick={() => this.handleDetails(adventure.id)}
+                                        size="small"
+                                        variant="contained"
+                                        color="inherit" >
+                                        More Details
                                         </Button>
-                                    </Card>
-                                </Grid>
-                            )
+                                </Card>
+                            </Grid>
+                        )
                     })}
                 </Grid>
             </div>

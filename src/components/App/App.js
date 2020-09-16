@@ -16,7 +16,7 @@ import HomePage from '../HomePage/HomePage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import ParkSearchPage from '../ParkSearchPage/ParkSearchPage';
-import FeedDetails from '../FeedPage/FeedDetails';
+import FeedDetails from '../FeedPage/FeedDetailsPage';
 import './App.css';
 
 class App extends Component {

@@ -4,7 +4,7 @@ import mapStoreToProps from '../../redux/mapStoreToProps';
 import DashboardHeader from '../DashboardPage/DashboardHeader';
 import DashboardAppBar from '../DashboardPage/DashboardAppBar';
 import FeedCards from './FeedCards';
-import { withStyles, Card, Grid, Button } from '@material-ui/core';
+import { withStyles } from '@material-ui/core';
 
 //material UI styles
 const styles = theme => ({
@@ -29,7 +29,7 @@ class FeedPage extends Component {
   render() {
 
     const { classes } = this.props;
-    let headerText = `User Feed`;
+    let headerText = `All User Activity`;
 
     return (
       <div>

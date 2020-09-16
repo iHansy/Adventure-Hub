@@ -10,7 +10,8 @@ router.get('/', (req, res) => {
   const queryText = `SELECT "adventure".id, "date", "park_name", "image_url", "city", 
                     "state", "main_activities", "description", "completed", "user_id", "user".username 
                     FROM "adventure"
-                    JOIN "user" ON "adventure".user_id = "user".id;
+                    JOIN "user" ON "adventure".user_id = "user".id
+                    ORDER BY "date" DESC;
                     `;
   pool.query(queryText)
     .then ((result) => {
