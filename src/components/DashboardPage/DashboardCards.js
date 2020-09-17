@@ -42,6 +42,14 @@ const styles = theme => ({
         paddingRight: '3em',
         paddingLeft: '3em',
     },
+    spanDate: {
+        float: 'right',
+        fontStyle: 'normal',
+        fontWeight: 'normal',
+    },
+    futureCardButtons: {
+        width: '100%',
+    },
 });
 
 class DashboardCards extends Component {
@@ -81,35 +89,39 @@ class DashboardCards extends Component {
                                     <Card elevation={5} className={classes.adventureCard}>
                                         <img src={adventure.image_url} alt={adventure.state} className={classes.adventureImg} />
                                         <div className={classes.textUnderImg}>
-                                            <h4 className={classes.date}>{adventure.park_name}</h4>
-                                            <p>{moment(adventure.date).format('ll')}</p>
-                                            <p>
+                                            <h3 className={classes.date}>{adventure.park_name}
+                                                <span className={classes.spanDate}>{moment(adventure.date).format('ll')}</span>
+                                            </h3>
+
+                                            <h4>
                                                 {adventure.city && `${adventure.city},`} {adventure.state}
-                                            </p>
-                                            <h5>{adventure.main_activities}</h5>
+                                            </h4>
+                                            <i>{adventure.main_activities}</i>
                                             <p>{adventure.description}</p>
-                                            <Button
-                                                size="small"
-                                                variant="contained"
-                                                onClick={() => this.handleEdit(adventure.id)}>
-                                                Edit
-                                        </Button>
-                                            {!this.props.adventureComplete &&
+                                            <div className="futureCardButtons">
                                                 <Button
                                                     size="small"
                                                     variant="contained"
-                                                    color="primary"
-                                                    onClick={() => this.handleMarkComplete(adventure.id)}>
-                                                    Mark Complete
+                                                    onClick={() => this.handleEdit(adventure.id)}>
+                                                    Edit
                                             </Button>
-                                            }
-                                            <Button
-                                                onClick={() => this.handleDelete(adventure.id)}
-                                                size="small"
-                                                variant="contained"
-                                                color="secondary" >
-                                                Remove
-                                        </Button>
+                                                {!this.props.adventureComplete &&
+                                                    <Button
+                                                        size="small"
+                                                        variant="contained"
+                                                        color="primary"
+                                                        onClick={() => this.handleMarkComplete(adventure.id)}>
+                                                        Mark Complete
+                                            </Button>
+                                                }
+                                                <Button
+                                                    onClick={() => this.handleDelete(adventure.id)}
+                                                    size="small"
+                                                    variant="contained"
+                                                    color="secondary" >
+                                                    Remove
+                                            </Button>
+                                            </div>
                                         </div>
                                     </Card>
                                 </Grid>

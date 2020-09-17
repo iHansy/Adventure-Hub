@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import { withStyles, Button, ButtonGroup, TextField, Grid, Card } from '@material-ui/core';
 import { withRouter } from 'react-router-dom';
+import moment from 'moment';
 
 const styles = theme => ({
     container: {
@@ -115,7 +116,7 @@ class EditCard extends Component {
                                     placeholder="date (mm/dd/yy)"
                                     name="date"
                                     type="text"
-                                    value={adventureInput.date}
+                                    value={moment(adventureInput.date).format('ll')}
                                     onChange={(event) => this.handleInputChange(event)}
                                 />
                             </div>

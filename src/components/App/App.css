@@ -170,40 +170,10 @@ Form Treatment
   width: 67%;
 }
 
-/* .dashboardBannerIcon1 {
-  background-image: url("https://www.pngitem.com/pimgs/m/469-4694050_user-hiking-hiking-icon-png-transparent-png.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  height: 3em;
+/* .spanDate {
   float: right;
-  width: 2.5em;
-  margin-top: .5em;
-  margin-right: 2em;
-  border-radius: .5em;
-}
-
-.dashboardBannerIcon2 {
-  background-image: url("https://www.pngitem.com/pimgs/m/469-4694050_user-hiking-hiking-icon-png-transparent-png.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  height: 3em;
-  float: right;
-  width: 2.5em;
-  margin-top: .5em;
-  margin-right: 2em;
-  border-radius: .5em;
-}
-
-.dashboardBannerIcon3 {
-  background-image: url("https://www.pngitem.com/pimgs/m/469-4694050_user-hiking-hiking-icon-png-transparent-png.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  height: 3em;
-  float: right;
-  width: 2.5em;
-  margin-top: .5em;
-  margin-right: 2em;
-  border-radius: .5em;
+  font-style: normal;
+  font-weight: normal;
 } */
 
 /* .dashboardBannerIcon1 {
@@ -215,6 +185,15 @@ Form Treatment
   width: 30em;
   margin-right: 2em;
 } */
+
+.futureCardButtons {
+  display: -webkit-flex;
+             display: flex;
+             -webkit-justify-content: space-between;
+             justify-content: space-between;
+             margin-left: 5em;
+             margin-right: 5em;
+}
 
 .MuiBreadcrumbs-separator {
   font-size: 2em;
