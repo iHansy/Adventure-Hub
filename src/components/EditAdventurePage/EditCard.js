@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import { withStyles, Button, ButtonGroup, TextField, Grid, Card } from '@material-ui/core';
 import { withRouter } from 'react-router-dom';
-import moment from 'moment';
 
 const styles = theme => ({
     container: {
@@ -103,6 +102,16 @@ class EditCard extends Component {
         const { classes } = this.props;
         const adventureInput = this.props.store.adventures.getAdventureInputs
 
+        let formattedDate = adventureInput.date
+        if (formattedDate) {
+            console.log(formattedDate.length);
+            console.log(formattedDate);
+            if (formattedDate.length === 24) {
+                formattedDate = formattedDate.slice(0, -14);
+                console.log(formattedDate);
+            }
+        };
+
         return (
             <div>
                 <Grid item xs={12} className={classes.container}>
@@ -113,10 +122,10 @@ class EditCard extends Component {
                                     className={classes.textFields}
                                     size="small"
                                     variant="outlined"
-                                    placeholder="date (mm/dd/yy)"
+                                    placeholder="date (mm/dd/yyyy)"
                                     name="date"
-                                    type="text"
-                                    value={moment(adventureInput.date).format('ll')}
+                                    type="date"
+                                    value={formattedDate}
                                     onChange={(event) => this.handleInputChange(event)}
                                 />
                             </div>

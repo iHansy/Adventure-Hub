@@ -203,6 +203,13 @@ Form Treatment
   justify-content: center;
 }
 
+.spanDate {
+  float: right;
+  font-style: normal;
+  font-weight: normal;
+  font-size: .85em;
+}
+
 .test {
   color: rgb(206, 154, 57);
   color: rgb(121, 119, 115);

@@ -94,7 +94,7 @@ class CreateCard extends Component {
                                     size="small"
                                     variant="outlined"
                                     placeholder="date (mm/dd/yy)"
-                                    type="text"
+                                    type="date"
                                     value={this.state.date}
                                     required
                                     onChange={(event) => this.handleInputChange('date', event)}

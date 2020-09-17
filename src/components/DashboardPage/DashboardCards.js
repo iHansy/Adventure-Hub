@@ -12,6 +12,7 @@ const styles = theme => ({
         paddingLeft: '8em',
         paddingRight: '8em',
         paddingTop: '2em',
+
     },
     formControl: {
         width: '25%',
@@ -41,11 +42,6 @@ const styles = theme => ({
         padding: '1em',
         paddingRight: '3em',
         paddingLeft: '3em',
-    },
-    spanDate: {
-        float: 'right',
-        fontStyle: 'normal',
-        fontWeight: 'normal',
     },
     futureCardButtons: {
         width: '100%',
@@ -84,13 +80,22 @@ class DashboardCards extends Component {
                 <Grid container spacing={4} className={classes.container}>
                     {this.props.store.adventures.getAllAdventures.map((adventure, i) => {
                         if (adventure.completed === this.props.adventureComplete) {
+
+                            let newDate = adventure.date.slice(0, -14);
+                            console.log(newDate);
+                            // newDate.slice(0, -14);
+                            // console.log(adventure.date);
+                    
+                            // let date = task.due_date;
+                            // date = date.slice(0, -14);
+                            // task.due_date = date; // sliced off timestamp
                             return (
                                 <Grid item xs={6} key={i}>
                                     <Card elevation={5} className={classes.adventureCard}>
                                         <img src={adventure.image_url} alt={adventure.state} className={classes.adventureImg} />
                                         <div className={classes.textUnderImg}>
                                             <h3 className={classes.date}>{adventure.park_name}
-                                                <span className={classes.spanDate}>{moment(adventure.date).format('ll')}</span>
+                                                <span className="spanDate">{moment(adventure.date).format('ll')}</span>
                                             </h3>
 
                                             <h4>

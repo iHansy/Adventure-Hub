@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import DashboardAppBar from './DashboardAppBar';
 import DashboardCards from './DashboardCards';
-import { withStyles, FormControl, Select, MenuItem, Typography, Link, Breadcrumbs, Button, Tab, Tabs } from '@material-ui/core';
+import { withStyles, Breadcrumbs, Button} from '@material-ui/core';
 import ForwardOutlinedIcon from '@material-ui/icons/ForwardOutlined';
 import CheckCircleOutlinedIcon from '@material-ui/icons/CheckCircleOutlined';
 import AddCircleOutlinedIcon from '@material-ui/icons/AddCircleOutlined';
@@ -61,6 +61,8 @@ class DashboardPage extends Component {
   //this is making sure the dashboard view stays consistent with what type of adventure
   //was created and what the type of adventure the dropdown is currently on
   componentDidMount = () => {
+    //USE THIS FOR WINDOW RESIZE?
+    // window.addEventListener('resize', this.handleResize);
     console.log('loading all adventures...');
     if (this.props.store.adventures.completeStatus === true) {
       this.setState({
@@ -73,17 +75,19 @@ class DashboardPage extends Component {
     this.fetchAdventures(); //getting adventure details for current user on page load
   }
 
+  //USE THIS FOR WINDOW RESIZE?
+  //
+  // componentWillUnmount(){
+  //   window.removeEventListener('resize', this.handleResize);
+  // }
+  // handleResize = () => {
+  //   this.forceUpdate();
+  // };
+  //
+
   fetchAdventures = () => {
     this.props.dispatch({ type: 'FETCH_ADVENTURES' })
   }
-
-  // handleAdventureStatus = (property, event) => {
-  //   console.log(this.state);
-  //   this.setState({
-  //     [property]: event.target.value,
-  //     adventureComplete: !this.state.adventureComplete
-  //   })
-  // }
 
   createAdventure = () => {
     this.props.dispatch({ type: 'SET_COMPLETE_STATUS', payload: this.state.adventureComplete });
@@ -118,7 +122,6 @@ class DashboardPage extends Component {
 
     return (
       <div>
-        {/* <DashboardHeader /> */}
         <DashboardAppBar 
           appBarHeader={this.state.appBarHeader} 
           appBarStatus={this.state.appBarStatus} 
