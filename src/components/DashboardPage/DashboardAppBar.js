@@ -5,6 +5,7 @@ import { makeStyles, AppBar, MenuItem, Menu, Button, Toolbar, Typography } from 
 import { withRouter } from 'react-router-dom';
 import DashboardHeader from './DashboardHeader';
 import mapStoreToProps from '../../redux/mapStoreToProps';
+import dashboardBanner from '../App/images/dashboardBanner.jpg';
 
 const useStyles = makeStyles({
     dashboardTitle: {
@@ -76,7 +77,7 @@ const DashboardAppBar = (props) => {
     return (
         <div className="dashboardAppBar">
             <AppBar className={classes.appBar} position="static">
-            <DashboardHeader />
+                <DashboardHeader />
                 <Toolbar>
                     <Button
                         className={classes.button}

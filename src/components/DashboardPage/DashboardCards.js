@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
-import { withStyles, Card, Grid, Button } from '@material-ui/core';
+import { withStyles, Card, Grid, Button, Typography } from '@material-ui/core';
 import { withRouter } from 'react-router-dom';
+import moment from 'moment';
 
 //material UI styles
 const styles = theme => ({
@@ -81,7 +82,7 @@ class DashboardCards extends Component {
                                         <img src={adventure.image_url} alt={adventure.state} className={classes.adventureImg} />
                                         <div className={classes.textUnderImg}>
                                             <h4 className={classes.date}>{adventure.park_name}</h4>
-                                            <p>{adventure.date}</p>
+                                            <p>{moment(adventure.date).format('ll')}</p>
                                             <p>
                                                 {adventure.city && `${adventure.city},`} {adventure.state}
                                             </p>

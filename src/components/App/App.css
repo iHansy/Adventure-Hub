@@ -165,6 +165,57 @@ Form Treatment
   z-index: 10;
 }
 
+.dashboardBannerDiv {
+  height: 4em;
+  width: 67%;
+}
+
+/* .dashboardBannerIcon1 {
+  background-image: url("https://www.pngitem.com/pimgs/m/469-4694050_user-hiking-hiking-icon-png-transparent-png.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 3em;
+  float: right;
+  width: 2.5em;
+  margin-top: .5em;
+  margin-right: 2em;
+  border-radius: .5em;
+}
+
+.dashboardBannerIcon2 {
+  background-image: url("https://www.pngitem.com/pimgs/m/469-4694050_user-hiking-hiking-icon-png-transparent-png.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 3em;
+  float: right;
+  width: 2.5em;
+  margin-top: .5em;
+  margin-right: 2em;
+  border-radius: .5em;
+}
+
+.dashboardBannerIcon3 {
+  background-image: url("https://www.pngitem.com/pimgs/m/469-4694050_user-hiking-hiking-icon-png-transparent-png.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 3em;
+  float: right;
+  width: 2.5em;
+  margin-top: .5em;
+  margin-right: 2em;
+  border-radius: .5em;
+} */
+
+/* .dashboardBannerIcon1 {
+  background-image: url("https://lh3.googleusercontent.com/proxy/ijJ7qlbH9_7N7TWBrM65DcaHxng3h_XlA-rKWEpFFR1vzAHJsVpyuIESlax1tHxVZKBz2WkXkpwZXhS3tANSMswwoDXFVXFCA-zapAGagtbYyRoxjktv");
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 4em;
+  float: right;
+  width: 30em;
+  margin-right: 2em;
+} */
+
 .MuiBreadcrumbs-separator {
   font-size: 2em;
 }
