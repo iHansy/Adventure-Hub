@@ -12,7 +12,6 @@ class ParkSearchPage extends Component {
 
     return (
       <div>
-        <DashboardHeader />
         <DashboardAppBar appBarHeader={headerText} />
       </div>
     );

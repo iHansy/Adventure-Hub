@@ -11,6 +11,7 @@ const styles = theme => ({
   container: {
       padding: '2em',
       marginBottom: '2em',
+      marginTop: '6em',
   },
 });
 
@@ -33,7 +34,6 @@ class FeedPage extends Component {
 
     return (
       <div>
-        <DashboardHeader />
         <DashboardAppBar appBarHeader={headerText} />
         <div className={classes.container}>
           <FeedCards />

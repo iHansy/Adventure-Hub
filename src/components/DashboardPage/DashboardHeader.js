@@ -3,9 +3,6 @@ import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 
 class DashboardHeader extends Component {
-  state = {
-
-  };
 
   render() {
     return (

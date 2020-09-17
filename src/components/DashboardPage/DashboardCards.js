@@ -7,8 +7,10 @@ import { withRouter } from 'react-router-dom';
 //material UI styles
 const styles = theme => ({
     container: {
-        padding: '2em',
-        marginBottom: '2em',
+        paddingBottom: '5em',
+        paddingLeft: '8em',
+        paddingRight: '8em',
+        paddingTop: '2em',
     },
     formControl: {
         width: '25%',
@@ -20,20 +22,25 @@ const styles = theme => ({
     },
     adventureCard: {
         backgroundColor: 'rgb(240, 240, 240)',
-        padding: '.5em',
         height: '100%',
         lineHeight: '1em',
     },
     adventureImg: {
         height: '15em',
-        width: '23em',
+        width: '65%',
         display: 'block',
         marginLeft: 'auto',
         marginRight: 'auto',
+        borderRadius: '1em',
     },
     date: {
         display: 'inline',
-    }
+    },
+    textUnderImg: {
+        padding: '1em',
+        paddingRight: '3em',
+        paddingLeft: '3em',
+    },
 });
 
 class DashboardCards extends Component {
@@ -69,38 +76,40 @@ class DashboardCards extends Component {
                     {this.props.store.adventures.getAllAdventures.map((adventure, i) => {
                         if (adventure.completed === this.props.adventureComplete) {
                             return (
-                                <Grid item xs={4} key={i}>
-                                    <Card className={classes.adventureCard}>
+                                <Grid item xs={6} key={i}>
+                                    <Card elevation={5} className={classes.adventureCard}>
                                         <img src={adventure.image_url} alt={adventure.state} className={classes.adventureImg} />
-                                        <h4 className={classes.date}>{adventure.park_name}</h4>
-                                        <p>{adventure.date}</p>
-                                        <p>
-                                            {adventure.city && `${adventure.city},`} {adventure.state}
-                                        </p>
-                                        <h5>{adventure.main_activities}</h5>
-                                        <p>{adventure.description}</p>
-                                        <Button
-                                            size="small"
-                                            variant="contained"
-                                            onClick={() => this.handleEdit(adventure.id)}>
-                                            Edit
-                                        </Button>
-                                        {!this.props.adventureComplete &&
+                                        <div className={classes.textUnderImg}>
+                                            <h4 className={classes.date}>{adventure.park_name}</h4>
+                                            <p>{adventure.date}</p>
+                                            <p>
+                                                {adventure.city && `${adventure.city},`} {adventure.state}
+                                            </p>
+                                            <h5>{adventure.main_activities}</h5>
+                                            <p>{adventure.description}</p>
                                             <Button
                                                 size="small"
                                                 variant="contained"
-                                                color="primary"
-                                                onClick={() => this.handleMarkComplete(adventure.id)}>
-                                                Mark Complete
-                                            </Button>
-                                        }
-                                        <Button
-                                            onClick={() => this.handleDelete(adventure.id)}
-                                            size="small"
-                                            variant="contained"
-                                            color="secondary" >
-                                            Remove
+                                                onClick={() => this.handleEdit(adventure.id)}>
+                                                Edit
                                         </Button>
+                                            {!this.props.adventureComplete &&
+                                                <Button
+                                                    size="small"
+                                                    variant="contained"
+                                                    color="primary"
+                                                    onClick={() => this.handleMarkComplete(adventure.id)}>
+                                                    Mark Complete
+                                            </Button>
+                                            }
+                                            <Button
+                                                onClick={() => this.handleDelete(adventure.id)}
+                                                size="small"
+                                                variant="contained"
+                                                color="secondary" >
+                                                Remove
+                                        </Button>
+                                        </div>
                                     </Card>
                                 </Grid>
                             )

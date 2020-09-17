@@ -57,7 +57,7 @@ class FeedCards extends Component {
                     {this.props.store.feed.getFeed.map((adventure) => {
                         return (
                             <Grid item xs={4} key={adventure.id}>
-                                <Card className={classes.adventureCard}>
+                                <Card elevation={5} className={classes.adventureCard}>
                                     <img src={adventure.image_url} alt={adventure.state} className={classes.adventureImg} />
                                     {adventure.completed ? <h3>completed</h3> : <h3>future</h3>}
                                     <h3>{adventure.username}</h3>

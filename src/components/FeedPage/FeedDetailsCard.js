@@ -64,7 +64,7 @@ class FeedDetailsPage extends Component {
                     {this.props.store.feed.getFeed.map((adventure) => {
                         if (adventure.id == matchId) {
                             return (
-                                    <Card className={classes.adventureCard}>
+                                    <Card elevation={5} className={classes.adventureCard}>
                                         <img src={adventure.image_url} alt={adventure.park_name} className={classes.adventureImg} />
                                         <Button
                                             className={classes.exitButton}

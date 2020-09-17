@@ -157,6 +157,14 @@ Form Treatment
   box-shadow: 0px -3px 10px gray;
 }
 
+.dashboardAppBar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+}
+
 .MuiBreadcrumbs-separator {
   font-size: 2em;
 }

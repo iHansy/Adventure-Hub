@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import MenuIcon from "@material-ui/icons/Menu";
 import { makeStyles, AppBar, MenuItem, Menu, Button, Toolbar, Typography } from '@material-ui/core';
 import { withRouter } from 'react-router-dom';
+import DashboardHeader from './DashboardHeader';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 
 const useStyles = makeStyles({
@@ -73,8 +74,9 @@ const DashboardAppBar = (props) => {
     };
 
     return (
-        <div>
+        <div className="dashboardAppBar">
             <AppBar className={classes.appBar} position="static">
+            <DashboardHeader />
                 <Toolbar>
                     <Button
                         className={classes.button}
