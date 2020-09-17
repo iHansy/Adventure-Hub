@@ -157,6 +157,14 @@ Form Treatment
   box-shadow: 0px -3px 10px gray;
 }
 
+.MuiBreadcrumbs-separator {
+  font-size: 2em;
+}
+
+.MuiBreadcrumbs-ol {
+  justify-content: center;
+}
+
 .test {
   color: rgb(206, 154, 57);
   color: rgb(121, 119, 115);

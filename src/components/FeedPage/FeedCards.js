@@ -43,9 +43,8 @@ class FeedCards extends Component {
     //increase, decrease like on button
     handleLike = (id) => {
         console.log('liking or unliking adventure', id);
-        // console.log(this.props.store.feed.getFeed[0].count);
-        if (this.props.store.feed.getFeed[id].count === 1)
-        this.props.dispatch({ type: 'ADD_LIKE', payload: id })
+        //sql code is liking or unliking if like already exists
+        this.props.dispatch({ type: 'PUT_LIKE', payload: id })
     }
 
     render() {

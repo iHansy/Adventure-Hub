@@ -3,18 +3,28 @@ import { connect } from 'react-redux';
 import DashboardAppBar from './DashboardAppBar';
 import DashboardCards from './DashboardCards';
 import DashboardHeader from './DashboardHeader';
-import { withStyles, FormControl, Select, MenuItem, Typography, Link } from '@material-ui/core';
+import { withStyles, FormControl, Select, MenuItem, Typography, Link, Breadcrumbs, Button } from '@material-ui/core';
+import ForwardOutlinedIcon from '@material-ui/icons/ForwardOutlined';
+import CheckCircleOutlinedIcon from '@material-ui/icons/CheckCircleOutlined';
+import AddCircleOutlinedIcon from '@material-ui/icons/AddCircleOutlined';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 
 //material UI styles
 const styles = theme => ({
   container: {
-    padding: '2em',
+    padding: '1em',
+    paddingLeft: '1em',
+    paddingRight: '1em',
   },
   formControl: {
     width: '25%',
   },
+  breadcrumbs: {
+    display: 'inline-flex',
+    textAlign: 'center',
+  },
   addAdventure: {
+    display: 'inline-flex',
     marginTop: '.50em',
     marginLeft: '.75em',
     fontSize: '1em',
@@ -28,6 +38,7 @@ class DashboardPage extends Component {
     adventureStatus: 1,
     adventureComplete: false,
     appBarHeader: 'Bucket List Dashboard',
+    appBarStatus: 'dashboardOnly',
   };
 
   //this is making sure the dashboard view stays consistent with what type of adventure
@@ -47,18 +58,35 @@ class DashboardPage extends Component {
     this.props.dispatch({ type: 'FETCH_ADVENTURES' })
   }
 
-  handleAdventureStatus = (property, event) => {
-    console.log(this.state);
-    this.setState({
-      [property]: event.target.value,
-      adventureComplete: !this.state.adventureComplete
-    })
-  }
+  // handleAdventureStatus = (property, event) => {
+  //   console.log(this.state);
+  //   this.setState({
+  //     [property]: event.target.value,
+  //     adventureComplete: !this.state.adventureComplete
+  //   })
+  // }
 
   createAdventure = () => {
-    this.props.dispatch({ type:'SET_COMPLETE_STATUS', payload: this.state.adventureComplete});
+    this.props.dispatch({ type: 'SET_COMPLETE_STATUS', payload: this.state.adventureComplete });
     this.props.history.push('/create-adventure');
   }
+
+  //nav breadcrumbs to show future or completed
+  handleFuture = () => {
+    console.log('HANDLE FUTURE');
+    this.setState({
+      adventureStatus: 1,
+      adventureComplete: false,
+    })
+  };
+
+  handleCompleted = () => {
+    console.log('HANDLE COMPLETED');
+    this.setState({
+      adventureStatus: 2,
+      adventureComplete: true,
+    })
+  };
 
   render() {
 
@@ -67,9 +95,9 @@ class DashboardPage extends Component {
     return (
       <div>
         <DashboardHeader />
-        <DashboardAppBar appBarHeader={this.state.appBarHeader}/>
+        <DashboardAppBar appBarHeader={this.state.appBarHeader} appBarStatus={this.state.appBarStatus} />
         <div className={classes.container}>
-          <FormControl size="small" variant="filled" className={classes.formControl}>
+          {/* <FormControl size="small" variant="filled" className={classes.formControl}>
             <Select
               labelId="demo-simple-select-filled-label"
               id="demo-simple-select-filled"
@@ -79,17 +107,24 @@ class DashboardPage extends Component {
               <MenuItem value={1}>Future Adventures</MenuItem>
               <MenuItem value={2}>Completed Adventures</MenuItem>
             </Select>
-          </FormControl>
-          <div>
-            <Typography>
-              <Link
-                onClick={this.createAdventure}
-                component="button"
-                variant="h6"
-                className={classes.addAdventure}>
-                Add new adventure
-              </Link>
-            </Typography>
+          </FormControl> */}
+          <div className="breadcrumbs">
+            <Breadcrumbs separator="|">
+              <Button onClick={this.handleFuture}>
+                  Future
+              <ForwardOutlinedIcon />
+              </Button>
+              <Button onClick={this.handleCompleted}>
+                  Completed
+              <CheckCircleOutlinedIcon />
+              </Button>
+              <Button onClick={this.createAdventure}>
+                  Add Adventure
+              <AddCircleOutlinedIcon />
+              </Button>
+            </Breadcrumbs>
+          </div>
+          <div >
           </div>
           <DashboardCards adventureComplete={this.state.adventureComplete} />
         </div>

@@ -27,12 +27,23 @@ router.get('/', (req, res) => {
     })
 });
 
-//adding like to database
-router.post('/like/:id', rejectUnauthenticated, (req, res) => {
-  const queryText = `INSERT INTO "user_adventure_likes"
-                    ("user_id", "adventure_id")
-                    VALUES ($1, $2);`;
-  pool.query(queryText, [req.user.id, req.params.id])
+//adding or deleting like from database
+router.put('/like/:id', rejectUnauthenticated, (req, res) => {
+  const queryText = `DO $$
+                    BEGIN
+                    IF EXISTS (
+                    SELECT * FROM "user_adventure_likes"
+                    WHERE "user_id" = ${req.user.id} AND "adventure_id" = ${req.params.id})
+                    THEN 
+                    DELETE FROM "user_adventure_likes"
+                    WHERE "user_id" = ${req.user.id} AND "adventure_id" = ${req.params.id};
+                    ELSE 
+                    INSERT INTO "user_adventure_likes" ("user_id", "adventure_id")
+                    VALUES (${req.user.id}, ${req.params.id});
+                    END IF;
+                    END $$;`;
+  //sql injection not working here
+  pool.query(queryText)
     .then((result) => {
       console.log('ROUTER LIKED ADVENTURE', req.params.id);
       res.sendStatus(201); //status created

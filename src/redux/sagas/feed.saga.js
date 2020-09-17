@@ -12,9 +12,9 @@ function* fetchFeed() {
     }
 };
 
-function* addLike(action) {
+function* putLike(action) {
     try {
-        yield axios.post(`api/feed/like/${action.payload}`)
+        yield axios.put(`/api/feed/like/${action.payload}`)
         //calling get route to get updated likes
         yield fetchFeed();
     } catch (error) {
@@ -25,7 +25,7 @@ function* addLike(action) {
 
 function* feedSaga() {
   yield takeLatest('FETCH_FEED', fetchFeed);
-  yield takeLatest('ADD_LIKE', addLike);
+  yield takeLatest('PUT_LIKE', putLike);
 };
 
 export default feedSaga;
