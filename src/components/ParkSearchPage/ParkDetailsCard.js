@@ -45,6 +45,13 @@ class ParkDetailsCard extends Component {
         this.props.history.push('/park-search');
     }
 
+    handleAddBucket = () => {
+        this.props.history.push('/create-adventure');
+        const i = this.props.match.params.id;
+        let parkInput = this.props.store.parks.getParks[i]
+        this.props.dispatch({ type: 'SET_PARK_INPUTS', payload: parkInput });
+    }
+
     render() {
 
         const { classes } = this.props;
@@ -83,6 +90,7 @@ class ParkDetailsCard extends Component {
                                 <p>{park.description}</p>
                                 </div>
                                 <Button
+                                    onClick={this.handleAddBucket}
                                     className={classes.addButton}
                                     size="small"
                                     variant="contained"

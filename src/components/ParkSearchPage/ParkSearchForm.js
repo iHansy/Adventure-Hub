@@ -7,6 +7,7 @@ import { withStyles, Grid, Card, InputLabel, Select, MenuItem, FormControl, Butt
 //material UI styles
 const styles = theme => ({
     container: {
+        padding: '2em',
     },
 });
 
@@ -41,7 +42,6 @@ class ParkSearchForm extends Component {
 
         return (
             <div className={classes.container}>
-                <h1>NPS SEARCH</h1>
                 <FormControl>
                     <InputLabel id="demo-simple-select-label">State</InputLabel>
                     <Select
@@ -101,7 +101,7 @@ class ParkSearchForm extends Component {
                         <MenuItem value="WY">Wyoming</MenuItem>
                     </Select>
                 </FormControl>
-                <button onClick={this.handleSubmit}>Submit</button>
+                <Button color="primary" variant="contained" onClick={this.handleSubmit}>Submit</Button>
             </div>
         );
     }

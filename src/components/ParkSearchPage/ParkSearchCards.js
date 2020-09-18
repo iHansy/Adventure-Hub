@@ -9,6 +9,10 @@ const styles = theme => ({
     container: {
         marginTop: '2em',
     },
+    searchImg: {
+        height: '20em',
+        width: '100%',
+    },
 });
 
 class ParkSearchCards extends Component {
@@ -30,9 +34,9 @@ class ParkSearchCards extends Component {
                             <Grid item xs={4} key={i}>
                                 <Card elevation={5} >
                                     {park.images[0] ?
-                                        <img src={park.images[0].url} alt={park.images[0].altText} /> 
+                                        <img className={classes.searchImg} src={park.images[0].url} alt={park.images[0].altText} /> 
                                         : 
-                                        <i>No Image Available</i>
+                                        <div className={classes.searchImg}><i>No Image Available</i></div>
                                     }
                                     <h3>{park.fullName}</h3>
                                     {park.addresses[1] &&

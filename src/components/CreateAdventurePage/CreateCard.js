@@ -6,7 +6,7 @@ import { withRouter } from 'react-router-dom';
 
 const styles = theme => ({
     container: {
-        marginTop: '2em',
+        marginTop: '4em',
         padding: '2.5em',
         width: '40em',
         margin: 'auto',
@@ -46,11 +46,29 @@ class CreateCard extends Component {
         completed: this.props.store.adventures.completeStatus,
     };
 
+    componentDidMount() {
+        this.checkParkInputs();
+    }
+
     handleInputChange = (property, event) => {
         this.setState({
             ...this.state,
             [property]: event.target.value
         })
+    }
+
+
+    checkParkInputs = () => {
+        const parkInputs = this.props.store.parks.getParkInputs;
+        console.log(parkInputs.url);
+        if (parkInputs.url) {
+            this.setState({
+                image_url: parkInputs.images[0].url,
+                park_name: parkInputs.fullName,
+                city: parkInputs.addresses[1].city,
+                state: parkInputs.addresses[1].stateCode,
+            })
+        }
     }
 
     handleSave = () => {
@@ -77,6 +95,8 @@ class CreateCard extends Component {
     handleCancel = () => {
         alert(`Cancel new adventure?`);
         this.props.history.push('/dashboard');
+        //clearing parks.parkInput reducer
+        this.props.dispatch({ type: 'SET_PARK_INPUTS', payload: [] });
     }
 
     render() {

@@ -9,6 +9,16 @@ const getParks = (state = [], action) => {
   }
 };
 
+const getParkInputs = (state = [], action) => {
+  switch (action.type) {
+    case 'SET_PARK_INPUTS':
+      return action.payload;
+    default:
+      return state;
+  }
+};
+
 export default combineReducers({
-    getParks
+    getParks,
+    getParkInputs,
 });
