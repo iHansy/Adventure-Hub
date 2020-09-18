@@ -1,21 +1,31 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
-import DashboardHeader from '../DashboardPage/DashboardHeader';
 import DashboardAppBar from '../DashboardPage/DashboardAppBar';
+import ParkSearchForm from './ParkSearchForm';
+import { withStyles } from '@material-ui/core';
+
+//material UI styles
+const styles = theme => ({
+  container: {
+  },
+});
 
 class ParkSearchPage extends Component {
 
   render() {
 
-    let headerText = 'Park Search';
+    const { classes } = this.props;
+    let headerText = 'Find a Park';
 
     return (
-      <div>
+      <div className={classes.container}>
         <DashboardAppBar appBarHeader={headerText} />
+        <ParkSearchForm />
       </div>
     );
   }
 }
 
-export default connect(mapStoreToProps)(ParkSearchPage);
+const ParkSearchPageStyled = withStyles(styles)(ParkSearchPage);
+export default connect(mapStoreToProps)(ParkSearchPageStyled);
