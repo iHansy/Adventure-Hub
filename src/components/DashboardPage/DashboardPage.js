@@ -130,13 +130,13 @@ class DashboardPage extends Component {
           <div className="breadcrumbs">
             <Breadcrumbs separator="|">
               <Button size="large" onClick={this.handleFuture} 
-                color={this.state.futureStatus ? 'primary' : 'blue'}
+                color={this.state.futureStatus ? 'primary' : 'null'}
                 className={classes.futureButton} >
                 Future
               <ForwardOutlinedIcon />
               </Button>
               <Button size="large" onClick={this.handleCompleted} 
-                color={this.state.completedStatus ? 'primary' : 'blue'}
+                color={this.state.completedStatus ? 'primary' : 'null'}
                 className={classes.completedButton}>
                 Completed
               <CheckCircleOutlinedIcon />
