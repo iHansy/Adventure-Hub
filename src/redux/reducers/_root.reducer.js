@@ -4,6 +4,7 @@ import user from './user.reducer';
 import adventures from './adventures.reducer';
 import markComplete from './markComplete.reducer';
 import feed from './feed.reducer';
+import parks from './parks.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
   adventures,
   markComplete,
   feed,
+  parks,
 });
 
 export default rootReducer;

@@ -7,13 +7,6 @@ import { withStyles, Grid, Card, InputLabel, Select, MenuItem, FormControl } fro
 //material UI styles
 const styles = theme => ({
     container: {
-      padding: '5em',
-    },
-    control: {
-      padding: 6,
-    },
-    control2: {
-      padding: 12,
     },
   });
   
@@ -33,7 +26,7 @@ const styles = theme => ({
   
     handleSubmit = () => {
       if (this.state.parkState === '') {
-        alert('Choose a state before submitting.');
+        alert('Please choose a state before submitting.');
         return;
       }
       console.log(this.state);
