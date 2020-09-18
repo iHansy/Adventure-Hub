@@ -57,14 +57,14 @@ class FeedDetailsPage extends Component {
 
         //this is being compared below in the if statement to only show details
         //for adventure clicked on
-        const matchId = this.props.match.params.id;
+        const matchId = Number(this.props.match.params.id);
 
         return (
             <div>
                     {this.props.store.feed.getFeed.map((adventure) => {
-                        if (adventure.id == matchId) {
+                        if (adventure.id === matchId) {
                             return (
-                                    <Card elevation={5} className={classes.adventureCard}>
+                                    <Card elevation={5} className={classes.adventureCard} key={adventure.id}>
                                         <img src={adventure.image_url} alt={adventure.park_name} className={classes.adventureImg} />
                                         <Button
                                             className={classes.exitButton}
@@ -73,7 +73,7 @@ class FeedDetailsPage extends Component {
                                             variant="contained"
                                             color="inherit">
                                             X
-                                    </Button>
+                                        </Button>
                                         <div className={classes.detailsText}>
                                             <h2>{adventure.username}</h2>
                                             <h4>{adventure.park_name}</h4>

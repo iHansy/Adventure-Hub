@@ -17,6 +17,7 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import ParkSearchPage from '../ParkSearchPage/ParkSearchPage';
 import FeedDetails from '../FeedPage/FeedDetailsPage';
+import ParkDetailsPage from '../ParkSearchPage/ParkDetailsPage';
 import './App.css';
 
 class App extends Component {
@@ -53,6 +54,13 @@ class App extends Component {
               exact
               path="/park-search"
               component={ParkSearchPage}
+            />
+
+              {/* shows ParkSearchPage at all times (logged in or not) */}
+              <Route
+              exact
+              path="/park-search-details/:id"
+              component={ParkDetailsPage}
             />
 
             {/* For protected routes, the view could show one of several things on the same route.
