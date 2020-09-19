@@ -12,6 +12,16 @@ function* fetchFeed() {
     }
 };
 
+function* fetchLikes() {
+    try {
+        let response = yield axios.get(`/api/feed/likes`);
+        //this is adding all adventures (response.data) to adventuresReducer
+        yield put({ type: 'SET_LIKES', payload: response.data })
+    } catch (error) { //catch for any errors
+        console.log('ERROR GETTING LIKES', error);
+    }
+};
+
 function* putLike(action) {
     try {
         yield axios.put(`/api/feed/like/${action.payload}`)
@@ -26,6 +36,7 @@ function* putLike(action) {
 function* feedSaga() {
   yield takeLatest('FETCH_FEED', fetchFeed);
   yield takeLatest('PUT_LIKE', putLike);
+  yield takeLatest('FETCH_LIKES', fetchLikes);
 };
 
 export default feedSaga;

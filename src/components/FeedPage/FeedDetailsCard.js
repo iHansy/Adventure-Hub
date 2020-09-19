@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
-import { withStyles, Card, Grid, Button } from '@material-ui/core';
+import { withStyles, Card, Button } from '@material-ui/core';
+import ThumbUpOutlinedIcon from '@material-ui/icons/ThumbUpOutlined';
 import { withRouter } from 'react-router-dom';
 import moment from 'moment';
 
@@ -34,8 +35,18 @@ const styles = theme => ({
         marginRight: '1em',
     },
     likeButton: {
-        marginLeft: '10em',
+        marginLeft: '9em',
+        width: '10%',
+        backgroundColor: 'rgb(216, 174, 95)',
+        '&:hover': {
+            backgroundColor: 'rgb(196, 150, 67)',
+            borderColor: '#0062cc',
+            boxShadow: 'none',
+        },
     },
+    likesCount: {
+        textAlign: 'center',
+    },  
 });
 
 class FeedDetailsPage extends Component {
@@ -52,6 +63,13 @@ class FeedDetailsPage extends Component {
         this.props.history.push('/feed');
     }
 
+     //increase, decrease like on button
+     handleLike = (id) => {
+        console.log('liking or unliking adventure', id);
+        //sql code is liking or unliking if like already exists
+        this.props.dispatch({ type: 'PUT_LIKE', payload: id })
+    }
+
     render() {
 
         const { classes } = this.props;
@@ -62,38 +80,43 @@ class FeedDetailsPage extends Component {
 
         return (
             <div>
-                    {this.props.store.feed.getFeed.map((adventure) => {
-                        if (adventure.id === matchId) {
-                            return (
-                                    <Card elevation={5} className={classes.adventureCard} key={adventure.id}>
-                                        <img src={adventure.image_url} alt={adventure.park_name} className={classes.adventureImg} />
-                                        <Button
-                                            className={classes.exitButton}
-                                            onClick={this.handleExit}
-                                            size="small"
-                                            variant="contained"
-                                            color="inherit">
-                                            X
+                {this.props.store.feed.getFeed.map((adventure) => {
+                    if (adventure.id === matchId) {
+                        return (
+                            <Card elevation={5} className={classes.adventureCard} key={adventure.id}>
+                                <img src={adventure.image_url} alt={adventure.park_name} className={classes.adventureImg} />
+                                <Button
+                                    className={classes.exitButton}
+                                    onClick={this.handleExit}
+                                    size="small"
+                                    variant="contained"
+                                    color="inherit">
+                                    X
                                         </Button>
-                                        <div className={classes.detailsText}>
-                                            <h2>{adventure.username}</h2>
-                                            <h4>{adventure.park_name}</h4>
-                                            <p>{adventure.city}{adventure.city && <span>,</span>} {adventure.state}</p>
-                                            <p>{moment(adventure.date).format('ll')}</p>
-                                            <p>{adventure.main_activities}</p>
-                                            <p>{adventure.description}</p>
-                                        </div>
-                                        <Button
-                                            className={classes.likeButton}
-                                            size="small"
-                                            variant="contained"
-                                            color="primary">
-                                            Like
+                                <div className={classes.detailsText}>
+                                    <h2>{adventure.username}</h2>
+                                    <h4>{adventure.park_name}</h4>
+                                    <p>{adventure.city}{adventure.city && <span>,</span>} {adventure.state}</p>
+                                    <p>{moment(adventure.date).format('ll')}</p>
+                                    <p>{adventure.main_activities}</p>
+                                    <p>{adventure.description}</p>
+                                    <hr />
+                                    <p className={classes.likesCount}>{adventure.count} likes</p>
+                                </div>
+                                {this.props.store.user.id &&
+                                    <Button
+                                        onClick={() => this.handleLike(adventure.id)}
+                                        size="small"
+                                        variant="contained"
+                                        // color="primary"
+                                        className={classes.likeButton}>
+                                        <ThumbUpOutlinedIcon />
                                     </Button>
-                                    </Card>
-                            )
-                        }
-                    })}
+                                }
+                            </Card>
+                        )
+                    }
+                })}
             </div>
         )
     }

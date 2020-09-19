@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
-import DashboardHeader from '../DashboardPage/DashboardHeader';
 import DashboardAppBar from '../DashboardPage/DashboardAppBar';
 import FeedCards from './FeedCards';
 import { withStyles } from '@material-ui/core';
@@ -21,11 +20,18 @@ class FeedPage extends Component {
 
     this.fetchFeed(); //getting all user's activity from database
 
+    // this.fetchLikes(); //getting all feed likes to compare for like button toggle
+
   }
 
   fetchFeed = () => {
     this.props.dispatch({ type: 'FETCH_FEED' });
   }
+
+  // **MAYBE USE THIS IN FUTURE FOR LIKE TOGGLE, COULDN'T GET IT TO WORK NOW
+  // fetchLikes = () => {
+  //   this.props.dispatch({ type: 'FETCH_LIKES' });
+  // }
 
   render() {
 

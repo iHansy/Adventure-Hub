@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import { withStyles, Card, Grid, Button } from '@material-ui/core';
-import { withRouter } from 'react-router-dom';
+import ThumbUpOutlinedIcon from '@material-ui/icons/ThumbUpOutlined';import { withRouter } from 'react-router-dom';
 import moment from 'moment';
 
 //material UI styles
@@ -31,9 +31,25 @@ const styles = theme => ({
         marginLeft: 'auto',
         marginRight: 'auto',
     },
+    likeButton: {
+        marginTop: '1em',
+        width: '30%',
+        backgroundColor: 'rgb(216, 174, 95)',
+        '&:hover': {
+            backgroundColor: 'rgb(196, 150, 67)',
+            borderColor: '#0062cc',
+            boxShadow: 'none',
+        },
+    },
+    likeButtonFalse: {
+    },
 });
 
 class FeedCards extends Component {
+
+    state = {
+        testStatus: true,
+    }
 
     //when more details is clicked, show details of adventure
     handleDetails = (id) => {
@@ -66,11 +82,12 @@ class FeedCards extends Component {
                                     <p>{moment(adventure.date).format('ll')}</p>
                                     {this.props.store.user.id &&
                                         <Button
-                                            onClick={() => this.handleLike(adventure.id)}
-                                            size="small"
-                                            variant="contained"
-                                            color="primary" >
-                                            Like
+                                        onClick={() => this.handleLike(adventure.id)}
+                                        size="small"
+                                        variant="contained"
+                                        // color="primary"
+                                        className={classes.likeButton}>
+                                        <ThumbUpOutlinedIcon/>
                                         </Button>
                                     }
                                     <p>{adventure.count} likes</p>

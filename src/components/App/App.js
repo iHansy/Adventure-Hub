@@ -68,21 +68,21 @@ class App extends Component {
             If the user is not logged in, the ProtectedRoute will show the LoginPage (component).
             Even though it seems like they are different pages, the user is always on localhost:3000/dashboard */}
             <ProtectedRoute
-              // logged in shows DashboardPage else shows LoginPage
+              // logged in shows DashboardPage else shows HomePage
               exact
               path="/dashboard"
               component={DashboardPage}
             />
 
             <ProtectedRoute
-              // logged in shows CreateAdventurePage else shows LoginPage
+              // logged in shows CreateAdventurePage else shows HomePage
               exact
               path="/create-adventure"
               component={CreateAdventurePage}
             />
 
             <ProtectedRoute
-              // logged in shows EditAdventurePage else shows LoginPage
+              // logged in shows EditAdventurePage else shows HomePage
               exact
               path="/edit-adventure/:id"
               component={EditAdventurePage}
@@ -91,15 +91,6 @@ class App extends Component {
             {/* When a value is supplied for the authRedirect prop the user will
             be redirected to the path supplied when logged in, otherwise they will
             be taken to the component and path supplied. */}
-            <ProtectedRoute
-              // with authRedirect:
-              // - if logged in, redirects to "/dashboard"
-              // - else shows LoginPage at /login
-              exact
-              path="/login"
-              component={LoginPage}
-              authRedirect="/dashboard"
-            />
             <ProtectedRoute
               // with authRedirect:
               // - if logged in, redirects to "/dashboard"

@@ -9,6 +9,16 @@ const getFeed = (state = [], action) => {
   }
 };
 
+const getLikes = (state = [], action) => {
+  switch (action.type) {
+    case 'SET_LIKES':
+      return action.payload;
+    default: 
+      return state;
+  }
+};
+
 export default combineReducers({
-    getFeed
+    getFeed,
+    getLikes,
 });

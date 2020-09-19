@@ -5,7 +5,7 @@ const {
   rejectUnauthenticated,
 } = require('../modules/authentication-middleware');
 
-//retrieving all adventure
+//retrieving all adventures
 router.get('/', (req, res) => {
   const queryText = `SELECT COUNT("user_adventure_likes".adventure_id), "adventure".id, "date", "park_name", "image_url", "city", 
                     "state", "main_activities", "description", 
@@ -22,7 +22,23 @@ router.get('/', (req, res) => {
       res.send(result.rows);
     })
     .catch((error) => {
-      console.log('error getting adventures query', error);
+      console.log('ERROR GETTING ADVENTURES QUERY', error);
+      res.sendStatus(500);
+    })
+});
+
+//retrieving all likes
+router.get('/likes', (req, res) => {
+  const queryText = `SELECT * FROM "user_adventure_likes"
+                    ORDER BY "adventure_id";
+                    `;
+  pool.query(queryText)
+    .then((result) => {
+      console.log('RETRIEVED ALL LIKES');
+      res.send(result.rows);
+    })
+    .catch((error) => {
+      console.log('ERROR GETTING LIKES QUERY', error);
       res.sendStatus(500);
     })
 });
@@ -50,7 +66,7 @@ router.put('/like/:id', rejectUnauthenticated, async (req, res) => {
 
     await clientConnection.query('COMMIT');
 
-    console.log('ROUTER LIKE');
+    console.log('ROUTER LIKE', req.params.id);
     res.sendStatus(201); //created status
 
   } catch (error) {
