@@ -48,7 +48,6 @@ const DashboardAppBar = (props) => {
     const handleLogOut = () => {
         setAnchorEl(null);
         props.dispatch({ type: 'LOGOUT' });
-        props.history.push('/home');
     };
 
     //going to dashboard when clicked in app bar

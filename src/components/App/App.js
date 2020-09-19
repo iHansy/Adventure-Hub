@@ -56,7 +56,7 @@ class App extends Component {
               component={ParkSearchPage}
             />
 
-              {/* shows ParkSearchPage at all times (logged in or not) */}
+              {/* shows ParkDetailsPage at all times (logged in or not) */}
               <Route
               exact
               path="/park-search-details/:id"
@@ -75,14 +75,14 @@ class App extends Component {
             />
 
             <ProtectedRoute
-              // logged in shows InfoPage else shows LoginPage
+              // logged in shows CreateAdventurePage else shows LoginPage
               exact
               path="/create-adventure"
               component={CreateAdventurePage}
             />
 
             <ProtectedRoute
-              // logged in shows InfoPage else shows LoginPage
+              // logged in shows EditAdventurePage else shows LoginPage
               exact
               path="/edit-adventure/:id"
               component={EditAdventurePage}

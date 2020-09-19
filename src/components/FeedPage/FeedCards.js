@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import { withStyles, Card, Grid, Button } from '@material-ui/core';
 import { withRouter } from 'react-router-dom';
+import moment from 'moment';
 
 //material UI styles
 const styles = theme => ({
@@ -25,7 +26,7 @@ const styles = theme => ({
     },
     adventureImg: {
         height: '15em',
-        width: '23em',
+        width: '100%',
         display: 'block',
         marginLeft: 'auto',
         marginRight: 'auto',
@@ -62,7 +63,7 @@ class FeedCards extends Component {
                                     {adventure.completed ? <h3>completed</h3> : <h3>future</h3>}
                                     <h3>{adventure.username}</h3>
                                     <h4>{adventure.park_name}</h4>
-                                    <p>{adventure.date}</p>
+                                    <p>{moment(adventure.date).format('ll')}</p>
                                     {this.props.store.user.id &&
                                         <Button
                                             onClick={() => this.handleLike(adventure.id)}

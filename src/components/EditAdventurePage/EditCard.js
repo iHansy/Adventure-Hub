@@ -6,7 +6,7 @@ import { withRouter } from 'react-router-dom';
 
 const styles = theme => ({
     container: {
-        marginTop: '2em',
+        marginTop: '4em',
         padding: '2.5em',
         width: '40em',
         margin: 'auto',
@@ -30,9 +30,22 @@ const styles = theme => ({
         minHeight: '22em',
         width: '100%',
     },
+    invisibleButton: {
+        // backgroundColor: 'cyan',
+        width: '100%',
+        height: '20px',
+    },
 })
 
 class EditCard extends Component {
+
+    state = {
+        image_url: 'https://www.linkpicture.com/view.php?img=LPic5f64b7afa2aeb288541326',
+        park_name: 'Split Rock State Park',
+        city: 'Two Harbors',
+        state: 'MN',
+        description: `This camping / hiking trip was awesome. I'm really happy we brought a bunch of extra food. Having our campsite right next to the river was a huge plus!`,
+    };
 
     componentDidMount() {
         const id = this.props.match.params.id
@@ -96,6 +109,15 @@ class EditCard extends Component {
         //setting markComplete reducer status as false
         this.props.dispatch({ type: 'SET_MARK_COMPLETE', payload: false });
     }
+
+    //invisible button to fill in inputs for presentation
+    // handleInvisibleButton = () => {
+    //     if (this.props.store.markComplete.markComplete) {
+    //         console.log('INVISIBLE BUTTON');
+    //         this.props.dispatch({ type: 'SET_ADVENTURE_INPUTS', payload: this.state });
+    //         this.props.dispatch({ type: 'SET_ADVENTURE_EDITS', payload: { key: event.target.name, value: event.target.value } });
+    //     }
+    // };
 
     render() {
 
@@ -226,6 +248,9 @@ class EditCard extends Component {
                                         </Button>
                                     }
                                 </ButtonGroup>
+                                <div className={classes.invisibleButton} onClick={this.handleInvisibleButton}>
+
+                                </div>
                             </div>
                         </form>
                     </Card>

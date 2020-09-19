@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import { withStyles, Card, Grid, Button } from '@material-ui/core';
 import { withRouter } from 'react-router-dom';
+import moment from 'moment';
 
 //material UI styles
 const styles = theme => ({
@@ -78,7 +79,7 @@ class FeedDetailsPage extends Component {
                                             <h2>{adventure.username}</h2>
                                             <h4>{adventure.park_name}</h4>
                                             <p>{adventure.city}{adventure.city && <span>,</span>} {adventure.state}</p>
-                                            <p>{adventure.date}</p>
+                                            <p>{moment(adventure.date).format('ll')}</p>
                                             <p>{adventure.main_activities}</p>
                                             <p>{adventure.description}</p>
                                         </div>

@@ -81,6 +81,7 @@ class CreateCard extends Component {
         }
         this.props.dispatch({ type: 'POST_ADVENTURE', payload: this.state })
         //clearing inputs
+        this.props.dispatch({ type: 'SET_PARK_INPUTS', payload: [] });
         this.setState({
             image_url: '',
             park_name: '',
