@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
-import { withStyles, Card, Button } from '@material-ui/core';
+import { withStyles, Card, Button, IconButton } from '@material-ui/core';
+import CloseIcon from '@material-ui/icons/Close';
 import { withRouter } from 'react-router-dom';
 
 //material UI styles
@@ -26,7 +27,14 @@ const styles = theme => ({
     },
     exitButton: {
         float: 'right',
-        margin: '1em',
+        marginRight: '1em',
+        marginTop: '.5em',
+        width: '2em',
+        '&:hover': {
+            backgroundColor: 'rgb(216, 174, 95)',
+            borderColor: '#0062cc',
+            boxShadow: 'none',
+        },
     },
     detailsText: {
         textAlign: 'left',
@@ -69,14 +77,13 @@ class ParkDetailsCard extends Component {
                                     :
                                     <i className={classes.parkImg}>No Image Available</i>
                                 }
-                                <Button
+                                 <IconButton
                                     className={classes.exitButton}
                                     onClick={this.handleExit}
                                     size="small"
-                                    variant="contained"
                                     color="inherit">
-                                    X
-                                </Button>
+                                    <CloseIcon/>
+                                </IconButton>
                                 <div className={classes.detailsText}>
                                 <h3>{park.fullName}</h3>
                                 {/* {park.addresses[1] &&

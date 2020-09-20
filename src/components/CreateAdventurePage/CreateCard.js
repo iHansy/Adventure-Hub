@@ -60,7 +60,6 @@ class CreateCard extends Component {
 
     checkParkInputs = () => {
         const parkInputs = this.props.store.parks.getParkInputs;
-        console.log(parkInputs.url);
         if (parkInputs.url) {
             this.setState({
                 image_url: parkInputs.images[0].url,
@@ -95,7 +94,12 @@ class CreateCard extends Component {
 
     handleCancel = () => {
         alert(`Cancel new adventure?`);
-        this.props.history.push('/dashboard');
+        const parkInputs = this.props.store.parks.getParkInputs;
+        if (parkInputs.url) {
+           this.props.history.goBack();
+        } else {
+            this.props.history.push('/dashboard');
+        }
         //clearing parks.parkInput reducer
         this.props.dispatch({ type: 'SET_PARK_INPUTS', payload: [] });
     }

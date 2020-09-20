@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
-import { withStyles, Card, Button } from '@material-ui/core';
+import { withStyles, Card, Button, IconButton } from '@material-ui/core';
 import ThumbUpOutlinedIcon from '@material-ui/icons/ThumbUpOutlined';
+import CloseIcon from '@material-ui/icons/Close';
 import { withRouter } from 'react-router-dom';
 import moment from 'moment';
 
@@ -27,7 +28,13 @@ const styles = theme => ({
     },
     exitButton: {
         float: 'right',
-        margin: '1em',
+        marginRight: '1em',
+        marginTop: '.5em',
+        '&:hover': {
+            backgroundColor: 'rgb(216, 174, 95)',
+            borderColor: '#0062cc',
+            boxShadow: 'none',
+        },
     },
     detailsText: {
         textAlign: 'left',
@@ -85,14 +92,13 @@ class FeedDetailsPage extends Component {
                         return (
                             <Card elevation={5} className={classes.adventureCard} key={adventure.id}>
                                 <img src={adventure.image_url} alt={adventure.park_name} className={classes.adventureImg} />
-                                <Button
+                                <IconButton
                                     className={classes.exitButton}
                                     onClick={this.handleExit}
                                     size="small"
-                                    variant="contained"
                                     color="inherit">
-                                    X
-                                        </Button>
+                                    <CloseIcon/>
+                                </IconButton>
                                 <div className={classes.detailsText}>
                                     <h2>{adventure.username}</h2>
                                     <h4>{adventure.park_name}</h4>

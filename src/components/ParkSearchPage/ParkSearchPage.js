@@ -18,7 +18,7 @@ class ParkSearchPage extends Component {
   render() {
 
     const { classes } = this.props;
-    let headerText = 'Find a Park';
+    let headerText = 'National Park Search';
 
     return (
       <div className={classes.container}>

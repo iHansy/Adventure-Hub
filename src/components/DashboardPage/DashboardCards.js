@@ -80,15 +80,7 @@ class DashboardCards extends Component {
                 <Grid container spacing={4} className={classes.container}>
                     {this.props.store.adventures.getAllAdventures.map((adventure, i) => {
                         if (adventure.completed === this.props.adventureComplete) {
-
-                            let newDate = adventure.date.slice(0, -14);
-                            console.log(newDate);
-                            // newDate.slice(0, -14);
-                            // console.log(adventure.date);
-                    
-                            // let date = task.due_date;
-                            // date = date.slice(0, -14);
-                            // task.due_date = date; // sliced off timestamp
+                           
                             return (
                                 <Grid item xs={6} key={i}>
                                     <Card elevation={5} className={classes.adventureCard}>

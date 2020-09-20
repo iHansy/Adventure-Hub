@@ -26,7 +26,7 @@ const useStyles = makeStyles({
     menuItem: {
         height: '4em',
         '&:hover': {
-            backgroundColor: 'rgb(172, 129, 49)',
+            backgroundColor: 'rgb(196, 150, 67)',
             borderColor: '#0062cc',
         },
     },
@@ -48,6 +48,7 @@ const DashboardAppBar = (props) => {
     const handleLogOut = () => {
         setAnchorEl(null);
         props.dispatch({ type: 'LOGOUT' });
+        props.history.push('/home');
     };
 
     //going to dashboard when clicked in app bar
@@ -99,7 +100,7 @@ const DashboardAppBar = (props) => {
                         {!props.store.user.id &&
                             <MenuItem onClick={handleHome} className={classes.menuItem}>Home</MenuItem>
                         }
-                        <MenuItem onClick={handleParkSearch} className={classes.menuItem}>Find a Park</MenuItem>
+                        <MenuItem onClick={handleParkSearch} className={classes.menuItem}>Park Search</MenuItem>
                         <MenuItem onClick={handleFeed} className={classes.menuItem}>User Activity</MenuItem>
                         {props.store.user.id &&
                             <MenuItem onClick={handleLogOut} className={classes.menuItem}>Logout</MenuItem>
