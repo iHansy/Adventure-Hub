@@ -129,11 +129,11 @@ class CreateCard extends Component {
                                 <TextField
                                     className={classes.textFields}
                                     size="small"
+                                    label="image url"
+                                    required
                                     variant="outlined"
-                                    placeholder="image url"
                                     type="text"
                                     value={this.state.image_url}
-                                    required
                                     onChange={(event) => this.handleInputChange('image_url', event)}
                                 />
                             </div>
@@ -141,11 +141,10 @@ class CreateCard extends Component {
                                 <TextField
                                     className={classes.textFields}
                                     size="small"
+                                    label="park name"
                                     variant="outlined"
-                                    placeholder="park name (optional)"
                                     type="text"
                                     value={this.state.park_name}
-                                    required
                                     onChange={(event) => this.handleInputChange('park_name', event)}
                                 />
                             </div>
@@ -153,11 +152,10 @@ class CreateCard extends Component {
                                 <TextField
                                     className={classes.textFields}
                                     size="small"
+                                    label="city"
                                     variant="outlined"
-                                    placeholder="city (optional)"
                                     type="text"
                                     value={this.state.city}
-                                    required
                                     onChange={(event) => this.handleInputChange('city', event)}
                                 />
                             </div>
@@ -165,8 +163,8 @@ class CreateCard extends Component {
                                 <TextField
                                     className={classes.textFields}
                                     size="small"
+                                    label="state"
                                     variant="outlined"
-                                    placeholder="state"
                                     type="text"
                                     value={this.state.state}
                                     required
@@ -177,8 +175,8 @@ class CreateCard extends Component {
                                 <TextField
                                     className={classes.textFields}
                                     size="small"
+                                    label="main activities"
                                     variant="outlined"
-                                    placeholder="main activities"
                                     type="text"
                                     value={this.state.main_activities}
                                     required
@@ -191,8 +189,8 @@ class CreateCard extends Component {
                                 <TextField
                                     className={classes.textFields}
                                     size="small"
+                                    label="description"
                                     variant="outlined"
-                                    placeholder="description"
                                     type="text"
                                     value={this.state.description}
                                     required

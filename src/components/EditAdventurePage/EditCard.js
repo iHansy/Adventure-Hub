@@ -155,8 +155,9 @@ class EditCard extends Component {
                                 <TextField
                                     className={classes.textFields}
                                     size="small"
+                                    label="image url"
+                                    required
                                     variant="outlined"
-                                    placeholder="image url"
                                     name="image_url"
                                     type="text"
                                     value={adventureInput.image_url}
@@ -167,12 +168,11 @@ class EditCard extends Component {
                                 <TextField
                                     className={classes.textFields}
                                     size="small"
+                                    label="park name"
                                     variant="outlined"
-                                    placeholder="park name (optional)"
                                     name="park_name"
                                     type="text"
                                     value={adventureInput.park_name}
-                                    required
                                     onChange={(event) => this.handleInputChange(event)}
                                 />
                             </div>
@@ -180,12 +180,11 @@ class EditCard extends Component {
                                 <TextField
                                     className={classes.textFields}
                                     size="small"
+                                    label="city"
                                     variant="outlined"
-                                    placeholder="city (optional)"
                                     name="city"
                                     type="text"
                                     value={adventureInput.city}
-                                    required
                                     onChange={(event) => this.handleInputChange(event)}
                                 />
                             </div>
@@ -193,8 +192,8 @@ class EditCard extends Component {
                                 <TextField
                                     className={classes.textFields}
                                     size="small"
+                                    label="state"
                                     variant="outlined"
-                                    placeholder="state"
                                     name="state"
                                     type="text"
                                     value={adventureInput.state}
@@ -206,8 +205,8 @@ class EditCard extends Component {
                                 <TextField
                                     className={classes.textFields}
                                     size="small"
+                                    label="main activities"
                                     variant="outlined"
-                                    placeholder="main activities"
                                     name="main_activities"
                                     type="text"
                                     value={adventureInput.main_activities}
@@ -221,8 +220,8 @@ class EditCard extends Component {
                                 <TextField
                                     className={classes.textFields}
                                     size="small"
+                                    label="description"
                                     variant="outlined"
-                                    placeholder="description"
                                     name="description"
                                     type="text"
                                     value={adventureInput.description}

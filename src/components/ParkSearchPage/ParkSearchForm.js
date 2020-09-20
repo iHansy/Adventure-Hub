@@ -75,7 +75,7 @@ class ParkSearchForm extends Component {
                 <Card className={classes.formCard} elevation={2}>
                     <div className={classes.formControl}>
                         <FormControl>
-                            <InputLabel id="demo-simple-select-label">Select a state</InputLabel>
+                            <InputLabel>Select a state</InputLabel>
                             <Select
                                 className={classes.selectInput}
                                 style={{ minWidth: "10em" }}
