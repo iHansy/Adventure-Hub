@@ -21,7 +21,7 @@ const styles = theme => ({
         marginTop: '.1em',
     },
     submitButton: {
-        marginTop: '1em',
+        marginTop: '1.25em',
         marginLeft: '5em',
         width: '8em',
         backgroundColor: 'rgb(216, 174, 95)',
@@ -72,7 +72,7 @@ class ParkSearchForm extends Component {
 
         return (
             <div className={classes.container}>
-                <Card className={classes.formCard} elevation={5}>
+                <Card className={classes.formCard} elevation={2}>
                     <div className={classes.formControl}>
                         <FormControl>
                             <InputLabel id="demo-simple-select-label">Select a state</InputLabel>

@@ -29,7 +29,6 @@ const styles = theme => ({
         float: 'right',
         marginRight: '1em',
         marginTop: '.5em',
-        width: '2em',
         '&:hover': {
             backgroundColor: 'rgb(216, 174, 95)',
             borderColor: '#0062cc',
@@ -58,6 +57,7 @@ class ParkDetailsCard extends Component {
         const i = this.props.match.params.id;
         let parkInput = this.props.store.parks.getParks[i]
         this.props.dispatch({ type: 'SET_PARK_INPUTS', payload: parkInput });
+        this.props.dispatch({ type: 'SET_COMPLETE_STATUS', payload: false });
     }
 
     render() {
