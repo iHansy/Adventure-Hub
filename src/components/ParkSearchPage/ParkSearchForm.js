@@ -55,15 +55,13 @@ class ParkSearchForm extends Component {
         console.log(this.state.parkState);
     }
 
-    handleSubmit = () => {
+    handleSearch = () => {
         if (this.state.parkState === '') {
             alert('Please choose a state before submitting.');
             return;
         }
-        console.log(this.state);
-
         this.props.dispatch({ type: 'FETCH_PARKS', payload: this.state.parkState });
-        //clearing input
+        this.props.dispatch({ type: 'SET_LOADING_TRUE', payload: true });
     }
 
     render() {
@@ -137,7 +135,7 @@ class ParkSearchForm extends Component {
                         <Button 
                                 size="small"
                                 variant="contained"
-                                onClick={this.handleSubmit}
+                                onClick={this.handleSearch}
                                 className={classes.submitButton}>
                                 Search
                                 <SearchIcon/>

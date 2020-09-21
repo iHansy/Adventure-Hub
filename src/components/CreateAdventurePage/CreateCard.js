@@ -33,18 +33,18 @@ const styles = theme => ({
     cancelButton: {
         backgroundColor: 'rgb(216, 174, 95)',
         '&:hover': {
-          backgroundColor: 'rgb(196, 150, 67)',
-          borderColor: '#0062cc',
-          boxShadow: 'none',
+            backgroundColor: 'rgb(196, 150, 67)',
+            borderColor: '#0062cc',
+            boxShadow: 'none',
         },
     },
     saveButton: {
         marginLeft: '2em',
         backgroundColor: 'rgb(216, 174, 95)',
         '&:hover': {
-          backgroundColor: 'rgb(196, 150, 67)',
-          borderColor: '#0062cc',
-          boxShadow: 'none',
+            backgroundColor: 'rgb(196, 150, 67)',
+            borderColor: '#0062cc',
+            boxShadow: 'none',
         },
     },
 })
@@ -110,10 +110,9 @@ class CreateCard extends Component {
     }
 
     handleCancel = () => {
-        alert(`Cancel new adventure?`);
         const parkInputs = this.props.store.parks.getParkInputs;
         if (parkInputs.url) {
-           this.props.history.goBack();
+            this.props.history.goBack();
         } else {
             this.props.history.push('/dashboard');
         }
@@ -217,19 +216,19 @@ class CreateCard extends Component {
                                 />
                             </div>
                             <div className={classes.buttons}>
-                                    <Button 
-                                        size="small"
-                                        variant="contained"
-                                        className={classes.cancelButton} 
-                                        onClick={this.handleCancel}>
-                                        Cancel
+                                <Button
+                                    size="small"
+                                    variant="contained"
+                                    className={classes.cancelButton}
+                                    onClick={this.handleCancel}>
+                                    Cancel
                                     </Button>
-                                    <Button 
-                                        size="small"
-                                        variant="contained"
-                                        className={classes.saveButton} 
-                                        onClick={this.handleSave}>
-                                        Save
+                                <Button
+                                    size="small"
+                                    variant="contained"
+                                    className={classes.saveButton}
+                                    onClick={this.handleSave}>
+                                    Save
                                     </Button>
                             </div>
                         </form>

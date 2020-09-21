@@ -43,6 +43,12 @@ const styles = theme => ({
     addButton: {
         marginLeft: '12em',
         marginTop: '2em',
+        backgroundColor: 'rgb(216, 174, 95)',
+        '&:hover': {
+          backgroundColor: 'rgb(196, 150, 67)',
+          borderColor: '#0062cc',
+          boxShadow: 'none',
+        },
     },
 });
 
@@ -98,8 +104,7 @@ class ParkDetailsCard extends Component {
                                         onClick={this.handleAddBucket}
                                         className={classes.addButton}
                                         size="small"
-                                        variant="contained"
-                                        color="primary" >
+                                        variant="contained">
                                         Add to Bucket List
                                    </Button>
                                 }

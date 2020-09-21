@@ -4,6 +4,8 @@ import mapStoreToProps from '../../redux/mapStoreToProps';
 import { withStyles, Card, Grid, Button } from '@material-ui/core';
 import { withRouter } from 'react-router-dom';
 import moment from 'moment';
+import { confirmAlert } from 'react-confirm-alert'; // Import
+import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 
 //material UI styles
 const styles = theme => ({
@@ -77,8 +79,19 @@ class DashboardCards extends Component {
 
     //fine to pass id here because it's not a user id
     handleDelete = (id) => {
-        console.log('deleting adventure', id)
-        this.props.dispatch({ type: 'DELETE_ADVENTURE', payload: `${id}` });
+        confirmAlert({
+            title: 'Are you sure you want to delete this adventure?',
+            buttons: [
+              {
+                label: 'Yes',
+                onClick: () => {this.props.dispatch({ type: 'DELETE_ADVENTURE', payload: `${id}` })}
+              },
+              {
+                label: 'No',
+                onClick: () => {console.log('testing delete')}
+              }
+            ]
+          });
     }
 
     //when mark complete is clicked, move adventure from future to completed
@@ -114,11 +127,10 @@ class DashboardCards extends Component {
                                             <h3 className={classes.date}>{adventure.park_name}
                                                 <span className="spanDate">{moment(adventure.date).format('ll')}</span>
                                             </h3>
-
                                             <h4>
                                                 {adventure.city && `${adventure.city},`} {adventure.state}
                                             </h4>
-                                            <i>{adventure.main_activities}</i>
+                                            <p>{adventure.main_activities}</p>
                                             <p>{adventure.description}</p>
                                             <div className="futureCardButtons">
                                                 <Button

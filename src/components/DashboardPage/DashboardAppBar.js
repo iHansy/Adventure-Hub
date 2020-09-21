@@ -66,6 +66,8 @@ const DashboardAppBar = (props) => {
     //going to park search when clicked in app bar
     const handleParkSearch = () => {
         setAnchorEl(null);
+        props.dispatch({ type: 'SET_LOADING_FALSE' });
+        props.dispatch({ type: 'SET_PARKS', payload: [] });
         props.history.push('/park-search');
     };
 
