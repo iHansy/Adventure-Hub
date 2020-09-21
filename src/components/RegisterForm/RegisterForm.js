@@ -15,15 +15,28 @@ const styles = theme => ({
     backgroundColor: 'white',
     borderRadius: '.5em',
   },
-  btnGroup: {
-    margin: '2em',
+  cancelButton: {
+    width: '28%',
     backgroundColor: 'rgb(216, 174, 95)',
-  },
-  btnSingle: {
     '&:hover': {
       backgroundColor: 'rgb(196, 150, 67)',
+      borderColor: '#0062cc',
+      boxShadow: 'none',
     },
-  }
+  },
+  createButton: {
+    width: '28%',
+    marginLeft: '2em',
+    backgroundColor: 'rgb(216, 174, 95)',
+    '&:hover': {
+      backgroundColor: 'rgb(196, 150, 67)',
+      borderColor: '#0062cc',
+      boxShadow: 'none',
+    },
+  },
+  buttons: {
+    marginTop: '2em',
+  },
 }); //end material ui
 
 class RegisterForm extends Component {
@@ -79,7 +92,6 @@ class RegisterForm extends Component {
             </h3>
           )}
           <div>
-            <InputLabel htmlFor="username">
               <TextField
                 className={classes.textFields}
                 size="small"
@@ -91,10 +103,8 @@ class RegisterForm extends Component {
                 required
                 onChange={this.handleInputChangeFor('username')}
               />
-            </InputLabel>
           </div>
           <div>
-            <InputLabel htmlFor="password">
               <TextField
                 className={classes.textFields}
                 size="small"
@@ -106,10 +116,8 @@ class RegisterForm extends Component {
                 required
                 onChange={this.handleInputChangeFor('password')}
               />
-            </InputLabel>
           </div>
           <div>
-            <InputLabel htmlFor="confirmPassword">
               <TextField
                 className={classes.textFields}
                 size="small"
@@ -121,17 +129,22 @@ class RegisterForm extends Component {
                 required
                 onChange={this.handleInputChangeFor('confirmPassword')}
               />
-            </InputLabel>
           </div>
-          <div>
-            <ButtonGroup className={classes.btnGroup}>
-              <Button className={classes.btnSingle} onClick={this.handleCancel}>
+          <div className={classes.buttons}>
+              <Button 
+                size="small"
+                variant="contained"
+                className={classes.cancelButton} 
+                onClick={this.handleCancel}>
                 Cancel
               </Button>
-              <Button className={classes.btnSingle} type="submit">
+              <Button 
+                size="small"
+                variant="contained"
+                className={classes.createButton} 
+                type="submit">
                 Create Account
               </Button>
-            </ButtonGroup>
           </div>
         </form>
       </div>

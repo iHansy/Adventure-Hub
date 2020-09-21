@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import { withStyles, Card, Grid, Button } from '@material-ui/core';
-import ThumbUpOutlinedIcon from '@material-ui/icons/ThumbUpOutlined';import { withRouter } from 'react-router-dom';
+import ThumbUpOutlinedIcon from '@material-ui/icons/ThumbUpOutlined';
+import VisibilityIcon from '@material-ui/icons/Visibility';
+import { withRouter } from 'react-router-dom';
 import moment from 'moment';
 
 //material UI styles
@@ -21,7 +23,6 @@ const styles = theme => ({
     },
     adventureCard: {
         backgroundColor: 'rgb(240, 240, 240)',
-        padding: '.5em',
         height: '100%',
     },
     adventureImg: {
@@ -32,8 +33,8 @@ const styles = theme => ({
         marginRight: 'auto',
     },
     likeButton: {
-        marginTop: '1em',
-        width: '30%',
+        marginRight: '4em',
+        width: '15%',
         backgroundColor: 'rgb(216, 174, 95)',
         '&:hover': {
             backgroundColor: 'rgb(196, 150, 67)',
@@ -41,7 +42,33 @@ const styles = theme => ({
             boxShadow: 'none',
         },
     },
-    likeButtonFalse: {
+    viewMoreButton: {
+        width: '15%',
+        backgroundColor: 'rgb(216, 174, 95)',
+        '&:hover': {
+            backgroundColor: 'rgb(196, 150, 67)',
+            borderColor: '#0062cc',
+            boxShadow: 'none',
+        },
+    },
+    buttons: {
+        textAlign: 'center',
+    },
+    spanDate: {
+        float: 'right',
+        fontStyle: 'normal',
+        fontWeight: 'normal',
+        fontSize: '.65em',
+        marginRight: '1em',
+    },
+    username: {
+        marginLeft: '2em',
+    },
+    itemsUnderImg: {
+        marginLeft: '1em',
+        marginRight: '1em',
+        marginBottom: '2em',
+        textAlign: 'center',
     },
 });
 
@@ -75,29 +102,35 @@ class FeedCards extends Component {
                         return (
                             <Grid item xs={4} key={adventure.id}>
                                 <Card elevation={5} className={classes.adventureCard}>
+                                    <h2 className={classes.username}>{adventure.username}
+                                        <span className={classes.spanDate}>{moment(adventure.date).format('ll')}</span>
+                                    </h2>
                                     <img src={adventure.image_url} alt={adventure.state} className={classes.adventureImg} />
-                                    {adventure.completed ? <h3>completed</h3> : <h3>future</h3>}
-                                    <h3>{adventure.username}</h3>
-                                    <h4>{adventure.park_name}</h4>
-                                    <p>{moment(adventure.date).format('ll')}</p>
-                                    {this.props.store.user.id &&
-                                        <Button
-                                        onClick={() => this.handleLike(adventure.id)}
-                                        size="small"
-                                        variant="contained"
-                                        // color="primary"
-                                        className={classes.likeButton}>
-                                        <ThumbUpOutlinedIcon/>
-                                        </Button>
-                                    }
-                                    <p>{adventure.count} likes</p>
-                                    <Button
-                                        onClick={() => this.handleDetails(adventure.id)}
-                                        size="small"
-                                        variant="contained"
-                                        color="inherit" >
-                                        More Details
-                                        </Button>
+                                    <div className={classes.itemsUnderImg}>
+                                        <h3>{adventure.park_name}</h3>
+                                        {adventure.completed ? <p>Completed adventure</p> : <p>Future adventure</p>}
+                                        <hr />
+                                        <p className={classes.likes}>{adventure.count} likes</p>
+                                        <div className={classes.buttons}>
+                                            {this.props.store.user.id &&
+                                                <Button
+                                                    onClick={() => this.handleLike(adventure.id)}
+                                                    size="small"
+                                                    variant="contained"
+                                                    // color="primary"
+                                                    className={classes.likeButton}>
+                                                    <ThumbUpOutlinedIcon />
+                                                </Button>
+                                            }
+                                            <Button
+                                                className={classes.viewMoreButton}
+                                                onClick={() => this.handleDetails(adventure.id)}
+                                                size="small"
+                                                variant="contained">
+                                                <VisibilityIcon />
+                                            </Button>
+                                        </div>
+                                    </div>
                                 </Card>
                             </Grid>
                         )

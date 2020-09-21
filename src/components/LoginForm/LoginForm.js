@@ -16,7 +16,7 @@ const styles = theme => ({
   },
   loginBtn: {
     marginTop: '1em',
-    width: '30%',
+    width: '25%',
     backgroundColor: 'rgb(216, 174, 95)',
     '&:hover': {
       backgroundColor: 'rgb(196, 150, 67)',
@@ -112,6 +112,7 @@ class LoginForm extends Component {
         </div>
         <div>
           <Button
+            size="small"
             className={classes.loginBtn}
             variant="contained"
             type="submit"

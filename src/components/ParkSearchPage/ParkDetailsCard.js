@@ -77,33 +77,32 @@ class ParkDetailsCard extends Component {
                                     :
                                     <i className={classes.parkImg}>No Image Available</i>
                                 }
-                                 <IconButton
+                                <IconButton
                                     className={classes.exitButton}
                                     onClick={this.handleExit}
                                     size="small"
                                     color="inherit">
-                                    <CloseIcon/>
+                                    <CloseIcon />
                                 </IconButton>
                                 <div className={classes.detailsText}>
-                                <h3>{park.fullName}</h3>
-                                {/* {park.addresses[1] &&
-                                    <p>{park.addresses[1].city}, {park.addresses[1].stateCode}</p>
-                                } */}
-                                {park.contacts.phoneNumbers[0].phoneNumber && <i>Phone # {park.contacts.phoneNumbers[0].phoneNumber}</i>}
-                                <br />
-                                <br />
-                                {park.addresses[1].line2 && <><i>{park.addresses[1].line2}</i><br /></>}
-                                <i>{park.addresses[1].city}, {park.addresses[1].stateCode}, {park.addresses[1].postalCode}</i>
-                                <p>{park.description}</p>
+                                    <h3>{park.fullName}</h3>
+                                    {park.contacts.phoneNumbers[0].phoneNumber && <i>Phone # {park.contacts.phoneNumbers[0].phoneNumber}</i>}
+                                    <br />
+                                    <br />
+                                    {park.addresses[1].line2 && <><i>{park.addresses[1].line2}</i><br /></>}
+                                    <i>{park.addresses[1].city}, {park.addresses[1].stateCode}, {park.addresses[1].postalCode}</i>
+                                    <p>{park.description}</p>
                                 </div>
-                                <Button
-                                    onClick={this.handleAddBucket}
-                                    className={classes.addButton}
-                                    size="small"
-                                    variant="contained"
-                                    color="primary" >
-                                    Add to Bucket List
-                                </Button>
+                                {this.props.store.user.id &&
+                                    <Button
+                                        onClick={this.handleAddBucket}
+                                        className={classes.addButton}
+                                        size="small"
+                                        variant="contained"
+                                        color="primary" >
+                                        Add to Bucket List
+                                   </Button>
+                                }
                             </Card>
                         )
                     }

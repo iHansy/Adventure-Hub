@@ -54,6 +54,14 @@ const styles = theme => ({
     likesCount: {
         textAlign: 'center',
     },  
+    spanDate: {
+        float: 'right',
+        fontStyle: 'normal',
+        fontWeight: 'normal',
+        fontSize: '.65em',
+        marginRight: '1em',
+        marginTop: '.5em',
+    },
 });
 
 class FeedDetailsPage extends Component {
@@ -100,11 +108,12 @@ class FeedDetailsPage extends Component {
                                     <CloseIcon/>
                                 </IconButton>
                                 <div className={classes.detailsText}>
-                                    <h2>{adventure.username}</h2>
+                                    <h2>{adventure.username}
+                                        <span className={classes.spanDate}>{moment(adventure.date).format('ll')}</span>
+                                    </h2>
                                     <h4>{adventure.park_name}</h4>
                                     <p>{adventure.city}{adventure.city && <span>,</span>} {adventure.state}</p>
-                                    <p>{moment(adventure.date).format('ll')}</p>
-                                    <p>{adventure.main_activities}</p>
+                                    <i>{adventure.main_activities}</i>
                                     <p>{adventure.description}</p>
                                     <hr />
                                     <p className={classes.likesCount}>{adventure.count} likes</p>

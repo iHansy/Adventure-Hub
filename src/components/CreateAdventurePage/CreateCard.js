@@ -20,15 +20,32 @@ const styles = theme => ({
         borderRadius: '.5em',
         width: '75%',
     },
-    btnGroup: {
-        margin: '2em',
-        backgroundColor: 'rgb(216, 174, 95)',
-    },
     createAdventureCard: {
         backgroundColor: 'rgb(240, 240, 240)',
         textAlign: 'center',
         minHeight: '22em',
         width: '100%',
+    },
+    buttons: {
+        marginTop: '1em',
+        marginBottom: '2em',
+    },
+    cancelButton: {
+        backgroundColor: 'rgb(216, 174, 95)',
+        '&:hover': {
+          backgroundColor: 'rgb(196, 150, 67)',
+          borderColor: '#0062cc',
+          boxShadow: 'none',
+        },
+    },
+    saveButton: {
+        marginLeft: '2em',
+        backgroundColor: 'rgb(216, 174, 95)',
+        '&:hover': {
+          backgroundColor: 'rgb(196, 150, 67)',
+          borderColor: '#0062cc',
+          boxShadow: 'none',
+        },
     },
 })
 
@@ -199,15 +216,21 @@ class CreateCard extends Component {
                                     rows={5}
                                 />
                             </div>
-                            <div>
-                                <ButtonGroup className={classes.btnGroup}>
-                                    <Button className={classes.btnSingle} onClick={this.handleCancel}>
+                            <div className={classes.buttons}>
+                                    <Button 
+                                        size="small"
+                                        variant="contained"
+                                        className={classes.cancelButton} 
+                                        onClick={this.handleCancel}>
                                         Cancel
                                     </Button>
-                                    <Button className={classes.btnSingle} onClick={this.handleSave}>
+                                    <Button 
+                                        size="small"
+                                        variant="contained"
+                                        className={classes.saveButton} 
+                                        onClick={this.handleSave}>
                                         Save
                                     </Button>
-                                </ButtonGroup>
                             </div>
                         </form>
                     </Card>

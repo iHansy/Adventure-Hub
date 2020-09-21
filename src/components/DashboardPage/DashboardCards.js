@@ -44,7 +44,32 @@ const styles = theme => ({
         paddingLeft: '3em',
     },
     futureCardButtons: {
+        marginTop: '10em',
         width: '100%',
+    },
+    editButton: {
+        backgroundColor: 'rgb(216, 174, 95)',
+        '&:hover': {
+            backgroundColor: 'rgb(196, 150, 67)',
+            borderColor: '#0062cc',
+            boxShadow: 'none',
+        },
+    },
+    completeButton: {
+        backgroundColor: 'rgb(109, 173, 90)',
+        '&:hover': {
+            backgroundColor: 'rgb(98, 153, 81)',
+            borderColor: '#0062cc',
+            boxShadow: 'none',
+        },
+    },
+    deleteButton: {
+        backgroundColor: 'rgb(230, 94, 94)',
+        '&:hover': {
+            backgroundColor: 'rgb(206, 87, 87)',
+            borderColor: '#0062cc',
+            boxShadow: 'none',
+        },
     },
 });
 
@@ -80,7 +105,7 @@ class DashboardCards extends Component {
                 <Grid container spacing={4} className={classes.container}>
                     {this.props.store.adventures.getAllAdventures.map((adventure, i) => {
                         if (adventure.completed === this.props.adventureComplete) {
-                           
+
                             return (
                                 <Grid item xs={6} key={i}>
                                     <Card elevation={5} className={classes.adventureCard}>
@@ -97,27 +122,28 @@ class DashboardCards extends Component {
                                             <p>{adventure.description}</p>
                                             <div className="futureCardButtons">
                                                 <Button
+                                                    className={classes.editButton}
                                                     size="small"
                                                     variant="contained"
                                                     onClick={() => this.handleEdit(adventure.id)}>
                                                     Edit
-                                            </Button>
+                                                </Button>
                                                 {!this.props.adventureComplete &&
                                                     <Button
+                                                        className={classes.completeButton}
                                                         size="small"
                                                         variant="contained"
-                                                        color="primary"
                                                         onClick={() => this.handleMarkComplete(adventure.id)}>
-                                                        Mark Complete
-                                            </Button>
+                                                        Complete
+                                                    </Button>
                                                 }
                                                 <Button
+                                                    className={classes.deleteButton}
                                                     onClick={() => this.handleDelete(adventure.id)}
                                                     size="small"
-                                                    variant="contained"
-                                                    color="secondary" >
-                                                    Remove
-                                            </Button>
+                                                    variant="contained">
+                                                    Delete
+                                                </Button>
                                             </div>
                                         </div>
                                     </Card>

@@ -20,10 +20,6 @@ const styles = theme => ({
         borderRadius: '.5em',
         width: '75%',
     },
-    btnGroup: {
-        margin: '2em',
-        backgroundColor: 'rgb(216, 174, 95)',
-    },
     createAdventureCard: {
         backgroundColor: 'rgb(240, 240, 240)',
         textAlign: 'center',
@@ -34,6 +30,38 @@ const styles = theme => ({
         // backgroundColor: 'cyan',
         width: '100%',
         height: '20px',
+    },
+    buttons: {
+        marginTop: '1em',
+    },
+    cancelButton: {
+        width: '25%',
+        backgroundColor: 'rgb(216, 174, 95)',
+        '&:hover': {
+          backgroundColor: 'rgb(196, 150, 67)',
+          borderColor: '#0062cc',
+          boxShadow: 'none',
+        },
+    },
+    saveButton: {
+        marginLeft: '2em',
+        width: '25%',
+        backgroundColor: 'rgb(216, 174, 95)',
+        '&:hover': {
+          backgroundColor: 'rgb(196, 150, 67)',
+          borderColor: '#0062cc',
+          boxShadow: 'none',
+        },
+    },
+    saveCompleteButton: {
+        width: '25%',
+        marginLeft: '2em',
+        backgroundColor: 'rgb(216, 174, 95)',
+        '&:hover': {
+          backgroundColor: 'rgb(196, 150, 67)',
+          borderColor: '#0062cc',
+          boxShadow: 'none',
+        },
     },
 })
 
@@ -231,26 +259,36 @@ class EditCard extends Component {
                                     rows={5}
                                 />
                             </div>
-                            <div>
-                                <ButtonGroup className={classes.btnGroup}>
-                                    <Button className={classes.btnSingle} onClick={this.handleCancel}>
+                            <div className={classes.buttons}>
+                                    <Button 
+                                        size="small"
+                                        className={classes.cancelButton}
+                                        variant="contained"
+                                        onClick={this.handleCancel}>
                                         Cancel
                                     </Button>
                                     {this.props.store.markComplete.markComplete
                                         ?
-                                        <Button className={classes.btnSingle} onClick={this.handleMarkComplete}>
-                                            Mark Complete
+                                        <Button 
+                                            size="small"
+                                            className={classes.saveCompleteButton} 
+                                            variant="contained"
+                                            onClick={this.handleMarkComplete}>
+                                            Save complete
                                         </Button>
                                         :
-                                        <Button className={classes.btnSingle} onClick={this.handleSave}>
+                                        <Button 
+                                            size="small"
+                                            className={classes.saveButton} 
+                                            variant="contained"
+                                            onClick={this.handleSave}>
                                             Save
                                         </Button>
                                     }
-                                </ButtonGroup>
-                                <div className={classes.invisibleButton} onClick={this.handleInvisibleButton}>
-
-                                </div>
                             </div>
+                            <div className={classes.invisibleButton} onClick={this.handleInvisibleButton}>
+
+                             </div>
                         </form>
                     </Card>
                 </Grid>

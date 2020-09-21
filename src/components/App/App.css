@@ -191,8 +191,9 @@ Form Treatment
              display: flex;
              -webkit-justify-content: space-between;
              justify-content: space-between;
-             margin-left: 5em;
-             margin-right: 5em;
+             margin-left: 7em;
+             margin-right: 7em;
+             margin-top: 2em;
 }
 
 .MuiBreadcrumbs-separator {
@@ -211,6 +212,7 @@ Form Treatment
 }
 
 .test {
-  color: rgb(206, 154, 57);
+  color: rgb(206, 87, 87);
   color: rgb(121, 119, 115);
+  color: rgb(98, 153, 81),
 }
