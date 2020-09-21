@@ -112,8 +112,8 @@ class FeedDetailsPage extends Component {
                                         <span className={classes.spanDate}>{moment(adventure.date).format('ll')}</span>
                                     </h2>
                                     <h4>{adventure.park_name}</h4>
-                                    <p>{adventure.city}{adventure.city && <span>,</span>} {adventure.state}</p>
-                                    <i>{adventure.main_activities}</i>
+                                    <i>{adventure.city}{adventure.city && <span>,</span>} {adventure.state}</i>
+                                    <p>{adventure.main_activities}</p>
                                     <p>{adventure.description}</p>
                                     <hr />
                                     <p className={classes.likesCount}>{adventure.count} likes</p>

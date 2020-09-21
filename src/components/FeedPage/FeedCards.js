@@ -108,6 +108,7 @@ class FeedCards extends Component {
                                     <img src={adventure.image_url} alt={adventure.state} className={classes.adventureImg} />
                                     <div className={classes.itemsUnderImg}>
                                         <h3>{adventure.park_name}</h3>
+                                        <i>{adventure.city}{adventure.city && <span>,</span>} {adventure.state}</i>
                                         {adventure.completed ? <p>Completed adventure</p> : <p>Future adventure</p>}
                                         <hr />
                                         <p className={classes.likes}>{adventure.count} likes</p>

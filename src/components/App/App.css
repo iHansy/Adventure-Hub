@@ -219,9 +219,9 @@ Form Treatment
 
 .hideMe {
   text-align: center;
-  -webkit-animation: cssAnimation 0s ease-in 3s forwards;
+  -webkit-animation: cssAnimation 0s ease-in 4s forwards;
   /* Safari and Chrome */
-  animation: cssAnimation 0s ease-in 3s forwards;
+  animation: cssAnimation 0s ease-in 4s forwards;
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
 }

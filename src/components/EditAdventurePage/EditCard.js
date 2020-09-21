@@ -54,7 +54,7 @@ const styles = theme => ({
         },
     },
     saveCompleteButton: {
-        width: '25%',
+        width: '30%',
         marginLeft: '2em',
         backgroundColor: 'rgb(216, 174, 95)',
         '&:hover': {
@@ -63,16 +63,25 @@ const styles = theme => ({
           boxShadow: 'none',
         },
     },
+    invisibleButton: {
+        height: '20px',
+        width: '100%',
+    },
 })
 
 class EditCard extends Component {
 
     state = {
-        image_url: 'https://www.linkpicture.com/view.php?img=LPic5f64b7afa2aeb288541326',
+        completed: false,
+        date: '2020-09-12T05:00:00.000Z',
+        id: 114,
+        main_activities: 'backpacking, camping, skipping rocks',
+        user_id: 70,
+        image_url: 'https://linkpicture.com/q/splitrock-camping-1_1.jpg',
         park_name: 'Split Rock State Park',
         city: 'Two Harbors',
         state: 'MN',
-        description: `This camping / hiking trip was awesome. I'm really happy we brought a bunch of extra food. Having our campsite right next to the river was a huge plus!`,
+        description: `This backpacking trip was really awesome, definitely one of my top 3 parks. I'm happy we brought a bunch of extra food. Having our campsite right next to the river was a huge plus!`,
     };
 
     componentDidMount() {
@@ -138,14 +147,13 @@ class EditCard extends Component {
         this.props.dispatch({ type: 'SET_MARK_COMPLETE', payload: false });
     }
 
-    //invisible button to fill in inputs for presentation
-    // handleInvisibleButton = () => {
-    //     if (this.props.store.markComplete.markComplete) {
-    //         console.log('INVISIBLE BUTTON');
-    //         this.props.dispatch({ type: 'SET_ADVENTURE_INPUTS', payload: this.state });
-    //         this.props.dispatch({ type: 'SET_ADVENTURE_EDITS', payload: { key: event.target.name, value: event.target.value } });
-    //     }
-    // };
+    // invisible button to fill in inputs for presentation
+    handleInvisibleButton = () => {
+        if (this.props.store.markComplete.markComplete) {
+            console.log('INVISIBLE BUTTON', this.state);
+            this.props.dispatch({ type: 'SET_ADVENTURE_INPUTS', payload: this.state });
+        }
+    };
 
     render() {
 
@@ -274,7 +282,7 @@ class EditCard extends Component {
                                             className={classes.saveCompleteButton} 
                                             variant="contained"
                                             onClick={this.handleMarkComplete}>
-                                            Save complete
+                                            Save as complete
                                         </Button>
                                         :
                                         <Button 

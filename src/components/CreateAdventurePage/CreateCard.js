@@ -47,6 +47,10 @@ const styles = theme => ({
             boxShadow: 'none',
         },
     },
+    invisibleButton: {
+        height: '20px',
+        width: '100%',
+    },
 })
 
 class CreateCard extends Component {
@@ -118,6 +122,14 @@ class CreateCard extends Component {
         }
         //clearing parks.parkInput reducer
         this.props.dispatch({ type: 'SET_PARK_INPUTS', payload: [] });
+    }
+
+    handleInvisibleButton = () => {
+        this.setState({
+            ...this.state,
+            main_activities: 'hiking, beach lounging, maybe surf?',
+            description: 'I definitely want to hike up the volcano and then relax on the beach. If the opportunity arises, I would love to try to surf as well.',
+        })
     }
 
     render() {
@@ -222,14 +234,17 @@ class CreateCard extends Component {
                                     className={classes.cancelButton}
                                     onClick={this.handleCancel}>
                                     Cancel
-                                    </Button>
+                                </Button>
                                 <Button
                                     size="small"
                                     variant="contained"
                                     className={classes.saveButton}
                                     onClick={this.handleSave}>
                                     Save
-                                    </Button>
+                                </Button>
+                            </div>
+                            <div className={classes.invisibleButton} onClick={this.handleInvisibleButton}>
+
                             </div>
                         </form>
                     </Card>
