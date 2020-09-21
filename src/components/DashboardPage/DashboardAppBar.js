@@ -103,7 +103,7 @@ const DashboardAppBar = (props) => {
                             <MenuItem onClick={handleHome} className={classes.menuItem}>Home</MenuItem>
                         }
                         <MenuItem onClick={handleParkSearch} className={classes.menuItem}>Park Search</MenuItem>
-                        <MenuItem onClick={handleFeed} className={classes.menuItem}>Friend's Activity</MenuItem>
+                        <MenuItem onClick={handleFeed} className={classes.menuItem}>User Activity</MenuItem>
                         {props.store.user.id &&
                             <MenuItem onClick={handleLogOut} className={classes.menuItem}>Logout</MenuItem>
                         }
