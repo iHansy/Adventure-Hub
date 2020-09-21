@@ -191,7 +191,7 @@ class EditCard extends Component {
                                 <TextField
                                     className={classes.textFields}
                                     size="small"
-                                    label="image url"
+                                    placeholder="image url"
                                     required
                                     variant="outlined"
                                     name="image_url"
@@ -204,7 +204,7 @@ class EditCard extends Component {
                                 <TextField
                                     className={classes.textFields}
                                     size="small"
-                                    label="park name"
+                                    placeholder="park name"
                                     variant="outlined"
                                     name="park_name"
                                     type="text"
@@ -216,7 +216,7 @@ class EditCard extends Component {
                                 <TextField
                                     className={classes.textFields}
                                     size="small"
-                                    label="city"
+                                    placeholder="city"
                                     variant="outlined"
                                     name="city"
                                     type="text"
@@ -228,7 +228,7 @@ class EditCard extends Component {
                                 <TextField
                                     className={classes.textFields}
                                     size="small"
-                                    label="state"
+                                    placeholder="state"
                                     variant="outlined"
                                     name="state"
                                     type="text"
@@ -241,7 +241,7 @@ class EditCard extends Component {
                                 <TextField
                                     className={classes.textFields}
                                     size="small"
-                                    label="main activities"
+                                    placeholder="main activities"
                                     variant="outlined"
                                     name="main_activities"
                                     type="text"
@@ -256,7 +256,7 @@ class EditCard extends Component {
                                 <TextField
                                     className={classes.textFields}
                                     size="small"
-                                    label="description"
+                                    placeholder="description"
                                     variant="outlined"
                                     name="description"
                                     type="text"

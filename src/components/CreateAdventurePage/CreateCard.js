@@ -157,7 +157,7 @@ class CreateCard extends Component {
                                 <TextField
                                     className={classes.textFields}
                                     size="small"
-                                    label="image url"
+                                    placeholder="image url"
                                     required
                                     variant="outlined"
                                     type="text"
@@ -169,7 +169,7 @@ class CreateCard extends Component {
                                 <TextField
                                     className={classes.textFields}
                                     size="small"
-                                    label="park name"
+                                    placeholder="park name"
                                     variant="outlined"
                                     type="text"
                                     value={this.state.park_name}
@@ -180,7 +180,7 @@ class CreateCard extends Component {
                                 <TextField
                                     className={classes.textFields}
                                     size="small"
-                                    label="city"
+                                    placeholder="city"
                                     variant="outlined"
                                     type="text"
                                     value={this.state.city}
@@ -191,7 +191,7 @@ class CreateCard extends Component {
                                 <TextField
                                     className={classes.textFields}
                                     size="small"
-                                    label="state"
+                                    placeholder="state"
                                     variant="outlined"
                                     type="text"
                                     value={this.state.state}
@@ -203,7 +203,7 @@ class CreateCard extends Component {
                                 <TextField
                                     className={classes.textFields}
                                     size="small"
-                                    label="main activities"
+                                    placeholder="main activities"
                                     variant="outlined"
                                     type="text"
                                     value={this.state.main_activities}
@@ -217,7 +217,7 @@ class CreateCard extends Component {
                                 <TextField
                                     className={classes.textFields}
                                     size="small"
-                                    label="description"
+                                    placeholder="description"
                                     variant="outlined"
                                     type="text"
                                     value={this.state.description}
