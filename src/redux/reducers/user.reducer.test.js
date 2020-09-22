@@ -26,6 +26,17 @@ describe('Testing User Reducer', () => {
         expect(returnedState).toEqual(testPayload);
 
     })
+
+    test('UNSET_USER will return an empty object', () => {
+        let testAction = { type: 'UNSET_USER' }
+
+        let returnedState = user({}, testAction);
+
+        expect(returnedState).toEqual({});
+
+    })
+
+    
 })
 
 //test unset user and return default
