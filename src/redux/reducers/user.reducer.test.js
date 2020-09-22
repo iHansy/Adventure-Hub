@@ -36,7 +36,6 @@ describe('Testing User Reducer', () => {
 
     })
 
-    
-})
+});
 
 //test unset user and return default
