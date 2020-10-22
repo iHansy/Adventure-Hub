@@ -46,8 +46,8 @@ Before you get started, make sure you have the following software installed on y
 
 1. Starting on the home page, you can either continue as a guest, create an account, or login with an existing username and password.
 2. Once logged in you'll go to the Bucket List Dashboard page. Here you can create a future or completed adventure.
-   You can also edit adventures or mark a future adventure as complete, which will mark it as a completed adventure.
-3. If you click the hamburger menu in the top left corner you have an option of going to the User Activity page or the Park Search page.
+   You can also edit adventures or mark a future adventure as complete.
+3. If you click the hamburger menu in the top left corner you have the option of going to the User Activity page or the Park Search page.
 4. In the User Activity page you will see all adventures from every user. Here you can click more details and "like" an adventure.
 5. In the Park Search page you can select a state from the dropdown to initiate your search. In return you will get a list of all the national parks in that
    state. You can click more details, and if you like that park you can add it directly to your bucket list as a new future adventure.
