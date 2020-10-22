@@ -46,7 +46,7 @@ const styles = theme => ({
         width: '10%',
         backgroundColor: 'rgb(216, 174, 95)',
         '&:hover': {
-            backgroundColor: 'rgb(196, 150, 67)',
+            backgroundColor: 'gray',
             borderColor: '#0062cc',
             boxShadow: 'none',
         },
@@ -61,6 +61,13 @@ const styles = theme => ({
         fontSize: '.65em',
         marginRight: '1em',
         marginTop: '.5em',
+    },
+    gameRow: {
+        '&:hover': {
+            backgroundColor: 'gray',
+            borderColor: '#0062cc',
+            boxShadow: 'none',
+        },
     },
 });
 
