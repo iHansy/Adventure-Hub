@@ -3,30 +3,39 @@
 
 _Duration: 2 week sprint_
 
-A few of my favorite things to do are hiking, biking, camping, and traveling. I'm also a huge planner, so I love making lists, specifically lists of adventures I want to go on. I realized that there was a problem with these lists I was making in my phone. They were crammed, unorganized, and not easy to read. Therefore sparked the idea of Adventure Hub.
+A few of my favorite things to do are hiking, biking, camping, and traveling. I'm also a huge planner, so I love making lists, specifically lists of adventures I want to go on. I realized that there was a problem with these lists I was making in my phone. They were crammed, unorganized, and not easy to read. Therefore, this sparked the idea of Adventure Hub.
 
-Adventure Hub is a social media application where users can keep organized bucket lists of future and past adventures. Once a future adventure has been completed, a user can edit that adventure's pictures, description, and additional information with the click of a button. There are two other main features I integrated into this application. The first being a user feed page, where a user can see all the adventures of other users and drop a like if they think it's cool. Secondly, I implimented a national state park search feature to search for parks by state. Here a user can find a park that they like and directly add it as an upcoming future adventure.
+Adventure Hub is a social media application where users can keep organized bucket lists of future and completed adventures. Once a future adventure has been completed, a user can edit that adventure's pictures, description, and additional information with the click of a button. There are two other main features I integrated into this application. The first being a user activity page, where a user can see all the adventures of other users and drop a like if they think it's cool. Secondly, I implimented a national state park search feature to search for parks by state. Here a user can find a park that they like and directly add it as an upcoming future adventure.
 
 ## Screen Shots
 
-This is the home page where a student will start their feedback. The professor can click "Admin View" to view all responses.
+This is where a user logs in.
 
-![home](images/feedback-tracker-home.png)
+![home](public/images/login.png)
 
-This is the admin page where the professor can view all submissions and delete any if needed.
+This is the dashboard page. Here is where a user will keep track of their bucket list adventures.
 
-![admin](images/feedback-tracker-admin.png)
+![login](public/images/dashboard.png)
 
+This is the user activity page. Here a user can view all other user's activities.
+
+![feed](public/images/feed.png)
+
+This is the national park search page. Here a user can search for a national park based on a state.
+
+![search](public/images/search.png)
 
 ### Prerequisites
 
-If you plan to clone and run this application, first install Node.js:
+Before you get started, make sure you have the following software installed on your computer:
 
 - [Node.js](https://nodejs.org/en/)
+- [PostrgeSQL](https://www.postgresql.org/)
+- [Nodemon](https://nodemon.io/)
 
 ## Installation
 
-1. Create a database named `prime_feedback`.
+1. Create a database named `adventure_hub`.
 2. The queries in the `data.sql` file are set up to create all the necessary tables and populate the needed data to allow the application to run correctly. The project is built on [Postgres](https://www.postgresql.org/download/), so you will need to make sure to have that installed. We recommend using Postico to run those queries as that was used to create the queries.
 3. Open up your editor of choice and run an `npm install`.
 4. Run `npm run server` in your terminal.
@@ -35,26 +44,30 @@ If you plan to clone and run this application, first install Node.js:
 
 ## Usage
 
-1. Starting on the home page, click 'Start Feedback'.
-2. Continue with the questions and hit next when filled in.
-3. Feel free to add a comment, but this is optional.
-4. On the review page you can go back and edit your responses or click 'Submit'.
-5. Find the feedback history by clicking 'Admin View' on the home page.
+1. Starting on the home page, you can either continue as a guest, create an account, or login with an existing username and password.
+2. Once logged in you'll go to the Bucket List Dashboard page. Here you can create a future or completed adventure.
+   You can also edit adventures or mark a future adventure as complete, which will mark it as a completed adventure.
+3. If you click the hamburger menu in the top left corner you have an option of going to the User Activity page or the Park Search page.
+4. In the User Activity page you will see all adventures from every user. Here you can click more details and "like" an adventure.
+5. In the Park Search page you can select a state from the dropdown to initiate your search. In return you will get a list of all the national parks in that
+   state. You can click more details, and if you like that park you can add it directly to your bucket list as a new future adventure.
 
 ## Technologies used
 
-Prime stack -
-- Index.html
-- CSS
-- JavaScript
-- Node.js
-- React.js
-- Redux.js
-- Express
-- PostgreSQL
+* React.js
+* Redux-Sagas
+* Material UI
+* CSS
+* Moment.js
+* Node.js
+* Express
+* PostgreSQL
+* National Park Search API
 
 ## Acknowledgement
+
 Thanks to [Prime Digital Academy](https://www.primeacademy.io) who equipped and helped me to make this application a reality. Also huge thanks to my cohort Rabin and my family!
 
 ## Support
-If you have suggestions or issues, please email me at Hansolo6283@gmail.com
+
+If you have suggestions or issues, please email me at hansjaccola@gmail.com
