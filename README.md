@@ -9,9 +9,9 @@ Adventure Hub is a social media application where users can keep organized bucke
 
 ## Screen Shots
 
-This is where a use logs in.
+This is where a user logs in.
 
-![home](public/images/login.png)
+![home](public/images/login.png =20x20)
 
 This is the dashboard page. Here is where a user will keep track of their bucket list adventures.
 
