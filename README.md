@@ -5,7 +5,7 @@ _Duration: 2 week sprint_
 
 A few of my favorite things to do are hiking, biking, camping, and traveling. I'm also a huge planner, so I love making lists, specifically lists of adventures I want to go on. I realized that there was a problem with these lists I was making in my phone. They were crammed, unorganized, and not easy to read. Therefore, this sparked the idea of Adventure Hub.
 
-Adventure Hub is a social media application where users can keep organized bucket lists of future and past adventures. Once a future adventure has been completed, a user can edit that adventure's pictures, description, and additional information with the click of a button. There are two other main features I integrated into this application. The first being a user activity page, where a user can see all the adventures of other users and drop a like if they think it's cool. Secondly, I implimented a national state park search feature to search for parks by state. Here a user can find a park that they like and directly add it as an upcoming future adventure.
+Adventure Hub is a social media application where users can keep organized bucket lists of future and completed adventures. Once a future adventure has been completed, a user can edit that adventure's pictures, description, and additional information with the click of a button. There are two other main features I integrated into this application. The first being a user activity page, where a user can see all the adventures of other users and drop a like if they think it's cool. Secondly, I implimented a national state park search feature to search for parks by state. Here a user can find a park that they like and directly add it as an upcoming future adventure.
 
 ## Screen Shots
 
