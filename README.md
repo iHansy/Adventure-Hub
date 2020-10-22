@@ -9,7 +9,7 @@ Adventure Hub is a social media application where users can keep organized bucke
 
 ## Screen Shots
 
-This is where a use logs in. - 
+This is where a use logs in.
 
 ![home](public/images/login.png)
 
