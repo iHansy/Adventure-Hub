@@ -5,18 +5,25 @@ _Duration: 2 week sprint_
 
 A few of my favorite things to do are hiking, biking, camping, and traveling. I'm also a huge planner, so I love making lists, specifically lists of adventures I want to go on. I realized that there was a problem with these lists I was making in my phone. They were crammed, unorganized, and not easy to read. Therefore sparked the idea of Adventure Hub.
 
-Adventure Hub is a social media application where users can keep organized bucket lists of future and past adventures. Once a future adventure has been completed, a user can edit that adventure's pictures, description, and additional information with the click of a button. There are two other main features I integrated into this application. The first being a user feed page, where a user can see all the adventures of other users and drop a like if they think it's cool. Secondly, I implimented a national state park search feature to search for parks by state. Here a user can find a park that they like and directly add it as an upcoming future adventure.
+Adventure Hub is a social media application where users can keep organized bucket lists of future and past adventures. Once a future adventure has been completed, a user can edit that adventure's pictures, description, and additional information with the click of a button. There are two other main features I integrated into this application. The first being a user activity page, where a user can see all the adventures of other users and drop a like if they think it's cool. Secondly, I implimented a national state park search feature to search for parks by state. Here a user can find a park that they like and directly add it as an upcoming future adventure.
 
 ## Screen Shots
 
-This is the home page where a student will start their feedback. The professor can click "Admin View" to view all responses.
+This is where a use logs in. - 
 
-![home](images/feedback-tracker-home.png)
+![home](public/images/login.png)
 
-This is the admin page where the professor can view all submissions and delete any if needed.
+This is the dashboard page. Here is where a user will keep track of their bucket list adventures.
 
-![admin](images/feedback-tracker-admin.png)
+![login](public/images/dashboard.png)
 
+This is the user activity page. Here a user can view all other user's activities.
+
+![feed](public/images/feed.png)
+
+This is the national park search page. Here a user can search for a national park based on a state.
+
+![search](public/images/search.png)
 
 ### Prerequisites
 
