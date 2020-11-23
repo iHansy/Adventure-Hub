@@ -7,7 +7,7 @@ A few of my favorite things to do are hiking, biking, camping, and traveling. I'
 
 Adventure Hub is a social media application where users can keep organized bucket lists of future and completed adventures. Once a future adventure has been completed, a user can edit that adventure's pictures, description, and additional information with the click of a button. There are two other main features I integrated into this application. The first being a user activity page, where a user can see all the adventures of other users and drop a like if they think it's cool. Secondly, I implimented a national state park search feature to search for parks by state. Here a user can find a park that they like and directly add it as an upcoming future adventure.
 
-Check out the application here - http://adventure-hub.herokuapp.com/#/home
+Check out the live application here - http://adventure-hub.herokuapp.com/#/home
 
 ## Screen Shots
 
